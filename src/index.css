@@ -3,6 +3,24 @@
     src: url("./assets/intro.otf") format("opentype");
 }
 
+@font-face {
+    font-family: OpenSans;
+    src: url("./assets/open-sans-light.ttf");
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url("./assets/open-sans-bold.ttf");
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url("./assets/open-sans-semi-bold.ttf");
+    font-weight: bold;
+}
+
 body {
   margin: 0;
   padding: 0;
