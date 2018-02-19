@@ -1,0 +1,9 @@
+.statistics-container {
+    height: 350px;
+    display: flex;
+    width: 100%;
+}
+.statistics-box {
+    background-color: #21252b;
+    flex-grow: 1;
+}
