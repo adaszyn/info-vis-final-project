@@ -1,3 +1,12 @@
 # Information Visualization Final Project
 
-![Dashboard](https://github.com/adaszyn/info-vis-final-project/blob/master/public/Dashboard.jpg)
+## Prerequisites
+- node.js > 7
+- npm
+
+## Running the app
+
+```sh
+npm install
+npm start
+```
