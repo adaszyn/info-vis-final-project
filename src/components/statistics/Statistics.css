@@ -6,6 +6,7 @@
 .statistics-box {
     background-color: #21252b;
     flex-grow: 1;
+    padding: 0 25px;
 }
 .statistics-box__header {
     width: 72px;
