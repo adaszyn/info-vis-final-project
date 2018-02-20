@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from 'underscore';
 import { CrimeMap } from "../crime-map/CrimeMap";
 import { Header } from "../header/Header";
 import { Statistics } from "../statistics/Statistics";
@@ -10,33 +11,39 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-      timeRange: ['01/05/2016', '01/01/2017']
+      timeRange: ['22/05/2017', '23/05/2017'],
+      crimes: []
     };
-    fetchCrimes({
-      startYear: this.state.timeRange.min,
-      endYear: this.state.timeRange.max
-    })
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+ 
   }
   onTimeRangeChange = timeRange => {
     this.setState({
       timeRange
     });
+    this.fetchCrimesWithDelay();
   };
+
+  fetchCrimesWithDelay = _.debounce(() => {
+    fetchCrimes({
+        startDate: this.state.timeRange[0],
+        endDate: this.state.timeRange[1]
+      })
+        .then(crimes => {
+            this.setState({crimes})
+        })
+        .catch(error => {
+          console.error(error);
+        });
+  }, 1500)
 
   render() {
     return (
       <div className="container">
         <Header />
-        {/* <CrimeMap /> */}
+        <CrimeMap />
         <Statistics
           timeRange={this.state.timeRange}
-          timeRangeSpan={['01/01/2016', '01/01/2018']}
+          timeRangeSpan={['01/11/2016', '01/02/2018']}
           onTimeRangeChange={this.onTimeRangeChange}
         />
       </div>
