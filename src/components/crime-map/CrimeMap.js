@@ -7,11 +7,16 @@ const Map = ReactMapboxGl({
 });
 
 export class CrimeMap extends Component {
+  renderCrimeMarker = crime => {
+    return <Feature key={crime.id} coordinates={[crime.lng, crime.lat]} />;
+  };
   render() {
     return (
       <div className="map-container">
         <Map
           style="mapbox://styles/mapbox/dark-v9"
+          center={[15.798669, 62.450588]}
+          zoom={[3]}
           containerStyle={{
             height: "100%",
             width: "100%"
@@ -22,7 +27,7 @@ export class CrimeMap extends Component {
             id="marker"
             layout={{ "icon-image": "marker-15" }}
           >
-            <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+            {this.props.crimes.map(this.renderCrimeMarker)}
           </Layer>
         </Map>
       </div>

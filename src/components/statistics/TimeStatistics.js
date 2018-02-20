@@ -9,10 +9,6 @@ import {
   DATE_STEP
 } from "../../util/range-util";
 export class TimeStatistics extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onRangeChange = values => {
     const dates = [
       this.formatNumericalValueToDateString(values.min),
@@ -55,7 +51,7 @@ export class TimeStatistics extends Component {
 
   render() {
     return (
-      <div className="statistics-box">
+      <div className="statistics-box time-statistics">
         <h2 className="statistics-box__header">PERIOD</h2>
         <RangePicker
           minValue={this.getMinRangeSpan()}

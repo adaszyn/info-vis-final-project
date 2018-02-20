@@ -22,3 +22,7 @@
     color: #5c636f;
     font-weight: bold;
 }
+
+.time-statistics {
+    flex-grow: 5;
+}
