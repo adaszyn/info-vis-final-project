@@ -9,9 +9,9 @@ export class Statistics extends Component {
   render() {
     return (
       <div className="statistics-container">
-        <RegionStatistics />
-        <CityStatistics />
-        <CrimeTypeStatistics />
+        <RegionStatistics crimesByRegion={this.props.crimesByRegion} />
+        <CityStatistics crimesByCity={this.props.crimesByCity} />
+        <CrimeTypeStatistics crimesByType={this.props.crimesByType} />
         <TimeStatistics
             timeRange={this.props.timeRange}
             timeRangeSpan={this.props.timeRangeSpan}

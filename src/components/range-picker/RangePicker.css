@@ -49,10 +49,10 @@
     top: -1.8rem; }
   
   .input-range__label-container {
-    left: -50%;
+    left: 0;
     position: relative; }
     .input-range__label--max .input-range__label-container {
-      left: 50%; }
+      left: 0; }
   
   .input-range__track {
     background: #3c424f;
