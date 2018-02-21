@@ -38,6 +38,9 @@ export class App extends Component {
     this.boundingBox.sw = sw;
     this.boundingBox.ne = ne;
   }
+  componentDidMount () {
+      this.fetchCrimesWithDelay()
+  }
 
   render() {
     return (
