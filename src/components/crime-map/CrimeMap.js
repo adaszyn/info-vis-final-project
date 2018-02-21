@@ -12,7 +12,7 @@ const INITIAL_ZOOM = [3];
 export class CrimeMap extends Component {
   onZoom = map => {
     const boundingBoxEvent = map.getBounds();
-
+    
     this.props.onBoundingBoxChange({
       sw: boundingBoxEvent._sw,
       ne: boundingBoxEvent._ne,
@@ -29,6 +29,7 @@ export class CrimeMap extends Component {
           center={INITIAL_CENTER}
           zoom={INITIAL_ZOOM}
           onZoom={this.onZoom}
+          onMove={this.onZoom}
           containerStyle={{
             height: "100%",
             width: "100%"

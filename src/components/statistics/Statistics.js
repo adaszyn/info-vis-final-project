@@ -11,7 +11,7 @@ export class Statistics extends Component {
       <div className="statistics-container">
         <RegionStatistics />
         <CityStatistics />
-        <CrimeTypeStatistics />
+        <CrimeTypeStatistics crimesByType={this.props.crimesByType} />
         <TimeStatistics
             timeRange={this.props.timeRange}
             timeRangeSpan={this.props.timeRangeSpan}
