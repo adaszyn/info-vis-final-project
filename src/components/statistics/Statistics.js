@@ -6,18 +6,6 @@ import { TimeStatistics } from "./TimeStatistics";
 import "./Statistics.css";
 
 export class Statistics extends Component {
-  constructor() {
-    super();
-    this.state = {
-      timeRange: { min: 2007, max: 2010 }
-    };
-  }
-  onRangeChange = timeRange => {
-    this.setState({
-      timeRange
-    });
-  };
-
   render() {
     return (
       <div className="statistics-container">
@@ -25,8 +13,9 @@ export class Statistics extends Component {
         <CityStatistics />
         <CrimeTypeStatistics />
         <TimeStatistics
-            value={this.state.timeRange}
-            onChange={this.onRangeChange} />
+            timeRange={this.props.timeRange}
+            timeRangeSpan={this.props.timeRangeSpan}
+            onChange={this.props.onTimeRangeChange} />
       </div>
     );
   }
