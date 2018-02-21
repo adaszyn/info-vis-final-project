@@ -9,9 +9,10 @@ import "./App.css";
 export class App extends Component {
   constructor() {
     super();
+    this.boundingBox = {}
     this.state = {
       timeRange: ["22/05/2017", "23/05/2017"],
-      crimes: []
+      crimes: [],
     };
   }
   onTimeRangeChange = timeRange => {
@@ -33,12 +34,18 @@ export class App extends Component {
         console.error(error);
       });
   }, 1500);
+  onBoundingBoxChange = ({ne, sw}) => {
+    this.boundingBox.sw = sw;
+    this.boundingBox.ne = ne;
+  }
 
   render() {
     return (
       <div className="container">
         <Header />
-        <CrimeMap crimes={this.state.crimes} />
+        <CrimeMap 
+          onBoundingBoxChange={this.onBoundingBoxChange}
+          crimes={this.state.crimes} />
         <Statistics
           timeRange={this.state.timeRange}
           timeRangeSpan={["01/11/2016", "01/02/2018"]}
