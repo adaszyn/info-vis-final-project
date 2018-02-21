@@ -3,7 +3,12 @@ import _ from "underscore";
 import { CrimeMap } from "../crime-map/CrimeMap";
 import { Header } from "../header/Header";
 import { Statistics } from "../statistics/Statistics";
-import { fetchCrimes, fetchAggregatedCrimeTypes, fetchAggregatedCities } from "../../util/api";
+import {
+  fetchCrimes,
+  fetchAggregatedCrimeTypes,
+  fetchAggregatedCities,
+  fetchAggregatedRegions
+} from "../../util/api";
 import "./App.css";
 
 export class App extends Component {
@@ -24,6 +29,7 @@ export class App extends Component {
       crimes: [],
       crimesByType: [],
       crimesByCity: [],
+      crimesByRegion: []
     };
   }
   onTimeRangeChange = timeRange => {
@@ -47,34 +53,56 @@ export class App extends Component {
     fetchAggregatedCrimeTypes({
       startDate: this.state.timeRange[0],
       endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox,
+      boundingBox: this.boundingBox
     })
       .then(data => {
-          this.setState({
-              crimesByType: data.map(entry => ({label: entry.title, value: entry.count}))
-          })
+        this.setState({
+          crimesByType: data.map(entry => ({
+            label: entry.title,
+            value: entry.count
+          }))
+        });
       })
       .catch(error => {
         console.error(error);
       });
-      fetchAggregatedCities({
-        startDate: this.state.timeRange[0],
-        endDate: this.state.timeRange[1],
-        boundingBox: this.boundingBox,
-      })
-        .then(data => {
-            this.setState({
-                crimesByCity: data.map(entry => ({label: entry.title, value: entry.count}))
-            })
-        })
-        .catch(error => {
-          console.error(error);
+    fetchAggregatedCities({
+      startDate: this.state.timeRange[0],
+      endDate: this.state.timeRange[1],
+      boundingBox: this.boundingBox
+    })
+      .then(data => {
+        this.setState({
+          crimesByCity: data.map(entry => ({
+            label: entry.title,
+            value: entry.count
+          }))
         });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    fetchAggregatedRegions({
+      startDate: this.state.timeRange[0],
+      endDate: this.state.timeRange[1],
+      boundingBox: this.boundingBox
+    })
+      .then(data => {
+        this.setState({
+          crimesByRegion: data.map(entry => ({
+            label: entry.title,
+            value: entry.count
+          }))
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }, 1500);
   onBoundingBoxChange = ({ ne, sw }) => {
     this.boundingBox.sw = sw;
     this.boundingBox.ne = ne;
-    this.fetchCrimesWithDelay();    
+    this.fetchCrimesWithDelay();
   };
   componentDidMount() {
     this.fetchCrimesWithDelay();
@@ -92,6 +120,7 @@ export class App extends Component {
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}
+          crimesByRegion={this.state.crimesByRegion}
           timeRange={this.state.timeRange}
           timeRangeSpan={["01/11/2016", "01/02/2018"]}
           onTimeRangeChange={this.onTimeRangeChange}

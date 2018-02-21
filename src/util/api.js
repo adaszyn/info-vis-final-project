@@ -49,3 +49,19 @@ export const fetchAggregatedCities = ({ startDate, endDate, boundingBox, limit =
       .catch(err => console.log(err))
   };
   
+  export const fetchAggregatedRegions = ({ startDate, endDate, boundingBox, limit = 8 }) => {
+    const lat2 = boundingBox.ne.lat; 
+    const lat1 = boundingBox.sw.lat; 
+    const lng2 = boundingBox.ne.lng; 
+    const lng1 = boundingBox.sw.lng;
+
+    const startTime = moment(startDate, DATE_FORMAT).unix();
+    const endTime = moment(endDate, DATE_FORMAT).unix();
+    const query = qs.encode({ startTime, endTime, lat1, lat2, lng1, lng2, limit });
+    return axios.get(`${CONFIG.apiBase}/region?${query}`)
+      .then(response => {
+          return response.data;
+      })
+      .catch(err => console.log(err))
+  };
+  

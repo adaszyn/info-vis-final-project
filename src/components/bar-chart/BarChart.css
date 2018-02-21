@@ -10,8 +10,7 @@
     align-items: center;
     padding-left: 10px;
     color: #9fa6b7;
-    transition: background-image 0.1s;
-    transition: color 2s;
+    transition: color 0.15s;
     font-family: "OpenSans", san-serif;
     font-weight: bold;
     overflow: visible;
