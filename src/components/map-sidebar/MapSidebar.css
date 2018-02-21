@@ -1,0 +1,93 @@
+.map-sidebar {
+  background-color: #21252b;
+  color: #9fa6b7;
+  font-family: OpenSans;
+  font-size: 14px;
+  width: 30%;
+}
+
+.map-sidebar-back-button {
+  display: flex;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: justify;
+  color: #5c636f;
+  background: transparent;
+  border: none;
+}
+
+.map-sidebar-back-button:hover {
+  color: #9ea9bd;
+}
+
+.map-sidebar-back-button:focus {
+  outline: none;
+}
+
+.map-sidebar-back-button svg {
+  width: 7px;
+  height: 15px;
+  object-fit: contain;
+  stroke: #3c424f;
+}
+
+.map-sidebar-back-button:hover svg {
+  stroke: #9ea9bd;
+}
+
+
+.map-sidebar-title {
+  font-size: 32px;
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: justify;
+  color: #d05f75;
+}
+
+.map-sidebar-description {
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #9fa6b7;
+}
+
+.map-sidebar-content {
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: left;
+  color: #9fa6b7;
+}
+
+.map-sidebar-button {
+  width: 164px;
+  height: 40px;
+  border-radius: 22px;
+  border: none;
+  background-color: #3c424f;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #9fa6b7;
+}
+
+.map-sidebar-button:focus {
+  outline: none;
+}

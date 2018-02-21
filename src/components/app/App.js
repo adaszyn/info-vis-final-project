@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import _ from "underscore";
 import { CrimeMap } from "../crime-map/CrimeMap";
+import { MapSidebar } from "../map-sidebar/MapSidebar";
 import { Header } from "../header/Header";
 import { Statistics } from "../statistics/Statistics";
 import {
@@ -117,6 +118,7 @@ export class App extends Component {
           crimes={this.state.crimes}
           onRender={this.onBoundingBoxChange}
         />
+        <MapSidebar />
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}
