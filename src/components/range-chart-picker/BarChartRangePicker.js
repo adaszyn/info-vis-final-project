@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { max, min, scaleLinear } from "d3";
+import moment from "moment";
 import InputRange from "react-input-range";
 
 import "./ChartRangePicker.css";
@@ -9,23 +10,8 @@ export class BarChartRangePicker extends Component {
     super(props);
     this.percentageScale = scaleLinear();
     this.adjustScale(props);
-    this.handlePressed = false;
-    this.state = {
-        range: {
-            min: 1,
-            max: 6,
-        }
-    }
-    
-  }
-  componentDidMount () {
-    window.addEventListener('mousemove', this.onMouseMove)
-    window.addEventListener('mouseup', this.onMouseUp)
-  }
-  componentWillUnmount () {
-    window.removeEventListener('mousemove', this.onMouseMove)
-    window.removeEventListener('mouseup', this.onMouseUp)
 
+    
   }
 
   adjustScale = props => {
@@ -34,12 +20,19 @@ export class BarChartRangePicker extends Component {
       .domain([min(props.values), max(props.values)]);
   };
 
-  renderBar = value => {
+  renderBar = (value, index) => {
     const style = {
       height: this.percentageScale(value) + "%",
-      minWidth: 100 / this.props.values.length + "%"
+      minWidth: 100 / this.props.values.length + "%",
     };
-    return <div className="bar-chart-range__bar" style={style} />;
+    const fillStyle = {
+      opacity: index >= this.props.hourRange.min && index < this.props.hourRange.max
+      ? 1.0
+      : 0.4
+    }
+    return <div key={`graph-bar-${index}`}className="bar-chart-range__bar" style={style}>
+      <div style={fillStyle} className="bar-chart-range__bar-fill"></div>
+    </div>;
   };
 
   componentWillReceiveProps(newProps) {
@@ -58,23 +51,24 @@ export class BarChartRangePicker extends Component {
     this.handlePressed = false;
 
   };
+  formatRangeValue = (value, type) => {
+    if (type !== 'max' && type !== 'min') {
+      return moment(value, 'HH').format("hh A")
+    }
+  }
   render() {
     return (
       <div className="chart-range-picker-container bar-chart-range">
-        {/* <div className="range-handle" />
-        <div
-          className="range-handle"
-          onMouseDown={this.onRangeMouseDown}
-        /> */}
         <div className="bars-container">
           {this.props.values.map(this.renderBar)}
         </div>
         <InputRange
           minValue={min(this.props.domain)}
-          maxValue={max(this.props.domain)}
+          maxValue={max(this.props.domain) + 1}
           step={1}
-          value={this.state.range}
-          onChange={range => this.setState({range})} />
+          formatLabel={this.formatRangeValue}
+          value={this.props.hourRange}
+          onChange={this.props.onHourRangeChange} />
       </div>
     );
   }

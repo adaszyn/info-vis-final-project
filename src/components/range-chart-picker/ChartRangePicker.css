@@ -17,9 +17,15 @@
   align-items: flex-end;
 }
 .bar-chart-range__bar {
-  background-color: red;
   float: left;
   min-height: 1px;
+}
+.bar-chart-range__bar-fill {
+  background-color: #9fa6b7;
+  margin-left: 1.5px;
+  margin-right: 1.5px;
+  height: 100%;
+  transition: opacity 0.2s linear;
 }
 
 
@@ -30,7 +36,8 @@
   height: 64px;
   cursor: pointer;
   display: block;
-  margin-left: -0.5rem;
+  margin-left: -1.5px;
+  border: none;
   margin-top: -0.65rem;
   outline: none;
   position: absolute;
@@ -84,7 +91,8 @@
 }
 
 .bar-chart-range .input-range__label-container {
-  left: 0;
+  left: -2.5px;
+  bottom: -32px;
   position: relative;
 }
 .input-range__label--max .input-range__label-container {

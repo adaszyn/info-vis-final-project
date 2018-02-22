@@ -66,7 +66,9 @@ export class TimeStatistics extends Component {
         />
         <BarChartRangePicker 
             domain={_.range(0, 24)}
-            values={_.range(0, 24).map(v => Math.floor(Math.random() * 100))}
+            hourRange={this.props.hourRange}
+            onHourRangeChange={this.props.onHourRangeChange}
+            values={this.props.hourlyDistribution}
         />
       </div>
     );
