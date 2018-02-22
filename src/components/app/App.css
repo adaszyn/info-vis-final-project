@@ -3,3 +3,8 @@
     flex-direction: column;
     height: 100vh;
 }
+
+.map-section {
+    display: flex;
+    
+}

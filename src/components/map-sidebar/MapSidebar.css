@@ -1,6 +1,7 @@
 .map-sidebar {
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
   background-color: #21252b;
   color: #9fa6b7;
   font-family: OpenSans;
@@ -45,7 +46,7 @@
   margin-right: 2.5em;
   margin-left: 2.5em;
   margin-bottom: auto;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 ::-webkit-scrollbar {

@@ -126,12 +126,14 @@ export class App extends Component {
     return (
       <div className="container">
         <Header />
-        <CrimeMap
-          onBoundingBoxChange={this.onBoundingBoxChange}
-          crimes={this.state.crimes}
-          onRender={this.onBoundingBoxChange}
-        />
-        {renderMapSidebar(this.state.crimes)}
+        <div className="map-section">
+          <CrimeMap
+            onBoundingBoxChange={this.onBoundingBoxChange}
+            crimes={this.state.crimes}
+            onRender={this.onBoundingBoxChange}
+          />
+          {renderMapSidebar(this.state.crimes)}
+        </div>
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}
