@@ -1,23 +1,24 @@
 .map-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #21252b;
   color: #9fa6b7;
   font-family: OpenSans;
+  font-weight: 300;
   font-size: 14px;
-  width: 30%;
+  width: 45%;
 }
 
 .map-sidebar-back-button {
   display: flex;
+  align-items: center;
   font-size: 14px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: justify;
   color: #5c636f;
   background: transparent;
   border: none;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
 }
 
 .map-sidebar-back-button:hover {
@@ -29,61 +30,73 @@
 }
 
 .map-sidebar-back-button svg {
-  width: 7px;
-  height: 15px;
   object-fit: contain;
   stroke: #3c424f;
+  margin-right: 1em;
+  margin-left: 0.3em;
 }
 
 .map-sidebar-back-button:hover svg {
   stroke: #9ea9bd;
 }
 
+.map-sidebar-content-container {
+  margin: 0 2.5em;
+}
 
 .map-sidebar-title {
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 700;
   font-style: italic;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: justify;
+  margin-bottom: 0.3em;
+}
+
+.assault-title {
   color: #d05f75;
 }
 
 .map-sidebar-description {
   font-size: 18px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  font-weight: 700;
+  color: #9fa6b7;
+  margin-bottom: 0.3em;
+}
+
+.map-sidebar-location-date-container {
+  margin-bottom: 0.5em;
+}
+
+.map-sidebar-paragraphs {
+  line-height: 1.57;
   text-align: left;
   color: #9fa6b7;
 }
 
-.map-sidebar-content {
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.57;
-  letter-spacing: normal;
-  text-align: left;
-  color: #9fa6b7;
+.map-sidebar-paragraphs p {
+  margin: 0.2em 0;
+}
+
+.map-sidebar-paragraphs p.policeSignature {
+  font-style: italic;
+  color: #737884;
+}
+
+.map-sidebar-buttons-container {
+  margin: 3em 0em;
+  display: flex;
+  justify-content: center;
 }
 
 .map-sidebar-button {
-  width: 164px;
-  height: 40px;
+  margin-right: 0.75em;
+  min-width: 9em;
+  min-height: 2.5em;
   border-radius: 22px;
   border: none;
   background-color: #3c424f;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 1.2em;
+  font-weight: 700;
   font-style: italic;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
   text-align: center;
   color: #9fa6b7;
 }

@@ -1,26 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import './MapSidebar.css'
+import moment from 'moment'
 
-const data = {
-  "id": 60841,
-  "crimeType": "Bråk",
-  "description": "Ett bråk har uppstått på ett av Migrationsverkets boende i Sunne.",
-  "content": "Bråket föranleder att en väktare som kallats till platsen utlöser sitt överfallslarm då han inte reder upp situationen.<br />När polis anländer visar det sig att väktaren blivit nerslagen. Uppgifter framkommer att någon har förevisat en kniv.\\nEn misstänkt gärningsman grips kort därefter och beläggs med handfängsel.\\nSaker har slagits sönder inne på boendet och bilrutor till bilar parkerade utanför har krossats.\\nDen gripne mannen är misstänkt för våld och hot mot tjänsteman samt skadegörelse.<br />\\n \\nPolisen Värmland",
-  "region": "Värmlands län",
-  "city": "Sunne",
-  "lat": 59.8365575,
-  "lng": 13.1440464,
-  "created_at": 1518540316
-}
-
-const titleColor = '#ce6076'
+import './MapSidebar.css' 
 
 export const MapSidebar = (props) => {
 
   // Clean the content (long description) of newline characters, and line breaks
-  const contentParagraphs = data.content
+  const contentParagraphs = props.crime.content
                             .split('\\n')
                             .map(p => p.trim().replace('<br />', ''))
                             .reduce((acc, curr) => {
@@ -32,7 +20,10 @@ export const MapSidebar = (props) => {
 
   return (
     <div className="map-sidebar">
-      <button className="map-sidebar-back-button">
+      <button 
+        className="map-sidebar-back-button"
+        onClick={props.onBackButtonClick}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17"
         >
@@ -40,41 +31,65 @@ export const MapSidebar = (props) => {
         </svg>
         Back to filter result
       </button>
-      <div 
-        className="map-sidebar-title"
-        style={{ color: titleColor }}
-      >
-        {data.crimeType}
+
+      <div className="map-sidebar-content-container">
+        <div 
+          className={`map-sidebar-title ${props.crimeClassName}`}
+        >
+          {props.crime.crimeType}
+        </div>
+
+        <div className="map-sidebar-description">{props.crime.description}</div>
+        
+        <div className="map-sidebar-location-date-container">
+          <div className="map-sidebar-location">{`${props.crime.city}, ${props.crime.region}`}</div>
+          <div className="map-sidebar-date">
+            {moment(props.crime.created_at * 1000).format("dddd, MMMM Do YYYY, hh:mm")}
+          </div>
+        </div>
+
+        <div className="map-sidebar-paragraphs">
+          {contentParagraphs.map((paragraph, index) => {
+            // Last paragraph === Police station's name
+            const key = `${props.crime.id}-${index}`
+            if(index === contentParagraphs.length - 1) {
+              return <p key={key} className="policeSignature">{`- ${paragraph} -`}</p>;
+            }
+            return <p key={key}>{paragraph}</p>;
+          })}
+        </div>
+        <div className="map-sidebar-buttons-container">
+          <button 
+            className="map-sidebar-button map-sidebar-viewSource-button"
+            onClick={props.onViewSourceButtonClick}
+          >
+            View Source
+          </button>
+          <button 
+            className="map-sidebar-button map-sidebar-mark-button"
+            onClick={props.onMarkButtonClick}
+          >
+            Mark
+          </button>
+        </div>
       </div>
-      <div className="map-sidebar-description">{data.description}</div>
-      <div className="map-sidebar-location">{`${data.city}, ${data.region}`}</div>
-      <div className="map-sidebar-content">
-        {contentParagraphs.map((paragraph, index) => {
-          // Last paragraph === Police station's name
-          let className = ''
-          if(index === contentParagraphs.length - 1) {
-            className = 'policeSignature'
-          }
-          return <p key={`${data.id}-${index}`} className={className}>{paragraph}</p>
-        })}
-      </div>
-      <div className="map-sidebar-buttons-container">
-        <button className="map-sidebar-button map-sidebar-viewSource-button">
-          View Source
-        </button>
-        <button className="map-sidebar-button map-sidebar-mark-button">
-          Mark
-        </button>
-      </div>
+
     </div>
   )
 }
+
 MapSidebar.propTypes = {
+  crimeClassName: PropTypes.string,
   crime: PropTypes.shape({
     type: PropTypes.string,
     description: PropTypes.string,
-    city: PropTypes.string,
+    content: PropTypes.string,
     region: PropTypes.string,
-    date: PropTypes.string
-  })
+    city: PropTypes.string,
+    date: PropTypes.string,
+    created_at: PropTypes.number,
+  }),
+  onBackButtonClick: PropTypes.func,
+  onViewSourceButtonClick: PropTypes.func,
+  onMarkButtonClick: PropTypes.func
 };
