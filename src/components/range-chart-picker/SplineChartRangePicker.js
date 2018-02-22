@@ -1,6 +1,16 @@
 import React, { Component } from "react";
-import { select,curveCardinal, max, min, scaleLinear, line, curveBundle } from "d3";
+import {
+  select,
+  curveCardinal,
+  max,
+  min,
+  scaleLinear,
+  line,
+  curveBundle,
+  curveCardinalClosed
+} from "d3";
 import moment from "moment";
+import { range } from "underscore";
 import InputRange from "react-input-range";
 
 import "./ChartRangePicker.css";
@@ -8,21 +18,27 @@ import "./ChartRangePicker.css";
 export class SplineChartRangePicker extends Component {
   constructor(props) {
     super(props);
-    this.percentageScale = scaleLinear();
+    this.xScale = scaleLinear();
+    this.yScale = scaleLinear();
     this.adjustScale(props);
     this.svgElement = this.svgElement;
   }
 
   adjustScale = props => {
-    this.percentageScale = this.percentageScale
-      .range([0, 100])
-      .domain([min(props.values), max(props.values)]);
+    const { values, labels } = props.montlyDistribution;
+    const domain = range(labels.length);
+    console.log("scaling", props.montlyDistribution);
+    console.log([min(domain), max(domain)]);
+    console.log([min(values), max(values)]);
+    this.xScale = this.xScale.range([5, 95]).domain([min(domain), max(domain)]);
+    this.yScale = this.yScale.range([5, 95]).domain([min(values), max(values)]);
   };
 
   renderBar = (value, index) => {
+    const { values, labels } = this.props.montlyDistribution;
     const style = {
       height: this.percentageScale(value) + "%",
-      minWidth: 100 / this.props.values.length + "%"
+      minWidth: 100 / values.length + "%"
     };
     const fillStyle = {
       opacity:
@@ -49,44 +65,70 @@ export class SplineChartRangePicker extends Component {
       return moment(value, "HH").format("hh A");
     }
   };
-  componentWillReceiveProps() {}
   render() {
-      const data = this.props.domain.reduce((zipped, x, i) => [...zipped, {x, y: this.props.values[i]}], [])
+    const { values, labels } = this.props.montlyDistribution;
+    const domain = range(labels.length);
+    const data = domain.reduce(
+      (zipped, x, i) => [
+        ...zipped,
+        { x: this.xScale(x), y: 100 - this.yScale(values[i]) }
+      ],
+      [{ x: 0, y: 100 }]
+    );
+    data.push({ x: 100, y: 100 });
+
     var lineFunction = line()
       .x(d => d.x)
       .y(d => d.y)
-      .curve(curveCardinal)
+      .curve(curveCardinalClosed);
     //   .curve(curveBundle());
-    console.log(lineFunction);
     if (this.svgElement) {
-        select(this.svgElement).html(null)
-        select(this.svgElement)
+      select(this.svgElement).html(null);
+      select(this.svgElement)
         .append("path")
         .attr("d", lineFunction(data))
-        .attr("stroke", "white")
-        .attr("width", "100%")
-        .attr("height", "100%")
+        .attr("stroke", "#9fa6b7")
         .attr("stroke-width", 1)
-        .attr("fill", "none");
+        .attr("fill", "#9fa6b7");
     }
-
+    const domainLength = domain.length;
+    const leftOverlayStyle = {
+      width: `${100 * this.props.hourRange.min / domainLength}%`,
+      left: 0,
+      top: 0
+    };
+    const rightOverlayStyle = {
+      width: `${100 *
+        (domainLength - this.props.hourRange.max) /
+        domainLength}%`,
+      left: `${100 * this.props.hourRange.max / domainLength}%`,
+      top: 0
+    };
     return (
       <div className="chart-range-picker-container bar-chart-range">
+        <div
+          style={leftOverlayStyle}
+          className="chart-range-picker-overlay chart-range-picker-overlay__left"
+        />
+        <div
+          style={rightOverlayStyle}
+          className="chart-range-picker-overlay chart-range-picker-overlay__left"
+        />
         <svg
           className="bars-container"
+          viewBox="0 0 100 100"
           preserveAspectRatio="none"
-          viewBox="0 0 100 100" 
-          preserveAspectRatio="none"
+          width="100%"
           ref={svgElement => (this.svgElement = svgElement)}
         />
-        <InputRange
-          minValue={min(this.props.domain)}
-          maxValue={max(this.props.domain) + 1}
+        {/* <InputRange
+          minValue={min(domain)}
+          maxValue={max(domain) + 1}
           step={1}
           formatLabel={this.formatRangeValue}
           value={this.props.hourRange}
-          onChange={this.props.onHourRangeChange}
-        />
+          onChange={this.props.onHourRangeChange} */}
+        {/* /> */}
       </div>
     );
   }

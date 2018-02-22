@@ -71,12 +71,10 @@ export class TimeStatistics extends Component {
             onHourRangeChange={this.props.onHourRangeChange}
             values={this.props.hourlyDistribution}
         />
-        />
         <SplineChartRangePicker 
-            domain={_.range(0, 24)}
+            montlyDistribution={this.props.montlyDistribution}
             hourRange={this.props.hourRange}
             onHourRangeChange={this.props.onHourRangeChange}
-            values={_.range(0, 24).map(val => 1 + Math.floor(Math.random() * 100))}
         />
       </div>
     );

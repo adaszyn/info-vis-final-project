@@ -16,6 +16,14 @@
   display: flex;
   align-items: flex-end;
 }
+
+.chart-range-picker-overlay {
+    position: absolute;
+    height: 64px;
+    background-color: #0000005d;
+}
+
+/* BAR CHART RANGE */
 .bar-chart-range__bar {
   float: left;
   min-height: 1px;
