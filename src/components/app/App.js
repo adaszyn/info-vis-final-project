@@ -7,7 +7,8 @@ import {
   fetchCrimes,
   fetchAggregatedCrimeTypes,
   fetchAggregatedCities,
-  fetchAggregatedRegions
+  fetchAggregatedRegions,
+  fetchAggregatedHours,
 } from "../../util/api";
 import "./App.css";
 
@@ -29,7 +30,12 @@ export class App extends Component {
       crimes: [],
       crimesByType: [],
       crimesByCity: [],
-      crimesByRegion: []
+      crimesByRegion: [],
+      hourlyDistribution: _.range(0, 24).map(v => 0),
+      hourRange: {
+        min: 1,
+        max: 6,
+      }
     };
   }
   onTimeRangeChange = timeRange => {
@@ -38,11 +44,16 @@ export class App extends Component {
     });
     this.fetchCrimesWithDelay();
   };
-
+  onHourRangeChange = hourRange => {
+    this.setState({ hourRange }, this.fetchCrimesWithDelay);
+  }
   fetchCrimesWithDelay = _.debounce(() => {
     fetchCrimes({
       startDate: this.state.timeRange[0],
-      endDate: this.state.timeRange[1]
+      endDate: this.state.timeRange[1],
+      boundingBox: this.boundingBox,
+      startHour: this.state.hourRange.min,
+      endHour: this.state.hourRange.max,
     })
       .then(crimes => {
         this.setState({ crimes });
@@ -53,7 +64,9 @@ export class App extends Component {
     fetchAggregatedCrimeTypes({
       startDate: this.state.timeRange[0],
       endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox
+      boundingBox: this.boundingBox,
+      startHour: this.state.hourRange.min,
+      endHour: this.state.hourRange.max,
     })
       .then(data => {
         this.setState({
@@ -69,7 +82,9 @@ export class App extends Component {
     fetchAggregatedCities({
       startDate: this.state.timeRange[0],
       endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox
+      boundingBox: this.boundingBox,
+      startHour: this.state.hourRange.min,
+      endHour: this.state.hourRange.max,
     })
       .then(data => {
         this.setState({
@@ -85,7 +100,9 @@ export class App extends Component {
     fetchAggregatedRegions({
       startDate: this.state.timeRange[0],
       endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox
+      boundingBox: this.boundingBox,
+      startHour: this.state.hourRange.min,
+      endHour: this.state.hourRange.max,
     })
       .then(data => {
         this.setState({
@@ -98,6 +115,19 @@ export class App extends Component {
       .catch(error => {
         console.error(error);
       });
+      fetchAggregatedHours({
+        startDate: this.state.timeRange[0],
+        endDate: this.state.timeRange[1],
+        boundingBox: this.boundingBox
+      })
+        .then(data => {
+          this.setState({
+            hourlyDistribution: data
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
   }, 1500);
   onBoundingBoxChange = ({ ne, sw }) => {
     this.boundingBox.sw = sw;
@@ -122,8 +152,11 @@ export class App extends Component {
           crimesByCity={this.state.crimesByCity}
           crimesByRegion={this.state.crimesByRegion}
           timeRange={this.state.timeRange}
+          hourlyDistribution={this.state.hourlyDistribution}
           timeRangeSpan={["01/11/2016", "01/02/2018"]}
           onTimeRangeChange={this.onTimeRangeChange}
+          hourRange={this.state.hourRange}
+          onHourRangeChange={this.onHourRangeChange}
         />
       </div>
     );

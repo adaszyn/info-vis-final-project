@@ -8,6 +8,9 @@ import {
   DATE_FORMAT,
   DATE_STEP
 } from "../../util/range-util";
+import { BarChartRangePicker } from '../range-chart-picker/BarChartRangePicker';
+
+
 export class TimeStatistics extends Component {
   onRangeChange = values => {
     const dates = [
@@ -60,6 +63,12 @@ export class TimeStatistics extends Component {
           formatLabel={this.formatRangeValue}
           value={this.getSelectedTimeSpan()}
           onChange={this.onRangeChange}
+        />
+        <BarChartRangePicker 
+            domain={_.range(0, 24)}
+            hourRange={this.props.hourRange}
+            onHourRangeChange={this.props.onHourRangeChange}
+            values={this.props.hourlyDistribution}
         />
       </div>
     );
