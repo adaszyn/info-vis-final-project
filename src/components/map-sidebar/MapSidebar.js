@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import moment from 'moment'
+import moment from 'moment';
+import ReactHtmlParser from 'react-html-parser';
 
-import './MapSidebar.css' 
+import './MapSidebar.css';
 
 export const MapSidebar = (props) => {
 
   // Clean the content (long description) of newline characters, and line breaks
   const contentParagraphs = props.crime.content
-                            .split('\\n')
+                            .split(/\n|\r|\\n/)
                             .map(p => p.trim().replace('<br />', ''))
                             .reduce((acc, curr) => {
                               if(curr !== '') {
@@ -55,7 +56,7 @@ export const MapSidebar = (props) => {
             if(index === contentParagraphs.length - 1) {
               return <p key={key} className="policeSignature">{`- ${paragraph} -`}</p>;
             }
-            return <p key={key}>{paragraph}</p>;
+            return <p key={key}>{ReactHtmlParser(paragraph)}</p>;
           })}
         </div>
       </div>
