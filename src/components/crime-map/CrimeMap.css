@@ -1,3 +1,5 @@
 .map-container {
-    flex-grow: 1;
+    /* Chrome layout change detection bug */
+    /* flex-grow: 1; */
+    height: calc(100vh - 450px);
 }
