@@ -1,13 +1,14 @@
 .map-sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: #21252b;
   color: #9fa6b7;
   font-family: OpenSans;
   font-weight: 300;
   font-size: 14px;
-  width: 45%;
+  height: 500px;
+  width: 30%;
+  min-width: 400px;
 }
 
 .map-sidebar-back-button {
@@ -18,7 +19,7 @@
   background: transparent;
   border: none;
   margin-top: 2em;
-  margin-bottom: 0.75em;
+  margin-bottom: 1.5em;
 }
 
 .map-sidebar-back-button:hover {
@@ -41,7 +42,19 @@
 }
 
 .map-sidebar-content-container {
-  margin: 0 2.5em;
+  margin-right: 2.5em;
+  margin-left: 2.5em;
+  margin-bottom: auto;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in a given color */
+::-webkit-scrollbar-thumb {
+  background: #9ea9bd;
 }
 
 .map-sidebar-title {
@@ -72,6 +85,10 @@
   color: #9fa6b7;
 }
 
+.map-sidebar-paragraphs::-webkit-scrollbar { 
+  display: none;
+}
+
 .map-sidebar-paragraphs p {
   margin: 0.2em 0;
 }
@@ -99,6 +116,10 @@
   font-style: italic;
   text-align: center;
   color: #9fa6b7;
+}
+
+.map-sidebar-button:hover {
+  background-color: #575e6f;
 }
 
 .map-sidebar-button:focus {

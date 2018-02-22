@@ -58,22 +58,21 @@ export const MapSidebar = (props) => {
             return <p key={key}>{paragraph}</p>;
           })}
         </div>
-        <div className="map-sidebar-buttons-container">
-          <button 
-            className="map-sidebar-button map-sidebar-viewSource-button"
-            onClick={props.onViewSourceButtonClick}
-          >
-            View Source
-          </button>
-          <button 
-            className="map-sidebar-button map-sidebar-mark-button"
-            onClick={props.onMarkButtonClick}
-          >
-            Mark
-          </button>
-        </div>
       </div>
-
+      <div className="map-sidebar-buttons-container">
+        <button 
+          className="map-sidebar-button map-sidebar-viewSource-button"
+          onClick={props.onViewSourceButtonClick}
+        >
+          View Source
+        </button>
+        <button 
+          className="map-sidebar-button map-sidebar-mark-button"
+          onClick={props.onMarkButtonClick}
+        >
+          Mark
+        </button>
+      </div>
     </div>
   )
 }

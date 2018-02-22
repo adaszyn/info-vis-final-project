@@ -110,6 +110,19 @@ export class App extends Component {
   }
 
   render() {
+    const renderMapSidebar = (crimes) => {
+      if(crimes.length > 1) {
+        return (
+          <MapSidebar 
+            crimeClassName="assault-title"
+            crime={crimes[4]}
+            onBackButtonClick={() => { console.log('BackButtonClick') }}
+            onViewSourceButtonClick={() => { console.log('ViewSourceButtonClick') }}
+            onMarkButtonClick={() => { console.log('MarkButtonClick') }}
+          />
+        )
+      }
+    }
     return (
       <div className="container">
         <Header />
@@ -118,7 +131,7 @@ export class App extends Component {
           crimes={this.state.crimes}
           onRender={this.onBoundingBoxChange}
         />
-        <MapSidebar />
+        {renderMapSidebar(this.state.crimes)}
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}
