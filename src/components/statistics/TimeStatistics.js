@@ -9,6 +9,7 @@ import {
   DATE_STEP
 } from "../../util/range-util";
 import { BarChartRangePicker } from '../range-chart-picker/BarChartRangePicker';
+import { SplineChartRangePicker } from '../range-chart-picker/SplineChartRangePicker';
 
 
 export class TimeStatistics extends Component {
@@ -69,6 +70,13 @@ export class TimeStatistics extends Component {
             hourRange={this.props.hourRange}
             onHourRangeChange={this.props.onHourRangeChange}
             values={this.props.hourlyDistribution}
+        />
+        />
+        <SplineChartRangePicker 
+            domain={_.range(0, 24)}
+            hourRange={this.props.hourRange}
+            onHourRangeChange={this.props.onHourRangeChange}
+            values={_.range(0, 24).map(val => 1 + Math.floor(Math.random() * 100))}
         />
       </div>
     );
