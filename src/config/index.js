@@ -1,4 +1,4 @@
 const CONFIG = {
-    apiBase: 'https://info-vis-api.herokuapp.com'
+    apiBase: 'http://34.250.99.114/crime-vis-api'
 }
 export default CONFIG;
