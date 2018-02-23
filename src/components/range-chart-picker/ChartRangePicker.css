@@ -18,9 +18,17 @@
 }
 
 .chart-range-picker-overlay {
-    position: absolute;
-    height: 64px;
-    background-color: #0000005d;
+  position: absolute;
+  height: 64px;
+  background-color: #0000005d;
+}
+.chart-range-picker-container-labels {
+  color: #aaaaaa;
+  display: flex;
+  justify-content: space-between;
+  font-family: "OpenSans", san-serif;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 /* BAR CHART RANGE */
@@ -36,7 +44,6 @@
   transition: opacity 0.2s linear;
 }
 
-
 .bar-chart-range .input-range__slider {
   appearance: none;
   width: 2.5px;
@@ -51,7 +58,7 @@
   position: absolute;
   margin-top: -64px;
   border-radius: 0;
-  cursor: col-resize;  
+  cursor: col-resize;
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 .bar-chart-range .input-range__slider:active {

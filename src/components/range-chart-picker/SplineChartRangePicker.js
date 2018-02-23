@@ -27,9 +27,6 @@ export class SplineChartRangePicker extends Component {
   adjustScale = props => {
     const { values, labels } = props.montlyDistribution;
     const domain = range(labels.length);
-    console.log("scaling", props.montlyDistribution);
-    console.log([min(domain), max(domain)]);
-    console.log([min(values), max(values)]);
     this.xScale = this.xScale.range([5, 95]).domain([min(domain), max(domain)]);
     this.yScale = this.yScale.range([5, 95]).domain([min(values), max(values)]);
   };
@@ -61,8 +58,9 @@ export class SplineChartRangePicker extends Component {
     this.adjustScale(newProps);
   }
   formatRangeValue = (value, type) => {
-    if (type !== "max" && type !== "min") {
-      return moment(value, "HH").format("hh A");
+    if (type === "max" || type === "min") {
+        console.log(this.props.montlyDistribution.labels)
+      return this.props.montlyDistribution.labels[value];
     }
   };
   render() {
@@ -106,14 +104,14 @@ export class SplineChartRangePicker extends Component {
     };
     return (
       <div className="chart-range-picker-container bar-chart-range">
-        <div
+        {/* <div
           style={leftOverlayStyle}
           className="chart-range-picker-overlay chart-range-picker-overlay__left"
         />
         <div
           style={rightOverlayStyle}
           className="chart-range-picker-overlay chart-range-picker-overlay__left"
-        />
+        /> */}
         <svg
           className="bars-container"
           viewBox="0 0 100 100"
@@ -126,9 +124,14 @@ export class SplineChartRangePicker extends Component {
           maxValue={max(domain) + 1}
           step={1}
           formatLabel={this.formatRangeValue}
-          value={this.props.hourRange}
-          onChange={this.props.onHourRangeChange} */}
-        {/* /> */}
+          value={{min:0, max: 0}}
+          onChange={() => {}}
+        /> */}
+        <div className="chart-range-picker-container-labels">
+            {this.props.montlyDistribution.labels.map(label =>
+                 <span key={label}>{label}</span>)}
+        </div>
+
       </div>
     );
   }
