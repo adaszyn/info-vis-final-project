@@ -1,4 +1,4 @@
 const CONFIG = {
-    apiBase: 'https://info-vis-api.herokuapp.com'
+    apiBase: 'http://localhost:3000'
 }
 export default CONFIG;
