@@ -16,6 +16,7 @@ export class Statistics extends Component {
             timeRange={this.props.timeRange}
             timeRangeSpan={this.props.timeRangeSpan}
             hourlyDistribution={this.props.hourlyDistribution}
+            montlyDistribution={this.props.montlyDistribution}
             hourRange={this.props.hourRange}
             onHourRangeChange={this.props.onHourRangeChange}
             onChange={this.props.onTimeRangeChange} />

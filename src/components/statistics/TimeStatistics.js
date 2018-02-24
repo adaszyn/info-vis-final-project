@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import _ from "underscore";
 import moment from "moment";
+import DatePicker from "react-datepicker";
 import { RangePicker } from "../range-picker/RangePicker";
 import {
   getMonthsDifference,
@@ -8,8 +9,11 @@ import {
   DATE_FORMAT,
   DATE_STEP
 } from "../../util/range-util";
-import { BarChartRangePicker } from '../range-chart-picker/BarChartRangePicker';
-
+import { BarChartRangePicker } from "../range-chart-picker/BarChartRangePicker";
+import { SplineChartRangePicker } from "../range-chart-picker/SplineChartRangePicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./TimeStatistics.css";
+import nextIcon from "../../assets/next.svg";
 
 export class TimeStatistics extends Component {
   onRangeChange = values => {
@@ -51,24 +55,63 @@ export class TimeStatistics extends Component {
       .add(number, DATE_STEP)
       .format(DATE_FORMAT);
   };
-
+  handleStartDateChange = date => {
+    this.props.onChange([
+      moment(date, DATE_FORMAT),
+      moment(this.props.timeRangeSpan[1], DATE_FORMAT)
+    ]);
+  };
+  handleEndDateChange = date => {
+    this.props.onChange([
+      moment(this.props.timeRangeSpan[0], DATE_FORMAT),
+      moment(date, DATE_FORMAT)
+    ]);
+  };
   render() {
+    const startDate = moment(this.props.timeRange[0], DATE_FORMAT);
+    const endDate = moment(this.props.timeRange[1], DATE_FORMAT);
+    const minDate = moment(this.props.timeRangeSpan[0], DATE_FORMAT);
+    const maxDate = moment(this.props.timeRangeSpan[1], DATE_FORMAT);
     return (
       <div className="statistics-box time-statistics">
         <h2 className="statistics-box__header">PERIOD</h2>
-        <RangePicker
-          minValue={this.getMinRangeSpan()}
-          maxValue={this.getMaxRangeSpan()}
-          step={1}
-          formatLabel={this.formatRangeValue}
-          value={this.getSelectedTimeSpan()}
-          onChange={this.onRangeChange}
+        <div className="date-pickers-container">
+          <DatePicker
+            selected={startDate}
+            className="date-picker"
+            calendarClassName="date-picker__calendar"
+            popperClassName="date-picker__popper"
+            maxDate={endDate}
+            minDate={minDate}
+            popperPlacement="left-start"
+            onChange={this.handleStartDateChange}
+          />
+          <img alt="next-icon" className="date-picker__next-icon" src={nextIcon}/>
+          <DatePicker
+            selected={endDate}
+            className="date-picker"
+            calendarClassName="date-picker__calendar"
+            popperClassName="date-picker__popper"
+            onChange={this.handleEndDateChange}
+            minDate={startDate}
+            popperPlacement="left-start"            
+            maxDate={maxDate}
+          />
+        </div>
+
+        <BarChartRangePicker
+          domain={_.range(0, 24)}
+          hourRange={this.props.hourRange}
+          onHourRangeChange={this.props.onHourRangeChange}
+          values={this.props.hourlyDistribution}
         />
-        <BarChartRangePicker 
-            domain={_.range(0, 24)}
-            hourRange={this.props.hourRange}
-            onHourRangeChange={this.props.onHourRangeChange}
-            values={this.props.hourlyDistribution}
+        <SplineChartRangePicker
+          montlyDistribution={this.props.montlyDistribution}
+          hourRange={this.props.hourRange}
+          onHourRangeChange={this.props.onHourRangeChange}
+          timeRange={this.props.timeRange}
+          timeRangeSpan={this.props.timeRangeSpan}
+          onChange={this.props.onChange}
         />
       </div>
     );
