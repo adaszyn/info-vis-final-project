@@ -9,7 +9,7 @@ export class Statistics extends Component {
   render() {
     return (
       <div className="statistics-container">
-        <RegionStatistics crimesByRegion={this.props.crimesByRegion} />
+        <RegionStatistics crimesByRegion={this.props.crimesByRegion} handleClick={this.props.handleClick}/>
         <CityStatistics crimesByCity={this.props.crimesByCity} />
         <CrimeTypeStatistics crimesByType={this.props.crimesByType} />
         <TimeStatistics
