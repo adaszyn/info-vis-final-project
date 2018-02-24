@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import _ from "underscore";
 import { CrimeMap } from "../crime-map/CrimeMap";
+import { MapSidebar } from "../map-sidebar/MapSidebar";
 import { Header } from "../header/Header";
 import { Statistics } from "../statistics/Statistics";
 import {
@@ -186,17 +187,33 @@ export class App extends Component {
   }
 
   render() {
+    const renderMapSidebar = (crimes) => {
+      if(crimes.length > 1) {
+        return (
+          <MapSidebar
+            crimeClassName="assault-title"
+            crime={crimes[4]}
+            onBackButtonClick={() => { console.log('BackButtonClick') }}
+            onViewSourceButtonClick={() => { console.log('ViewSourceButtonClick') }}
+            onMarkButtonClick={() => { console.log('MarkButtonClick') }}
+          />
+        )
+      }
+    }
     return (
       <div className="container">
         <Header />
-        <CrimeMap
-          onBoundingBoxChange={this.onBoundingBoxChange}
-          crimes={this.state.crimes}
-          onRender={this.onBoundingBoxChange}
-          center ={this.mapCenter}
-          zoom = {this.mapZoom}
-          onCrimeSelected={this.onCrimeSelected}
-        />
+          <div className="map-section">
+              <CrimeMap
+              onBoundingBoxChange={this.onBoundingBoxChange}
+              crimes={this.state.crimes}
+              onRender={this.onBoundingBoxChange}
+              center ={this.mapCenter}
+              zoom = {this.mapZoom}
+              onCrimeSelected={this.onCrimeSelected}
+            />
+          {renderMapSidebar(this.state.crimes)}
+        </div>
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}

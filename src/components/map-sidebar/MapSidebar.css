@@ -1,0 +1,128 @@
+.map-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  background-color: #21252b;
+  color: #9fa6b7;
+  font-family: OpenSans;
+  font-weight: 300;
+  font-size: 14px;
+  height: 500px;
+  width: 30%;
+  min-width: 400px;
+}
+
+.map-sidebar-back-button {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #5c636f;
+  background: transparent;
+  border: none;
+  margin-top: 2em;
+  margin-bottom: 1.5em;
+}
+
+.map-sidebar-back-button:hover {
+  color: #9ea9bd;
+}
+
+.map-sidebar-back-button:focus {
+  outline: none;
+}
+
+.map-sidebar-back-button svg {
+  object-fit: contain;
+  stroke: #3c424f;
+  margin-right: 1em;
+  margin-left: 0.3em;
+}
+
+.map-sidebar-back-button:hover svg {
+  stroke: #9ea9bd;
+}
+
+.map-sidebar-content-container {
+  margin-right: 2.5em;
+  margin-left: 2.5em;
+  margin-bottom: auto;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in a given color */
+::-webkit-scrollbar-thumb {
+  background: #9ea9bd;
+}
+
+.map-sidebar-title {
+  font-size: 32px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 0.3em;
+}
+
+.assault-title {
+  color: #d05f75;
+}
+
+.map-sidebar-description {
+  font-size: 18px;
+  font-weight: 700;
+  color: #9fa6b7;
+  margin-bottom: 0.3em;
+}
+
+.map-sidebar-location-date-container {
+  margin-bottom: 0.5em;
+}
+
+.map-sidebar-paragraphs {
+  line-height: 1.57;
+  text-align: left;
+  color: #9fa6b7;
+}
+
+.map-sidebar-paragraphs::-webkit-scrollbar { 
+  display: none;
+}
+
+.map-sidebar-paragraphs p {
+  margin: 0.2em 0;
+}
+
+.map-sidebar-paragraphs p.policeSignature {
+  font-style: italic;
+  color: #737884;
+}
+
+.map-sidebar-buttons-container {
+  margin: 3em 0em;
+  display: flex;
+  justify-content: center;
+}
+
+.map-sidebar-button {
+  margin-right: 0.75em;
+  min-width: 9em;
+  min-height: 2.5em;
+  border-radius: 22px;
+  border: none;
+  background-color: #3c424f;
+  font-size: 1.2em;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  color: #9fa6b7;
+}
+
+.map-sidebar-button:hover {
+  background-color: #575e6f;
+}
+
+.map-sidebar-button:focus {
+  outline: none;
+}
