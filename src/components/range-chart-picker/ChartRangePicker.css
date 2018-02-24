@@ -1,0 +1,146 @@
+.chart-range-picker-container {
+  margin-top: 38px;
+  background-color: #282c34;
+  height: 64px;
+  position: relative;
+}
+.range-handle {
+  width: 2.5px;
+  background-color: #9fa6b7;
+  height: 64px;
+  position: absolute;
+  cursor: col-resize;
+}
+.bars-container {
+  height: 64px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chart-range-picker-overlay {
+  position: absolute;
+  height: 64px;
+  background-color: #0000005d;
+}
+.chart-range-picker-container-labels {
+  color: #aaaaaa;
+  display: flex;
+  justify-content: space-between;
+  font-family: "OpenSans", san-serif;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* BAR CHART RANGE */
+.bar-chart-range__bar {
+  float: left;
+  min-height: 1px;
+}
+.bar-chart-range__bar-fill {
+  background-color: #9fa6b7;
+  margin-left: 1.5px;
+  margin-right: 1.5px;
+  height: 100%;
+  transition: opacity 0.2s linear;
+}
+
+.bar-chart-range .input-range__slider {
+  appearance: none;
+  width: 2.5px;
+  background-color: #9fa6b7;
+  height: 64px;
+  cursor: pointer;
+  display: block;
+  margin-left: -1.5px;
+  border: none;
+  margin-top: -0.65rem;
+  outline: none;
+  position: absolute;
+  margin-top: -64px;
+  border-radius: 0;
+  cursor: col-resize;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.bar-chart-range .input-range__slider:active {
+  transform: scale(1.3);
+}
+.bar-chart-range .input-range__slider:focus {
+  box-shadow: 0 0 0 5px rgba(63, 81, 181, 0.2);
+}
+.bar-chart-range .input-range--disabled .input-range__slider {
+  background: #3c424f;
+  border: 1px solid #3c424f;
+  box-shadow: none;
+  transform: none;
+}
+
+.bar-chart-range .input-range__slider-container {
+  transition: left 0.3s ease-out;
+}
+
+.bar-chart-range .input-range__label {
+  color: #aaaaaa;
+  font-family: "OpenSans", san-serif;
+  font-size: 0.8rem;
+  transform: translateZ(0);
+  white-space: nowrap;
+}
+
+.bar-chart-range .input-range__label--min,
+.bar-chart-range .input-range__label--max {
+  bottom: -1.4rem;
+  position: absolute;
+}
+
+.bar-chart-range .input-range__label--min {
+  left: 0;
+}
+
+.bar-chart-range .input-range__label--max {
+  right: 0;
+}
+
+.bar-chart-range .input-range__label--value {
+  position: absolute;
+  top: -1.8rem;
+}
+
+.bar-chart-range .input-range__label-container {
+  left: -2.5px;
+  bottom: -32px;
+  position: relative;
+}
+.input-range__label--max .input-range__label-container {
+  left: 0;
+}
+
+.bar-chart-range .input-range__track {
+  background: #3c424f;
+  border-radius: 0rem;
+  cursor: pointer;
+  display: block;
+  height: 0rem;
+  position: relative;
+  transition: left 0.3s ease-out, width 0.3s ease-out;
+}
+.bar-chart-range .input-range--disabled .input-range__track {
+  background: #3c424f;
+}
+
+.bar-chart-range .input-range__track--background {
+  left: 0;
+  margin-top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.bar-chart-range .input-range__track--active {
+  background: #9fa6b7;
+}
+
+.bar-chart-range .input-range {
+  height: 1rem;
+  position: relative;
+  width: 100%;
+}
