@@ -42,7 +42,10 @@ export class App extends Component {
           labels: [],
       }
     };
+    this.mapCenter =[15.798669, 62.450588];
+    this.mapZoom = [3];
   }
+
   onTimeRangeChange = timeRange => {
     this.setState({
       timeRange
@@ -159,6 +162,25 @@ export class App extends Component {
         });
   }
 
+  getLocation = () => {
+    var location = new Promise((resolve) => {
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          resolve(position);
+        });
+      }
+    });
+    return location;
+  };
+
+  handleClick = () =>{
+    this.getLocation().then(position => {
+      this.mapCenter = [position.coords.longitude, position.coords.latitude];
+      this.mapZoom = [10];
+      this.onBoundingBoxChange(this.boundingBox);
+    });
+  }
+
   render() {
     return (
       <div className="container">
@@ -167,6 +189,8 @@ export class App extends Component {
           onBoundingBoxChange={this.onBoundingBoxChange}
           crimes={this.state.crimes}
           onRender={this.onBoundingBoxChange}
+          center ={this.mapCenter}
+          zoom = {this.mapZoom}
         />
         <Statistics
           crimesByType={this.state.crimesByType}
@@ -179,6 +203,7 @@ export class App extends Component {
           onTimeRangeChange={this.onTimeRangeChange}
           hourRange={this.state.hourRange}
           onHourRangeChange={this.onHourRangeChange}
+          handleClick={this.handleClick}
         />
       </div>
     );

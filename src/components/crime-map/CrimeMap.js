@@ -59,9 +59,11 @@ export class CrimeMap extends Component {
     });
     this.zoom = map.getZoom();
   };
+
   renderCrimeMarker = crime => {
     return <Feature key={crime.id} coordinates={[crime.lng, crime.lat]} />;
   };
+
 
   renderLayers = crimesByType => {
     return map(crimesByType, (crimes, crimeType) => {
@@ -84,8 +86,8 @@ export class CrimeMap extends Component {
       <div className="map-container">
         <Map
           style="mapbox://styles/mapbox/dark-v9"
-          center={INITIAL_CENTER}
-          zoom={INITIAL_ZOOM}
+          center={this.props.center}
+          zoom={this.props.zoom}
           onZoom={this.onZoom}
           onMove={this.onZoom}
           containerStyle={{
