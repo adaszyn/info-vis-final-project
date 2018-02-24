@@ -27,7 +27,7 @@ export class App extends Component {
       }
     };
     this.state = {
-      timeRange: ["22/05/2017", "23/05/2017"],
+      timeRange: ["22/05/2017", "23/06/2017"],
       crimes: [],
       crimesByType: [],
       crimesByCity: [],
@@ -133,19 +133,7 @@ export class App extends Component {
       .catch(error => {
         console.error(error);
       });
-    fetchAggregatedMonths({
-      startDate: this.state.timeRange[0],
-      endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox
-    })
-      .then(data => {
-        this.setState({
-          montlyDistribution: data
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
+
   }, 1500);
   onBoundingBoxChange = ({ ne, sw }) => {
     this.boundingBox.sw = sw;
@@ -153,7 +141,22 @@ export class App extends Component {
     this.fetchCrimesWithDelay();
   };
   componentDidMount() {
+      console.log('mountin')
     this.fetchCrimesWithDelay();
+    fetchAggregatedMonths({
+        startDate: "13/10/2016",
+        endDate: "14/02/2018",
+        boundingBox: this.boundingBox
+      })
+        .then(data => {
+            console.log(data)
+          this.setState({
+            montlyDistribution: data
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
   }
 
   render() {

@@ -57,14 +57,14 @@ export class TimeStatistics extends Component {
     return (
       <div className="statistics-box time-statistics">
         <h2 className="statistics-box__header">PERIOD</h2>
-        <RangePicker
+        {/* <RangePicker
           minValue={this.getMinRangeSpan()}
           maxValue={this.getMaxRangeSpan()}
           step={1}
           formatLabel={this.formatRangeValue}
           value={this.getSelectedTimeSpan()}
           onChange={this.onRangeChange}
-        />
+        /> */}
         <BarChartRangePicker 
             domain={_.range(0, 24)}
             hourRange={this.props.hourRange}
@@ -75,6 +75,9 @@ export class TimeStatistics extends Component {
             montlyDistribution={this.props.montlyDistribution}
             hourRange={this.props.hourRange}
             onHourRangeChange={this.props.onHourRangeChange}
+            timeRange={this.props.timeRange}
+            timeRangeSpan={this.props.timeRangeSpan}
+            onChange={this.props.onChange}
         />
       </div>
     );
