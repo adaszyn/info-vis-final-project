@@ -40,7 +40,8 @@ export class App extends Component {
       montlyDistribution: {
           values: [],
           labels: [],
-      }
+      },
+      crimeSelected: null,
     };
     this.mapCenter =[15.798669, 62.450588];
     this.mapZoom = [3];
@@ -55,6 +56,11 @@ export class App extends Component {
   onHourRangeChange = hourRange => {
     this.setState({ hourRange }, this.fetchCrimesWithDelay);
   };
+  onCrimeSelected = (crime) => {
+      this.setState({
+          crimeSelected: crime
+      })
+  }
   fetchCrimesWithDelay = _.debounce(() => {
     fetchCrimes({
       startDate: this.state.timeRange[0],
@@ -144,7 +150,6 @@ export class App extends Component {
     this.fetchCrimesWithDelay();
   };
   componentDidMount() {
-      console.log('mountin')
     this.fetchCrimesWithDelay();
     fetchAggregatedMonths({
         startDate: "13/10/2016",
@@ -152,7 +157,6 @@ export class App extends Component {
         boundingBox: this.boundingBox
       })
         .then(data => {
-            console.log(data)
           this.setState({
             montlyDistribution: data
           });
@@ -191,6 +195,7 @@ export class App extends Component {
           onRender={this.onBoundingBoxChange}
           center ={this.mapCenter}
           zoom = {this.mapZoom}
+          onCrimeSelected={this.onCrimeSelected}
         />
         <Statistics
           crimesByType={this.state.crimesByType}

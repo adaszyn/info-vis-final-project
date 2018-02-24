@@ -59,11 +59,20 @@ export class CrimeMap extends Component {
     });
     this.zoom = map.getZoom();
   };
+  onFeatureClick = (crime) => {
+      console.log(crime)
+  }
 
   renderCrimeMarker = crime => {
-    return <Feature key={crime.id} coordinates={[crime.lng, crime.lat]} />;
+    return (
+      <Feature
+        key={crime.id}
+        id={crime.id}
+        onClick={() => this.props.onCrimeSelected(crime)}
+        coordinates={[crime.lng, crime.lat]}
+      />
+    );
   };
-
 
   renderLayers = crimesByType => {
     return map(crimesByType, (crimes, crimeType) => {
@@ -97,11 +106,7 @@ export class CrimeMap extends Component {
         >
           {this.renderLayers(crimesByType)}
 
-          <Layer
-            type="heatmap"
-            id="marker"
-            paint={heatMapLayerConfig}
-          >
+          <Layer type="heatmap" id="marker" paint={heatMapLayerConfig}>
             {this.props.crimes.map(this.renderCrimeMarker)}
           </Layer>
         </Map>
