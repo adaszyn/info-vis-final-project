@@ -23,7 +23,7 @@ export class BarChart extends Component {
   renderBar = entry => {
     const style = {
       width: this.percentageScale(entry.value) + "%",
-      backgroundColor: entry.color
+      backgroundColor: entry.color,
     };
     return (
       <div
@@ -48,7 +48,7 @@ BarChart.propTypes = {
     PropTypes.shape({
       color: PropTypes.string,
       label: PropTypes.string,
-      value: PropTypes.number
-    })
-  )
+      value: PropTypes.number,
+    }),
+  ),
 };

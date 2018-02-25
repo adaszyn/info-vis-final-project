@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   select,
   curveCardinal,
@@ -6,17 +6,17 @@ import {
   line,
   curveBundle,
   curveCardinalClosed,
-} from 'd3';
-import moment from 'moment';
-import { range, min, max } from 'underscore';
-import InputRange from 'react-input-range';
+} from "d3";
+import moment from "moment";
+import { range, min, max } from "underscore";
+import InputRange from "react-input-range";
 import {
   getMonthsDifference,
   getNumericalRangeFromDates,
   DATE_FORMAT,
   DATE_STEP,
-} from '../../util/range-util';
-import './ChartRangePicker.css';
+} from "../../util/range-util";
+import "./ChartRangePicker.css";
 
 const MAX_NUMBER_OF_LABELS = 6;
 
@@ -94,8 +94,8 @@ export class SplineChartRangePicker extends Component {
   renderBar = (value, index) => {
     const { values, labels } = this.props.monthlyDistribution;
     const style = {
-      height: this.percentageScale(value) + '%',
-      minWidth: 100 / values.length + '%',
+      height: this.percentageScale(value) + "%",
+      minWidth: 100 / values.length + "%",
     };
     const fillStyle = {
       opacity:
@@ -140,11 +140,11 @@ export class SplineChartRangePicker extends Component {
     if (this.svgElement) {
       select(this.svgElement).html(null);
       select(this.svgElement)
-        .append('path')
-        .attr('d', lineFunction(data))
-        .attr('stroke', '#9fa6b7')
-        .attr('stroke-width', 1)
-        .attr('fill', '#9fa6b7');
+        .append("path")
+        .attr("d", lineFunction(data))
+        .attr("stroke", "#9fa6b7")
+        .attr("stroke-width", 1)
+        .attr("fill", "#9fa6b7");
     }
     const domainLength = this.getRangeSpan();
     const minValue = this.getSelectedTimeSpan().min;

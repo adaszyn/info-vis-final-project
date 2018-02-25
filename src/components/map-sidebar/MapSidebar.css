@@ -63,8 +63,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 0px;  /* remove scrollbar space */
-  background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0px; /* remove scrollbar space */
+  background: transparent; /* optional: just make scrollbar invisible */
 }
 /* optional: show position indicator in a given color */
 ::-webkit-scrollbar-thumb {
@@ -99,7 +99,7 @@
   color: #9fa6b7;
 }
 
-.map-sidebar-paragraphs::-webkit-scrollbar { 
+.map-sidebar-paragraphs::-webkit-scrollbar {
   display: none;
 }
 
@@ -156,6 +156,6 @@
   -webkit-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0px, 0px, 0px);
 }

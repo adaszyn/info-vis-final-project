@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { CityStatistics } from './CityStatistics';
-import { RegionStatistics } from './RegionStatistics';
-import { CrimeTypeStatistics } from './CrimeTypeStatistics';
-import { TimeStatistics } from './TimeStatistics';
-import './Statistics.css';
-import { LoadingComponent } from '../loading-component/LoadingComponent';
+import React, { Component } from "react";
+import { CityStatistics } from "./CityStatistics";
+import { RegionStatistics } from "./RegionStatistics";
+import { CrimeTypeStatistics } from "./CrimeTypeStatistics";
+import { TimeStatistics } from "./TimeStatistics";
+import "./Statistics.css";
+import { LoadingComponent } from "../loading-component/LoadingComponent";
 
 export class Statistics extends Component {
   render() {

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { omit } from 'underscore';
-import { Loader } from '../loader/Loader';
-import './LoadingComponent.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { omit } from "underscore";
+import { Loader } from "../loader/Loader";
+import "./LoadingComponent.css";
 
 export class LoadingComponent extends Component {
   constructor(props) {
@@ -41,13 +41,13 @@ export class LoadingComponent extends Component {
         ...this.props,
         ...{ [this.props.dataLabel]: this.state.value },
       },
-      'data',
-      'dataLabel',
-      'wrappedComponent',
-      'containerClassName',
+      "data",
+      "dataLabel",
+      "wrappedComponent",
+      "containerClassName",
     );
     return (
-      <div className={'loading-component ' + this.props.containerClassName}>
+      <div className={"loading-component " + this.props.containerClassName}>
         {!this.state.resolved && <Loader />}
         <WrappedComponent {...props} />
       </div>

@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import moment from 'moment';
-import ReactHtmlParser from 'react-html-parser';
+import moment from "moment";
+import ReactHtmlParser from "react-html-parser";
 
-import './MapSidebar.css';
-import { Header } from '../header/Header';
+import "./MapSidebar.css";
+import { Header } from "../header/Header";
 
 function cleanParagraphText(text) {
   return text
     .split(/\n|\r|\\n/)
-    .map(p => p.trim().replace('<br />', ''))
+    .map(p => p.trim().replace("<br />", ""))
     .reduce((acc, curr) => {
-      if (curr !== '') {
+      if (curr !== "") {
         acc.push(curr);
       }
       return acc;
@@ -72,7 +72,7 @@ export const MapSidebar = props => {
           }`}</div>
           <div className="map-sidebar-date">
             {moment(props.crime.created_at * 1000).format(
-              'dddd, MMMM Do YYYY, hh:mm',
+              "dddd, MMMM Do YYYY, hh:mm",
             )}
           </div>
         </div>

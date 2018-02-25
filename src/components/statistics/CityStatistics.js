@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { BarChart } from '../bar-chart/BarChart';
+import React, { Component } from "react";
+import { BarChart } from "../bar-chart/BarChart";
 
 export class CityStatistics extends Component {
   render() {
@@ -12,5 +12,5 @@ export class CityStatistics extends Component {
   }
 }
 CityStatistics.defaultProps = {
-    crimesByCity: []
-}
+  crimesByCity: [],
+};

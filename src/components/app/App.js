@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import _ from 'underscore';
-import { CrimeMap } from '../crime-map/CrimeMap';
-import { Statistics } from '../statistics/Statistics';
+import React, { Component } from "react";
+import _ from "underscore";
+import { CrimeMap } from "../crime-map/CrimeMap";
+import { Statistics } from "../statistics/Statistics";
 import {
   fetchCrimes,
   fetchAggregatedCrimeTypes,
@@ -9,9 +9,9 @@ import {
   fetchAggregatedRegions,
   fetchAggregatedHours,
   fetchAggregatedMonths,
-} from '../../util/api';
-import './App.css';
-import { LoadingComponent } from '../loading-component/LoadingComponent';
+} from "../../util/api";
+import "./App.css";
+import { LoadingComponent } from "../loading-component/LoadingComponent";
 
 export class App extends Component {
   constructor() {
@@ -27,7 +27,7 @@ export class App extends Component {
       },
     };
     this.state = {
-      timeRange: ['22/05/2017', '23/06/2017'],
+      timeRange: ["22/05/2017", "23/06/2017"],
       crimes: Promise.resolve([]),
       crimesByType: Promise.resolve([]),
       crimesByCity: Promise.resolve([]),
@@ -42,19 +42,19 @@ export class App extends Component {
         labels: [],
       },
       selectedCrime: {
-        id: '32819',
-        crimeType: 'Misshandel',
-        description: 'Man som blivit misshandlad, Bökensved.',
+        id: "32819",
+        crimeType: "Misshandel",
+        description: "Man som blivit misshandlad, Bökensved.",
         content:
-          'Polis och ambulans skickas till Bökensved, där en man blivit misshandlad. Mannen förs med ambulans till sjukhus. Övriga omständigheter är i nuläget oklara.\r\nPolisen Kalmar län',
-        region: 'Kalmar län',
-        city: 'Västervik',
+          "Polis och ambulans skickas till Bökensved, där en man blivit misshandlad. Mannen förs med ambulans till sjukhus. Övriga omständigheter är i nuläget oklara.\r\nPolisen Kalmar län",
+        region: "Kalmar län",
+        city: "Västervik",
         lat: 57.7577156,
         lng: 16.6369759,
         created_at: 1498107562,
       },
-      theme: 'light',
-      language: 'swedish',
+      theme: "light",
+      language: "swedish",
     };
     this.mapCenter = [15.798669, 62.450588];
     this.mapZoom = [3];
@@ -112,8 +112,8 @@ export class App extends Component {
   componentDidMount() {
     this.fetchCrimesWithDelay();
     fetchAggregatedMonths({
-      startDate: '13/10/2016',
-      endDate: '14/02/2018',
+      startDate: "13/10/2016",
+      endDate: "14/02/2018",
       boundingBox: this.boundingBox,
     })
       .then(data => {
@@ -159,7 +159,7 @@ export class App extends Component {
 
   render() {
     const className =
-      this.state.theme === 'light' ? 'container light-theme' : 'container';
+      this.state.theme === "light" ? "container light-theme" : "container";
     return (
       <div className={className}>
         <LoadingComponent
@@ -186,7 +186,7 @@ export class App extends Component {
           timeRange={this.state.timeRange}
           hourlyDistribution={this.state.hourlyDistribution}
           monthlyDistribution={this.state.monthlyDistribution}
-          timeRangeSpan={['01/11/2016', '01/02/2018']}
+          timeRangeSpan={["01/11/2016", "01/02/2018"]}
           onTimeRangeChange={this.onTimeRangeChange}
           hourRange={this.state.hourRange}
           onHourRangeChange={this.onHourRangeChange}

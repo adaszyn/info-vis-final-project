@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import _ from 'underscore';
-import moment from 'moment';
-import DatePicker from 'react-datepicker';
-import { RangePicker } from '../range-picker/RangePicker';
+import React, { Component } from "react";
+import _ from "underscore";
+import moment from "moment";
+import DatePicker from "react-datepicker";
+import { RangePicker } from "../range-picker/RangePicker";
 import {
   getMonthsDifference,
   getNumericalRangeFromDates,
   DATE_FORMAT,
   DATE_STEP,
-} from '../../util/range-util';
-import { BarChartRangePicker } from '../range-chart-picker/BarChartRangePicker';
-import { SplineChartRangePicker } from '../range-chart-picker/SplineChartRangePicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import './TimeStatistics.css';
-import nextIcon from '../../assets/next.svg';
+} from "../../util/range-util";
+import { BarChartRangePicker } from "../range-chart-picker/BarChartRangePicker";
+import { SplineChartRangePicker } from "../range-chart-picker/SplineChartRangePicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./TimeStatistics.css";
+import nextIcon from "../../assets/next.svg";
 
 export class TimeStatistics extends Component {
   onRangeChange = values => {

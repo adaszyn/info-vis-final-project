@@ -1,47 +1,46 @@
 @font-face {
-    font-family: Intro;
-    src: url("./assets/intro.otf") format("opentype");
+  font-family: Intro;
+  src: url("./assets/intro.otf") format("opentype");
 }
 
 @font-face {
-    font-family: OpenSans;
-    src: url("./assets/OpenSans-Light.ttf");
-    font-weight: 300;
+  font-family: OpenSans;
+  src: url("./assets/OpenSans-Light.ttf");
+  font-weight: 300;
 }
 
 @font-face {
-    font-family: OpenSans;
-    src: url("./assets/OpenSans-LightItalic.ttf");
-    font-weight: 300;
-    font-style: italic;
+  font-family: OpenSans;
+  src: url("./assets/OpenSans-LightItalic.ttf");
+  font-weight: 300;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: OpenSans;
-    src: url("./assets/OpenSans-Regular.ttf");
-    font-weight: 400;
+  font-family: OpenSans;
+  src: url("./assets/OpenSans-Regular.ttf");
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: OpenSans;
-    src: url("./assets/OpenSans-Italic.ttf");
-    font-weight: 400;
-    font-style: italic;
+  font-family: OpenSans;
+  src: url("./assets/OpenSans-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: OpenSans;
-    src: url("./assets/OpenSans-Bold.ttf");
-    font-weight: 700;
+  font-family: OpenSans;
+  src: url("./assets/OpenSans-Bold.ttf");
+  font-weight: 700;
 }
 
 @font-face {
-    font-family: OpenSans;
-    src: url("./assets/OpenSans-BoldItalic.ttf");
-    font-weight: 700;
-    font-style: italic;
+  font-family: OpenSans;
+  src: url("./assets/OpenSans-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic;
 }
-
 
 body {
   margin: 0;
