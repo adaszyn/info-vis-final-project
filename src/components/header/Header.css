@@ -21,3 +21,8 @@
   margin-right: 10px;
   margin-left: 10px;
 }
+
+.light-theme .header {
+  color: black;
+  background-color: white;
+}

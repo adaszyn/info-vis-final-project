@@ -11,7 +11,6 @@ import {
   fetchAggregatedMonths,
 } from '../../util/api';
 import './App.css';
-import { CityStatistics } from '../statistics/CityStatistics';
 import { LoadingComponent } from '../loading-component/LoadingComponent';
 
 export class App extends Component {
@@ -54,7 +53,7 @@ export class App extends Component {
         lng: 16.6369759,
         created_at: 1498107562,
       },
-      theme: 'dark',
+      theme: 'light',
       language: 'swedish',
     };
     this.mapCenter = [15.798669, 62.450588];
@@ -159,8 +158,10 @@ export class App extends Component {
   };
 
   render() {
+    const className =
+      this.state.theme === 'light' ? 'container light-theme' : 'container';
     return (
-      <div className="container">
+      <div className={className}>
         <LoadingComponent
           onBoundingBoxChange={this.onBoundingBoxChange}
           onRender={this.onBoundingBoxChange}
