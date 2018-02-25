@@ -1,27 +1,27 @@
 .location__btn {
-    width: 200px;
-    height: 32px;
-    font-family: OpenSans;
-    font-size: 16px;
-    font-weight: 800;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #9fa6b7;
-    font-weight: bold;
-    background-color: #282c34;
-    border-radius: 6px;
-    border-color: #21252b;
-    text-align: left;
-    text-indent: 5px;
+  width: 200px;
+  height: 32px;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #9fa6b7;
+  font-weight: bold;
+  background-color: #282c34;
+  border-radius: 6px;
+  border-color: #21252b;
+  text-align: left;
+  text-indent: 5px;
 }
 
 .location__btn:hover {
-    background-image: linear-gradient(to top, #7f8caa, #9fa6b7);
-    color: #FFFFFF;
+  background-image: linear-gradient(to top, #7f8caa, #9fa6b7);
+  color: #ffffff;
 }
 
 .medium-size__icon {
-    transform: scale(1.5,1.5);
+  transform: scale(1.5, 1.5);
 }

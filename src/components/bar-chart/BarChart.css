@@ -1,23 +1,22 @@
 .bar-chart-container {
-
 }
 .bar-chart-container__bar {
-    height: 28px;
-    border-radius: 2px;
-    margin: 2px 0;
-    background-color: #3c424f;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    color: #9fa6b7;
-    transition: color 0.15s;
-    font-family: "OpenSans", san-serif;
-    font-weight: bold;
-    overflow: visible;
-    white-space:nowrap;
+  height: 28px;
+  border-radius: 2px;
+  margin: 2px 0;
+  background-color: #3c424f;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  color: #9fa6b7;
+  transition: color 0.15s;
+  font-family: "OpenSans", san-serif;
+  font-weight: bold;
+  overflow: visible;
+  white-space: nowrap;
 }
 
 .bar-chart-container__bar:hover {
-    background-image: linear-gradient(to top, #7f8caa, #9fa6b7);
-    color: #FFFFFF;
+  background-image: linear-gradient(to top, #7f8caa, #9fa6b7);
+  color: #ffffff;
 }

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { omit } from 'underscore';
-import { Loader } from '../loader/Loader';
-import './LoadingComponent.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { omit } from "underscore";
+import { Loader } from "../loader/Loader";
+import "./LoadingComponent.css";
 
 export class LoadingComponent extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export class LoadingComponent extends Component {
     this.state = {
       resolved: false,
       value: undefined,
-      error: null,
+      error: null
     };
     this.promise = props.data;
     this.promise.then(this.resolvePromise);
@@ -19,13 +19,13 @@ export class LoadingComponent extends Component {
   resolvePromise = value => {
     this.setState({
       resolved: true,
-      value,
+      value
     });
   };
   rejectPromise = error => {
     this.setState({
       resolved: true,
-      error,
+      error
     });
   };
   componentWillReceiveProps(newProps) {
@@ -39,15 +39,15 @@ export class LoadingComponent extends Component {
     const props = omit(
       {
         ...this.props,
-        ...{ [this.props.dataLabel]: this.state.value },
+        ...{ [this.props.dataLabel]: this.state.value }
       },
-      'data',
-      'dataLabel',
-      'wrappedComponent',
-      'containerClassName',
+      "data",
+      "dataLabel",
+      "wrappedComponent",
+      "containerClassName"
     );
     return (
-      <div className={'loading-component ' + this.props.containerClassName}>
+      <div className={"loading-component " + this.props.containerClassName}>
         {!this.state.resolved && <Loader />}
         <WrappedComponent {...props} />
       </div>
@@ -58,5 +58,5 @@ LoadingComponent.propTypes = {
   data: PropTypes.any.isRequired,
   dataLabel: PropTypes.string.isRequired,
   wrappedComponent: PropTypes.any,
-  containerClassName: PropTypes.string,
+  containerClassName: PropTypes.string
 };

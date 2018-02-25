@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import _ from 'underscore';
-import moment from 'moment';
-import DatePicker from 'react-datepicker';
-import { RangePicker } from '../range-picker/RangePicker';
+import React, { Component } from "react";
+import _ from "underscore";
+import moment from "moment";
+import DatePicker from "react-datepicker";
+import { RangePicker } from "../range-picker/RangePicker";
 import {
   getMonthsDifference,
   getNumericalRangeFromDates,
   DATE_FORMAT,
-  DATE_STEP,
-} from '../../util/range-util';
-import { BarChartRangePicker } from '../range-chart-picker/BarChartRangePicker';
-import { SplineChartRangePicker } from '../range-chart-picker/SplineChartRangePicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import './TimeStatistics.css';
-import nextIcon from '../../assets/next.svg';
+  DATE_STEP
+} from "../../util/range-util";
+import { BarChartRangePicker } from "../range-chart-picker/BarChartRangePicker";
+import { SplineChartRangePicker } from "../range-chart-picker/SplineChartRangePicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./TimeStatistics.css";
+import nextIcon from "../../assets/next.svg";
 
 export class TimeStatistics extends Component {
   onRangeChange = values => {
     const dates = [
       this.formatNumericalValueToDateString(values.min),
-      this.formatNumericalValueToDateString(values.max),
+      this.formatNumericalValueToDateString(values.max)
     ];
     this.props.onChange(dates);
   };
@@ -39,12 +39,12 @@ export class TimeStatistics extends Component {
     return {
       min: getMonthsDifference(
         this.props.timeRange[0],
-        this.props.timeRangeSpan[0],
+        this.props.timeRangeSpan[0]
       ),
       max: getMonthsDifference(
         this.props.timeRange[1],
-        this.props.timeRangeSpan[0],
-      ),
+        this.props.timeRangeSpan[0]
+      )
     };
   };
   formatRangeValue = (value, type) => {
@@ -58,13 +58,13 @@ export class TimeStatistics extends Component {
   handleStartDateChange = date => {
     this.props.onChange([
       moment(date, DATE_FORMAT),
-      moment(this.props.timeRangeSpan[1], DATE_FORMAT),
+      moment(this.props.timeRangeSpan[1], DATE_FORMAT)
     ]);
   };
   handleEndDateChange = date => {
     this.props.onChange([
       moment(this.props.timeRangeSpan[0], DATE_FORMAT),
-      moment(date, DATE_FORMAT),
+      moment(date, DATE_FORMAT)
     ]);
   };
   render() {

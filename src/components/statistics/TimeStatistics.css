@@ -16,27 +16,27 @@
   background-color: transparent;
 }
 .date-picker__calendar {
-    border-radius: 6px;
-    background-color: #3c424f;
-    box-shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.3);
-    border: none;
-    color: #9fa6b7;
+  border-radius: 6px;
+  background-color: #3c424f;
+  box-shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.3);
+  border: none;
+  color: #9fa6b7;
 }
 .date-picker__calendar .react-datepicker__day-name,
 .date-picker__calendar .react-datepicker__day {
-    margin: auto 7px;
+  margin: auto 7px;
 }
 .date-picker__calendar .react-datepicker__day-name,
 .date-picker__calendar .react-datepicker__day,
 .date-picker__calendar .react-datepicker__current-month {
-    color: #9fa6b7;
+  color: #9fa6b7;
 }
 .date-picker__calendar .react-datepicker__day--disabled {
-    color: #5c636f;
+  color: #5c636f;
 }
-.date-picker__calendar  .react-datepicker__header {
-    background-color: #3c424f;
-    border: none;
+.date-picker__calendar .react-datepicker__header {
+  background-color: #3c424f;
+  border: none;
 }
 .date-picker__popper {
 }

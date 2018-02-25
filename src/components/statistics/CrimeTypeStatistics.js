@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { BarChart } from '../bar-chart/BarChart';
-import {getTranslatedCrimeType} from "../../util/crimes";
+import React, { Component } from "react";
+import { BarChart } from "../bar-chart/BarChart";
+import { getTranslatedCrimeType } from "../../util/crimes";
 
 export class CrimeTypeStatistics extends Component {
-    getTranslatedCrimes = () => {
-        return this.props.crimesByType.map(crime => ({
-            ...crime,
-            label: getTranslatedCrimeType(crime.label, this.props.language)
-        }))
-    }
+  getTranslatedCrimes = () => {
+    return this.props.crimesByType.map(crime => ({
+      ...crime,
+      label: getTranslatedCrimeType(crime.label, this.props.language)
+    }));
+  };
   render() {
     return (
       <div className="statistics-box">
@@ -20,5 +20,5 @@ export class CrimeTypeStatistics extends Component {
 }
 
 CrimeTypeStatistics.defaultProps = {
-  crimesByType: [],
+  crimesByType: []
 };

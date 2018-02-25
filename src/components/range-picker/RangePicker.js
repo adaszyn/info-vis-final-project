@@ -4,8 +4,6 @@ import "./RangePicker.css";
 
 export class RangePicker extends Component {
   render() {
-    return (
-      <InputRange {...this.props} />
-    );
+    return <InputRange {...this.props} />;
   }
 }

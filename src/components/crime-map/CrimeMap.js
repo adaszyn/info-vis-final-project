@@ -4,7 +4,7 @@ import { groupBy, first, map, flatten } from "underscore";
 import { getCrimeTypeColor } from "../../util/crimes";
 
 import "./CrimeMap.css";
-import {MapSidebar} from "../map-sidebar/MapSidebar";
+import { MapSidebar } from "../map-sidebar/MapSidebar";
 const Map = ReactMapboxGl({
   accessToken:
     "pk.eyJ1IjoidmlqZW1pdHUiLCJhIjoiY2pkdTlyMWQxMmltcjJwamczb2VlMnEzMiJ9.r2I_Atbg-1R3LeRBBojPfw"
@@ -110,16 +110,19 @@ export class CrimeMap extends Component {
           </Layer>
         </Map>
         <MapSidebar
-            crimeClassName="assault-title"
-            crime={this.props.selectedCrime}
-            onBackButtonClick={this.props.onCrimeDeselect}
-            onViewSourceButtonClick={() => { console.log('ViewSourceButtonClick') }}
-            onMarkButtonClick={() => { console.log('MarkButtonClick') }}
-            theme={this.props.theme}
-            language={this.props.language}
-            onLanguageChange={this.props.onLanguageChange}
-            onThemeChange={this.props.onThemeChange}
-
+          crimeClassName="assault-title"
+          crime={this.props.selectedCrime}
+          onBackButtonClick={this.props.onCrimeDeselect}
+          onViewSourceButtonClick={() => {
+            console.log("ViewSourceButtonClick");
+          }}
+          onMarkButtonClick={() => {
+            console.log("MarkButtonClick");
+          }}
+          theme={this.props.theme}
+          language={this.props.language}
+          onLanguageChange={this.props.onLanguageChange}
+          onThemeChange={this.props.onThemeChange}
         />
       </div>
     );
@@ -127,4 +130,4 @@ export class CrimeMap extends Component {
 }
 CrimeMap.defaultProps = {
   crimes: []
-}
+};

@@ -1,6 +1,6 @@
-import React from 'react';
-import './Loader.css';
-import loaderImage from '../../assets/finger-print.gif';
+import React from "react";
+import "./Loader.css";
+import loaderImage from "../../assets/finger-print.gif";
 
 export const Loader = () => {
   return (

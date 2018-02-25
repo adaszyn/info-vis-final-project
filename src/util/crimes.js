@@ -1,15 +1,15 @@
-import { memoize } from 'underscore';
-import { crimes } from '../constants/crimes';
+import { memoize } from "underscore";
+import { crimes } from "../constants/crimes";
 
-const DEFAULT_COLOR = '#FF00FF';
+const DEFAULT_COLOR = "#FF00FF";
 
 export const getTranslatedCrimeType = (name, language) => {
-  if (language === 'swedish') {
+  if (language === "swedish") {
     return name;
   }
   const [crime] = crimes.filter(crime => crime.name === name);
   if (!crime) {
-    throw 'Crime with such name does not exists';
+    throw "Crime with such name does not exists";
   }
   return crime.translation ? crime.translation : crime.name;
 };
@@ -17,7 +17,7 @@ export const getTranslatedCrimeType = (name, language) => {
 export const getCrimeTypeColor = memoize(name => {
   const [crime] = crimes.filter(crime => crime.name === name);
   if (!crime) {
-    throw 'Crime with such name does not exists';
+    throw "Crime with such name does not exists";
   }
   return crime.color ? crime.color : DEFAULT_COLOR;
 });
