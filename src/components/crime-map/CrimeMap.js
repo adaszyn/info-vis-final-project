@@ -4,6 +4,7 @@ import { groupBy, first, map, flatten } from "underscore";
 import { getCrimeTypeColor } from "../../util/crimes";
 
 import "./CrimeMap.css";
+import {MapSidebar} from "../map-sidebar/MapSidebar";
 const Map = ReactMapboxGl({
   accessToken:
     "pk.eyJ1IjoidmlqZW1pdHUiLCJhIjoiY2pkdTlyMWQxMmltcjJwamczb2VlMnEzMiJ9.r2I_Atbg-1R3LeRBBojPfw"
@@ -89,6 +90,7 @@ export class CrimeMap extends Component {
       );
     });
   };
+
   render() {
     const crimesByType = groupBy(this.props.crimes, "crimeType");
     return (
@@ -110,6 +112,13 @@ export class CrimeMap extends Component {
             {this.props.crimes.map(this.renderCrimeMarker)}
           </Layer>
         </Map>
+        { this.props.selectedCrime && <MapSidebar
+            crimeClassName="assault-title"
+            crime={this.props.selectedCrime}
+            onBackButtonClick={() => { console.log('BackButtonClick') }}
+            onViewSourceButtonClick={() => { console.log('ViewSourceButtonClick') }}
+            onMarkButtonClick={() => { console.log('MarkButtonClick') }}
+        />}
       </div>
     );
   }

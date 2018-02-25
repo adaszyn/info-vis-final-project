@@ -42,7 +42,7 @@ export class App extends Component {
           values: [],
           labels: [],
       },
-      crimeSelected: null,
+      selectedCrime: null,
     };
     this.mapCenter =[15.798669, 62.450588];
     this.mapZoom = [3];
@@ -59,7 +59,7 @@ export class App extends Component {
   };
   onCrimeSelected = (crime) => {
       this.setState({
-          crimeSelected: crime
+          selectedCrime: crime
       })
   }
   fetchCrimesWithDelay = _.debounce(() => {
@@ -187,33 +187,18 @@ export class App extends Component {
   }
 
   render() {
-    const renderMapSidebar = (crimes) => {
-      if(crimes.length > 1) {
-        return (
-          <MapSidebar
-            crimeClassName="assault-title"
-            crime={crimes[4]}
-            onBackButtonClick={() => { console.log('BackButtonClick') }}
-            onViewSourceButtonClick={() => { console.log('ViewSourceButtonClick') }}
-            onMarkButtonClick={() => { console.log('MarkButtonClick') }}
-          />
-        )
-      }
-    }
     return (
       <div className="container">
         <Header />
-          <div className="map-section">
-              <CrimeMap
-              onBoundingBoxChange={this.onBoundingBoxChange}
-              crimes={this.state.crimes}
-              onRender={this.onBoundingBoxChange}
-              center ={this.mapCenter}
-              zoom = {this.mapZoom}
-              onCrimeSelected={this.onCrimeSelected}
-            />
-          {renderMapSidebar(this.state.crimes)}
-        </div>
+        <CrimeMap
+          onBoundingBoxChange={this.onBoundingBoxChange}
+          crimes={this.state.crimes}
+          onRender={this.onBoundingBoxChange}
+          center ={this.mapCenter}
+          zoom = {this.mapZoom}
+          onCrimeSelected={this.onCrimeSelected}
+          selectedCrime={this.state.selectedCrime}
+        />
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}

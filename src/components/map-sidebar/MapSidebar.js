@@ -21,6 +21,7 @@ export const MapSidebar = (props) => {
 
   return (
     <div className="map-sidebar">
+      <div className="map-sidebar__background" />
       <button 
         className="map-sidebar-back-button"
         onClick={props.onBackButtonClick}
