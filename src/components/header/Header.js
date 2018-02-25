@@ -7,7 +7,6 @@ export class Header extends Component {
     return (
       <div className="header">
         CRIMEVIS
-        <SearchBar />
       </div>
     );
   }

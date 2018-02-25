@@ -5,6 +5,7 @@ import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
 
 import './MapSidebar.css';
+import { Header } from '../header/Header';
 
 function cleanParagraphText(text) {
   return text
@@ -30,6 +31,7 @@ export const MapSidebar = props => {
 
   return (
     <div className="map-sidebar">
+      <Header />
       <div className="map-sidebar__background" />
       <button
         className="map-sidebar-back-button"

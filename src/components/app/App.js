@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
 import { CrimeMap } from '../crime-map/CrimeMap';
-import { MapSidebar } from '../map-sidebar/MapSidebar';
-import { Header } from '../header/Header';
 import { Statistics } from '../statistics/Statistics';
 import {
   fetchCrimes,
@@ -38,7 +36,7 @@ export class App extends Component {
         min: 1,
         max: 6,
       },
-      montlyDistribution: {
+      monthlyDistribution: {
         values: [],
         labels: [],
       },
@@ -71,7 +69,7 @@ export class App extends Component {
       endHour: this.state.hourRange.max,
     })
       .then(crimes => {
-        this.setState({ crimes });
+        this.setState({ crimes, selectedCrime: crimes[0] });
       })
       .catch(error => {
         console.error(error);
@@ -158,7 +156,7 @@ export class App extends Component {
     })
       .then(data => {
         this.setState({
-          montlyDistribution: data,
+            monthlyDistribution: data,
         });
       })
       .catch(error => {
@@ -194,7 +192,6 @@ export class App extends Component {
   render() {
     return (
       <div className="container">
-        <Header />
         <CrimeMap
           onBoundingBoxChange={this.onBoundingBoxChange}
           crimes={this.state.crimes}
@@ -211,7 +208,7 @@ export class App extends Component {
           crimesByRegion={this.state.crimesByRegion}
           timeRange={this.state.timeRange}
           hourlyDistribution={this.state.hourlyDistribution}
-          montlyDistribution={this.state.montlyDistribution}
+          monthlyDistribution={this.state.monthlyDistribution}
           timeRangeSpan={['01/11/2016', '01/02/2018']}
           onTimeRangeChange={this.onTimeRangeChange}
           hourRange={this.state.hourRange}

@@ -1,7 +1,7 @@
 .map-container {
     /* Chrome layout change detection bug */
     /* flex-grow: 1; */
-    height: calc(100vh - 450px);
+    height: calc(100vh - 350px);
     position: relative;
     overflow: hidden;
 }
