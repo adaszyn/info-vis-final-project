@@ -7,7 +7,7 @@ export const DATE_STEP = "days";
 export function getNumericalRangeFromDates(startDate, endDate) {
   const monthsBetween = moment(endDate, DATE_FORMAT).diff(
     moment(startDate, DATE_FORMAT),
-    DATE_STEP
+    DATE_STEP,
   );
   return _.range(0, monthsBetween);
 }

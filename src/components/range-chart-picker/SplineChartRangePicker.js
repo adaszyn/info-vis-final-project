@@ -5,7 +5,7 @@ import {
   scaleLinear,
   line,
   curveBundle,
-  curveCardinalClosed
+  curveCardinalClosed,
 } from "d3";
 import moment from "moment";
 import { range, min, max } from "underscore";
@@ -14,7 +14,7 @@ import {
   getMonthsDifference,
   getNumericalRangeFromDates,
   DATE_FORMAT,
-  DATE_STEP
+  DATE_STEP,
 } from "../../util/range-util";
 import "./ChartRangePicker.css";
 
@@ -44,7 +44,7 @@ export class SplineChartRangePicker extends Component {
   onRangeChange = values => {
     const dates = [
       this.formatNumericalValueToDateString(values.min),
-      this.formatNumericalValueToDateString(values.max)
+      this.formatNumericalValueToDateString(values.max),
     ];
     this.props.onChange(dates);
   };
@@ -67,12 +67,12 @@ export class SplineChartRangePicker extends Component {
     return {
       min: getMonthsDifference(
         this.props.timeRange[0],
-        this.props.timeRangeSpan[0]
+        this.props.timeRangeSpan[0],
       ),
       max: getMonthsDifference(
         this.props.timeRange[1],
-        this.props.timeRangeSpan[0]
-      )
+        this.props.timeRangeSpan[0],
+      ),
     };
   };
   formatRangeValue = (value, type) => {
@@ -95,13 +95,13 @@ export class SplineChartRangePicker extends Component {
     const { values, labels } = this.props.monthlyDistribution;
     const style = {
       height: this.percentageScale(value) + "%",
-      minWidth: 100 / values.length + "%"
+      minWidth: 100 / values.length + "%",
     };
     const fillStyle = {
       opacity:
         index >= this.props.hourRange.min && index < this.props.hourRange.max
           ? 1.0
-          : 0.4
+          : 0.4,
     };
     return (
       <div
@@ -126,9 +126,9 @@ export class SplineChartRangePicker extends Component {
     const data = domain.reduce(
       (zipped, x, i) => [
         ...zipped,
-        { x: this.xScale(x), y: 100 - this.yScale(values[i]) }
+        { x: this.xScale(x), y: 100 - this.yScale(values[i]) },
       ],
-      [{ x: 0, y: 100 }]
+      [{ x: 0, y: 100 }],
     );
     data.push({ x: 100, y: 100 });
 
@@ -151,17 +151,17 @@ export class SplineChartRangePicker extends Component {
     const maxValue = this.getSelectedTimeSpan().max;
     const filteredLabels = keepEveryNElement(
       this.props.monthlyDistribution.labels,
-      MAX_NUMBER_OF_LABELS
+      MAX_NUMBER_OF_LABELS,
     );
     const leftOverlayStyle = {
       width: `${100 * minValue / domainLength}%`,
       left: 0,
-      top: 0
+      top: 0,
     };
     const rightOverlayStyle = {
       width: `${100 * (domainLength - maxValue) / domainLength}%`,
       left: `${100 * maxValue / domainLength}%`,
-      top: 0
+      top: 0,
     };
     return (
       <div className="chart-range-picker-container bar-chart-range">

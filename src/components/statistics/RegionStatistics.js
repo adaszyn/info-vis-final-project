@@ -15,5 +15,5 @@ export class RegionStatistics extends Component {
 }
 
 RegionStatistics.defaultProps = {
-  crimesByRegion: []
+  crimesByRegion: [],
 };

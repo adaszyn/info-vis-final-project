@@ -2,363 +2,363 @@ export const crimes = [
   {
     name: "Övrigt",
     translation: "Other",
-    color: "#CCFFCC"
+    color: "#CCFFCC",
   },
   {
-    name: "Stöld"
+    name: "Stöld",
   },
   {
     name: "Brand",
-    color: "#0000FF"
+    color: "#0000FF",
   },
   {
     name: "Rattfylleri",
-    translation: "Drunk driving"
+    translation: "Drunk driving",
   },
   {
-    name: "Rån väpnat"
+    name: "Rån väpnat",
   },
   {
-    name: "Trafikolycka"
+    name: "Trafikolycka",
   },
   {
-    name: "Sammanfattning kväll"
+    name: "Sammanfattning kväll",
   },
   {
-    name: "Arbetsplatsolycka"
+    name: "Arbetsplatsolycka",
   },
   {
-    name: "Stöld/inbrott"
+    name: "Stöld/inbrott",
   },
   {
-    name: "Tillfälligt obemannat"
+    name: "Tillfälligt obemannat",
   },
   {
-    name: "Rån övrigt"
+    name: "Rån övrigt",
   },
   {
-    name: "Uppdatering"
+    name: "Uppdatering",
   },
   {
-    name: "Trafikolycka,  singel"
+    name: "Trafikolycka,  singel",
   },
   {
-    name: "Sammanfattning eftermiddag"
+    name: "Sammanfattning eftermiddag",
   },
   {
-    name: "Trafikolycka,  smitning från"
+    name: "Trafikolycka,  smitning från",
   },
   {
-    name: "Trafikbrott"
+    name: "Trafikbrott",
   },
   {
-    name: "Trafikolycka,  vilt"
+    name: "Trafikolycka,  vilt",
   },
   {
-    name: "Larm Inbrott"
+    name: "Larm Inbrott",
   },
   {
-    name: "Narkotikabrott"
+    name: "Narkotikabrott",
   },
   {
-    name: "Olaga hot"
+    name: "Olaga hot",
   },
   {
-    name: "Sammanfattning förmiddag"
+    name: "Sammanfattning förmiddag",
   },
   {
-    name: "Trafikkontroll"
+    name: "Trafikkontroll",
   },
   {
-    name: "Fylleri/LOB"
+    name: "Fylleri/LOB",
   },
   {
-    name: "Motorfordon,  stöld"
+    name: "Motorfordon,  stöld",
   },
   {
-    name: "Bedrägeri"
+    name: "Bedrägeri",
   },
   {
-    name: "Skadegörelse"
+    name: "Skadegörelse",
   },
   {
-    name: "Rån"
+    name: "Rån",
   },
   {
     name: "Trafikolycka,  personskada",
-    color: "#00FF00"
+    color: "#00FF00",
   },
   {
-    name: "Sammanfattning natt"
+    name: "Sammanfattning natt",
   },
   {
-    name: "Detonation"
+    name: "Detonation",
   },
   {
-    name: "Bråk"
+    name: "Bråk",
   },
   {
-    name: "Stöld,  försök"
+    name: "Stöld,  försök",
   },
   {
-    name: "Rån,  försök"
+    name: "Rån,  försök",
   },
   {
-    name: "Stöld,  ringa"
+    name: "Stöld,  ringa",
   },
   {
-    name: "Inbrott"
+    name: "Inbrott",
   },
   {
-    name: "Olovlig körning"
+    name: "Olovlig körning",
   },
   {
-    name: "Olaga intrång/hemfridsbrott"
+    name: "Olaga intrång/hemfridsbrott",
   },
   {
-    name: "Vapenlagen"
+    name: "Vapenlagen",
   },
   {
-    name: "Larm Överfall"
+    name: "Larm Överfall",
   },
   {
-    name: "Trafikhinder"
+    name: "Trafikhinder",
   },
   {
-    name: "Våld/hot mot tjänsteman"
+    name: "Våld/hot mot tjänsteman",
   },
   {
-    name: "Kontroll person/fordon"
+    name: "Kontroll person/fordon",
   },
   {
-    name: "Knivlagen"
+    name: "Knivlagen",
   },
   {
-    name: "Räddningsinsats"
+    name: "Räddningsinsats",
   },
   {
-    name: "Spridning smittsamma kemikalier"
+    name: "Spridning smittsamma kemikalier",
   },
   {
-    name: "Misshandel"
+    name: "Misshandel",
   },
   {
-    name: "Försvunnen person"
+    name: "Försvunnen person",
   },
   {
-    name: "Misshandel,  grov"
+    name: "Misshandel,  grov",
   },
   {
-    name: "Mord/dråp,  försök"
+    name: "Mord/dråp,  försök",
   },
   {
-    name: "Motorfordon,  anträffat stulet"
+    name: "Motorfordon,  anträffat stulet",
   },
   {
-    name: "Sammanfattning kväll och natt"
+    name: "Sammanfattning kväll och natt",
   },
   {
-    name: "Polisinsats/kommendering"
+    name: "Polisinsats/kommendering",
   },
   {
-    name: "Våldtäkt"
+    name: "Våldtäkt",
   },
   {
-    name: "Inbrott,  försök"
+    name: "Inbrott,  försök",
   },
   {
-    name: "Djur skadat/omhändertaget"
+    name: "Djur skadat/omhändertaget",
   },
   {
-    name: "Anträffat gods"
+    name: "Anträffat gods",
   },
   {
-    name: "Förfalskningsbrott"
+    name: "Förfalskningsbrott",
   },
   {
-    name: "Sjukdom/olycksfall"
+    name: "Sjukdom/olycksfall",
   },
   {
-    name: "Sedlighetsbrott"
+    name: "Sedlighetsbrott",
   },
   {
-    name: "Farligt föremål,  misstänkt"
+    name: "Farligt föremål,  misstänkt",
   },
   {
-    name: "Anträffad död"
+    name: "Anträffad död",
   },
   {
-    name: "Varningslarm/haveri"
+    name: "Varningslarm/haveri",
   },
   {
-    name: "Ofog barn/ungdom"
+    name: "Ofog barn/ungdom",
   },
   {
-    name: "Mord/dråp"
+    name: "Mord/dråp",
   },
   {
-    name: "Skottlossning"
+    name: "Skottlossning",
   },
   {
-    name: "Alkohollagen"
+    name: "Alkohollagen",
   },
   {
-    name: "Ofredande/förargelse"
+    name: "Ofredande/förargelse",
   },
   {
-    name: "Fjällräddning"
+    name: "Fjällräddning",
   },
   {
-    name: "Skottlossning,  misstänkt"
+    name: "Skottlossning,  misstänkt",
   },
   {
-    name: "Olaga frihetsberövande"
+    name: "Olaga frihetsberövande",
   },
   {
-    name: "Ordningslagen"
+    name: "Ordningslagen",
   },
   {
-    name: "Våldtäkt,  försök"
+    name: "Våldtäkt,  försök",
   },
   {
-    name: "Sammanfattning dag"
+    name: "Sammanfattning dag",
   },
   {
-    name: "Vållande till kroppsskada"
+    name: "Vållande till kroppsskada",
   },
   {
-    name: "trafikhinder"
+    name: "trafikhinder",
   },
   {
-    name: ""
+    name: "",
   },
   {
-    name: "misshandel"
+    name: "misshandel",
   },
   {
-    name: "Sammanfattning vecka"
+    name: "Sammanfattning vecka",
   },
   {
-    name: "Miljöbrott"
+    name: "Miljöbrott",
   },
   {
-    name: "inbrott"
+    name: "inbrott",
   },
   {
-    name: "Häleri"
+    name: "Häleri",
   },
   {
-    name: "sammanfattning Kväll"
+    name: "sammanfattning Kväll",
   },
   {
-    name: "Sammanfattning dygn"
+    name: "Sammanfattning dygn",
   },
   {
-    name: "Trafikkontroller"
+    name: "Trafikkontroller",
   },
   {
-    name: "Brand automatlarm"
+    name: "Brand automatlarm",
   },
   {
-    name: "Sammanfattning helg"
+    name: "Sammanfattning helg",
   },
   {
-    name: "Bombhot"
+    name: "Bombhot",
   },
   {
-    name: "Utlänningslagen"
+    name: "Utlänningslagen",
   },
   {
-    name: "Gränskontroll"
+    name: "Gränskontroll",
   },
   {
-    name: "rån"
+    name: "rån",
   },
   {
-    name: "Lagen om hundar och katter"
+    name: "Lagen om hundar och katter",
   },
   {
-    name: "Snatteri"
+    name: "Snatteri",
   },
   {
-    name: "Missbruk av urkund"
+    name: "Missbruk av urkund",
   },
   {
-    name: "Preliminär brottsstatistik under festivalen We Are Sthlm"
+    name: "Preliminär brottsstatistik under festivalen We Are Sthlm",
   },
   {
-    name: "Sjölagen"
+    name: "Sjölagen",
   },
   {
-    name: "sammanfattning natt"
+    name: "sammanfattning natt",
   },
   {
-    name: "Häsängen"
+    name: "Häsängen",
   },
   {
-    name: "Fylleri"
+    name: "Fylleri",
   },
   {
-    name: "Grov misshandel och rån"
+    name: "Grov misshandel och rån",
   },
   {
-    name: "Ekobrott"
+    name: "Ekobrott",
   },
   {
-    name: "narkotikabrott"
+    name: "narkotikabrott",
   },
   {
-    name: "Misshandel mm"
+    name: "Misshandel mm",
   },
   {
-    name: "stöld"
+    name: "stöld",
   },
   {
-    name: "Grov misshandel"
+    name: "Grov misshandel",
   },
   {
-    name: "Stöld med mera"
+    name: "Stöld med mera",
   },
   {
-    name: "Trafikolycka personskada"
+    name: "Trafikolycka personskada",
   },
   {
-    name: "brand"
+    name: "brand",
   },
   {
-    name: "Vinglande bil"
+    name: "Vinglande bil",
   },
   {
-    name: "övrigt"
+    name: "övrigt",
   },
   {
-    name: "12:56,  Rån"
+    name: "12:56,  Rån",
   },
   {
-    name: "14:09,  Stöld"
+    name: "14:09,  Stöld",
   },
   {
-    name: "12:48,  Narkotikabrott + Snatteri"
+    name: "12:48,  Narkotikabrott + Snatteri",
   },
   {
-    name: "11:15,  Narkotikabrott"
+    name: "11:15,  Narkotikabrott",
   },
   {
-    name: "11:24,  Brand"
+    name: "11:24,  Brand",
   },
   {
-    name: "skadegörelse"
+    name: "skadegörelse",
   },
   {
-    name: "Stöld ur fordon"
+    name: "Stöld ur fordon",
   },
   {
-    name: "Stöld/Inbrott"
+    name: "Stöld/Inbrott",
   },
   {
-    name: "Försök till väpnat rån"
+    name: "Försök till väpnat rån",
   },
   {
-    name: "sTÖLD/INBROTT"
-  }
+    name: "sTÖLD/INBROTT",
+  },
 ];

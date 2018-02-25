@@ -9,7 +9,7 @@ export const fetchCrimes = ({
   endDate,
   startHour,
   endHour,
-  boundingBox
+  boundingBox,
 }) => {
   const startTime = moment(startDate, DATE_FORMAT).unix();
   const endTime = moment(endDate, DATE_FORMAT).unix();
@@ -25,7 +25,7 @@ export const fetchCrimes = ({
     lng1,
     lng2,
     startHour,
-    endHour
+    endHour,
   });
   return axios
     .get(`${CONFIG.apiBase}/crime?${query}`)
@@ -41,7 +41,7 @@ export const fetchAggregatedCrimeTypes = ({
   boundingBox,
   limit = 8,
   startHour,
-  endHour
+  endHour,
 }) => {
   const lat2 = boundingBox.ne.lat;
   const lat1 = boundingBox.sw.lat;
@@ -59,14 +59,14 @@ export const fetchAggregatedCrimeTypes = ({
     lng2,
     limit,
     startHour,
-    endHour
+    endHour,
   });
   return axios
     .get(`${CONFIG.apiBase}/type?${query}`)
     .then(({ data }) => {
       return data.map(entry => ({
         label: entry.title,
-        value: entry.count
+        value: entry.count,
       }));
     })
     .catch(err => console.log(err));
@@ -78,7 +78,7 @@ export const fetchAggregatedCities = ({
   boundingBox,
   limit = 8,
   startHour,
-  endHour
+  endHour,
 }) => {
   const lat2 = boundingBox.ne.lat;
   const lat1 = boundingBox.sw.lat;
@@ -96,14 +96,14 @@ export const fetchAggregatedCities = ({
     lng2,
     limit,
     startHour,
-    endHour
+    endHour,
   });
   return axios
     .get(`${CONFIG.apiBase}/city?${query}`)
     .then(({ data }) => {
       return data.map(entry => ({
         label: entry.title,
-        value: entry.count
+        value: entry.count,
       }));
     })
     .catch(err => console.log(err));
@@ -115,7 +115,7 @@ export const fetchAggregatedRegions = ({
   boundingBox,
   limit = 8,
   startHour,
-  endHour
+  endHour,
 }) => {
   const lat2 = boundingBox.ne.lat;
   const lat1 = boundingBox.sw.lat;
@@ -133,14 +133,14 @@ export const fetchAggregatedRegions = ({
     lng2,
     limit,
     startHour,
-    endHour
+    endHour,
   });
   return axios
     .get(`${CONFIG.apiBase}/region?${query}`)
     .then(({ data }) => {
       return data.map(entry => ({
         label: entry.title,
-        value: entry.count
+        value: entry.count,
       }));
     })
     .catch(err => console.log(err));
@@ -181,7 +181,7 @@ export const fetchAggregatedMonths = ({ startDate, endDate, boundingBox }) => {
     .then(({ data }) => {
       return {
         values: data.map(({ value }) => value),
-        labels: data.map(({ label }) => label)
+        labels: data.map(({ label }) => label),
       };
     })
     .catch(err => console.log(err));

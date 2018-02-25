@@ -10,7 +10,7 @@ export class LoadingComponent extends Component {
     this.state = {
       resolved: false,
       value: undefined,
-      error: null
+      error: null,
     };
     this.promise = props.data;
     this.promise.then(this.resolvePromise);
@@ -19,13 +19,13 @@ export class LoadingComponent extends Component {
   resolvePromise = value => {
     this.setState({
       resolved: true,
-      value
+      value,
     });
   };
   rejectPromise = error => {
     this.setState({
       resolved: true,
-      error
+      error,
     });
   };
   componentWillReceiveProps(newProps) {
@@ -39,12 +39,12 @@ export class LoadingComponent extends Component {
     const props = omit(
       {
         ...this.props,
-        ...{ [this.props.dataLabel]: this.state.value }
+        ...{ [this.props.dataLabel]: this.state.value },
       },
       "data",
       "dataLabel",
       "wrappedComponent",
-      "containerClassName"
+      "containerClassName",
     );
     return (
       <div className={"loading-component " + this.props.containerClassName}>
@@ -58,5 +58,5 @@ LoadingComponent.propTypes = {
   data: PropTypes.any.isRequired,
   dataLabel: PropTypes.string.isRequired,
   wrappedComponent: PropTypes.any,
-  containerClassName: PropTypes.string
+  containerClassName: PropTypes.string,
 };

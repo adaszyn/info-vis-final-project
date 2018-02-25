@@ -8,7 +8,7 @@ import {
   fetchAggregatedCities,
   fetchAggregatedRegions,
   fetchAggregatedHours,
-  fetchAggregatedMonths
+  fetchAggregatedMonths,
 } from "../../util/api";
 import "./App.css";
 import { LoadingComponent } from "../loading-component/LoadingComponent";
@@ -19,12 +19,12 @@ export class App extends Component {
     this.boundingBox = {
       sw: {
         lng: -50.38297162496275,
-        lat: 48.31125180222088
+        lat: 48.31125180222088,
       },
       ne: {
         lng: 81.98030962503356,
-        lat: 72.05983593722306
-      }
+        lat: 72.05983593722306,
+      },
     };
     this.state = {
       timeRange: ["22/05/2017", "23/06/2017"],
@@ -35,11 +35,11 @@ export class App extends Component {
       hourlyDistribution: _.range(0, 24).map(v => 0),
       hourRange: {
         min: 1,
-        max: 6
+        max: 6,
       },
       monthlyDistribution: {
         values: [],
-        labels: []
+        labels: [],
       },
       selectedCrime: {
         id: "32819",
@@ -51,10 +51,10 @@ export class App extends Component {
         city: "Västervik",
         lat: 57.7577156,
         lng: 16.6369759,
-        created_at: 1498107562
+        created_at: 1498107562,
       },
       theme: "light",
-      language: "swedish"
+      language: "swedish",
     };
     this.mapCenter = [15.798669, 62.450588];
     this.mapZoom = [3];
@@ -62,7 +62,7 @@ export class App extends Component {
 
   onTimeRangeChange = timeRange => {
     this.setState({
-      timeRange
+      timeRange,
     });
     this.fetchCrimesWithDelay();
   };
@@ -71,7 +71,7 @@ export class App extends Component {
   };
   onCrimeSelected = crime => {
     this.setState({
-      selectedCrime: crime
+      selectedCrime: crime,
     });
   };
   getCommonQueryParams = () => {
@@ -80,7 +80,7 @@ export class App extends Component {
       endDate: this.state.timeRange[1],
       boundingBox: this.boundingBox,
       startHour: this.state.hourRange.min,
-      endHour: this.state.hourRange.max
+      endHour: this.state.hourRange.max,
     };
   };
   fetchCrimesWithDelay = _.debounce(() => {
@@ -88,16 +88,16 @@ export class App extends Component {
       crimesByType: fetchAggregatedCrimeTypes(this.getCommonQueryParams()),
       crimesByCity: fetchAggregatedCities(this.getCommonQueryParams()),
       crimesByRegion: fetchAggregatedRegions(this.getCommonQueryParams()),
-      crimes: fetchCrimes(this.getCommonQueryParams())
+      crimes: fetchCrimes(this.getCommonQueryParams()),
     });
     fetchAggregatedHours({
       startDate: this.state.timeRange[0],
       endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox
+      boundingBox: this.boundingBox,
     })
       .then(data => {
         this.setState({
-          hourlyDistribution: data
+          hourlyDistribution: data,
         });
       })
       .catch(error => {
@@ -114,11 +114,11 @@ export class App extends Component {
     fetchAggregatedMonths({
       startDate: "13/10/2016",
       endDate: "14/02/2018",
-      boundingBox: this.boundingBox
+      boundingBox: this.boundingBox,
     })
       .then(data => {
         this.setState({
-          monthlyDistribution: data
+          monthlyDistribution: data,
         });
       })
       .catch(error => {
@@ -147,7 +147,7 @@ export class App extends Component {
 
   onCrimeDeselect = () => {
     this.setState({
-      selectedCrime: null
+      selectedCrime: null,
     });
   };
   onThemeChange = theme => {

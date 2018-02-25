@@ -12,5 +12,5 @@ export class CityStatistics extends Component {
   }
 }
 CityStatistics.defaultProps = {
-  crimesByCity: []
+  crimesByCity: [],
 };

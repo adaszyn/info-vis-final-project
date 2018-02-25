@@ -7,7 +7,7 @@ import "./CrimeMap.css";
 import { MapSidebar } from "../map-sidebar/MapSidebar";
 const Map = ReactMapboxGl({
   accessToken:
-    "pk.eyJ1IjoidmlqZW1pdHUiLCJhIjoiY2pkdTlyMWQxMmltcjJwamczb2VlMnEzMiJ9.r2I_Atbg-1R3LeRBBojPfw"
+    "pk.eyJ1IjoidmlqZW1pdHUiLCJhIjoiY2pkdTlyMWQxMmltcjJwamczb2VlMnEzMiJ9.r2I_Atbg-1R3LeRBBojPfw",
 });
 
 const INITIAL_CENTER = [15.798669, 62.450588];
@@ -31,10 +31,10 @@ const heatMapLayerConfig = {
     0.8,
     "rgb(239,138,98)",
     1,
-    "rgb(178,24,43)"
+    "rgb(178,24,43)",
   ],
   "heatmap-radius": ["interpolate", ["linear"], ["zoom"], 0, 2, 9, 20],
-  "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 7, 1, 9, 0]
+  "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 7, 1, 9, 0],
 };
 
 function getLayerPointPaintConfig(crimeType) {
@@ -42,7 +42,7 @@ function getLayerPointPaintConfig(crimeType) {
     "circle-color": getCrimeTypeColor(crimeType),
     "circle-stroke-color": "white",
     "circle-stroke-width": 1,
-    "circle-opacity": ["interpolate", ["linear"], ["zoom"], 7, 0, 8, 1]
+    "circle-opacity": ["interpolate", ["linear"], ["zoom"], 7, 0, 8, 1],
   };
 }
 
@@ -56,7 +56,7 @@ export class CrimeMap extends Component {
 
     this.props.onBoundingBoxChange({
       sw: boundingBoxEvent._sw,
-      ne: boundingBoxEvent._ne
+      ne: boundingBoxEvent._ne,
     });
     this.zoom = map.getZoom();
   };
@@ -100,7 +100,7 @@ export class CrimeMap extends Component {
           onMove={this.onZoom}
           containerStyle={{
             height: "100%",
-            width: "100%"
+            width: "100%",
           }}
         >
           {this.renderLayers(crimesByType)}
@@ -129,5 +129,5 @@ export class CrimeMap extends Component {
   }
 }
 CrimeMap.defaultProps = {
-  crimes: []
+  crimes: [],
 };

@@ -21,13 +21,13 @@ export class BarChartRangePicker extends Component {
   renderBar = (value, index) => {
     const style = {
       height: this.percentageScale(value) + "%",
-      minWidth: 100 / this.props.values.length + "%"
+      minWidth: 100 / this.props.values.length + "%",
     };
     const fillStyle = {
       opacity:
         index >= this.props.hourRange.min && index < this.props.hourRange.max
           ? 1.0
-          : 0.4
+          : 0.4,
     };
     return (
       <div

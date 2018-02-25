@@ -6,7 +6,7 @@ export class CrimeTypeStatistics extends Component {
   getTranslatedCrimes = () => {
     return this.props.crimesByType.map(crime => ({
       ...crime,
-      label: getTranslatedCrimeType(crime.label, this.props.language)
+      label: getTranslatedCrimeType(crime.label, this.props.language),
     }));
   };
   render() {
@@ -20,5 +20,5 @@ export class CrimeTypeStatistics extends Component {
 }
 
 CrimeTypeStatistics.defaultProps = {
-  crimesByType: []
+  crimesByType: [],
 };

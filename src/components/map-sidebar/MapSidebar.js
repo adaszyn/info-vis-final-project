@@ -72,7 +72,7 @@ export const MapSidebar = props => {
           }`}</div>
           <div className="map-sidebar-date">
             {moment(props.crime.created_at * 1000).format(
-              "dddd, MMMM Do YYYY, hh:mm"
+              "dddd, MMMM Do YYYY, hh:mm",
             )}
           </div>
         </div>
@@ -120,9 +120,9 @@ MapSidebar.propTypes = {
     region: PropTypes.string,
     city: PropTypes.string,
     date: PropTypes.string,
-    created_at: PropTypes.number
+    created_at: PropTypes.number,
   }),
   onBackButtonClick: PropTypes.func,
   onViewSourceButtonClick: PropTypes.func,
-  onMarkButtonClick: PropTypes.func
+  onMarkButtonClick: PropTypes.func,
 };
