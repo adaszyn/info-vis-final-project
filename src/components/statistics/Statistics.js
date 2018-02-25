@@ -14,13 +14,13 @@ export class Statistics extends Component {
           data={this.props.crimesByRegion}
           wrappedComponent={RegionStatistics}
           dataLabel="crimesByRegion"
-          handleClick={this.props.handleClick}
           containerClassName="statistics-box-loader-container"
         />
         <LoadingComponent
           data={this.props.crimesByCity}
           wrappedComponent={CityStatistics}
           dataLabel="crimesByCity"
+          handleClick={this.props.handleClick}
           containerClassName="statistics-box-loader-container"
         />
         <LoadingComponent

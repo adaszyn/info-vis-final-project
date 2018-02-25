@@ -1,20 +1,14 @@
 .location__btn {
-  width: 200px;
-  height: 32px;
+  height: 24px;
+  border-radius: 12px;
+  border: 1px solid #9fa6b7;
   font-family: OpenSans;
-  font-size: 16px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #9fa6b7;
+  font-size: 12px;
   font-weight: bold;
-  background-color: #282c34;
-  border-radius: 6px;
-  border-color: #21252b;
-  text-align: left;
-  text-indent: 5px;
+  text-align: right;
+  color: #ffffff;
+  background-color: transparent;
+  float: right;
 }
 
 .location__btn:hover {
@@ -22,6 +16,7 @@
   color: #ffffff;
 }
 
-.medium-size__icon {
-  transform: scale(1.5, 1.5);
+.light-theme .location__btn {
+  color: black;
+  background-color: white;
 }
