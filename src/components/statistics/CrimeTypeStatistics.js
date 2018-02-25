@@ -3,6 +3,7 @@ import { BarChart } from '../bar-chart/BarChart';
 
 export class CrimeTypeStatistics extends Component {
   render() {
+      console.log(this.props)
     return (
       <div className="statistics-box">
         <h2 className="statistics-box__header">CRIME TYPE</h2>        
@@ -11,5 +12,9 @@ export class CrimeTypeStatistics extends Component {
       </div>
     );
   }
+}
+
+CrimeTypeStatistics.defaultProps = {
+    crimesByType: []
 }
 

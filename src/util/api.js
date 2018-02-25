@@ -30,8 +30,11 @@ export const fetchAggregatedCrimeTypes = ({ startDate, endDate, boundingBox, lim
     const endTime = moment(endDate, DATE_FORMAT).unix();
     const query = qs.encode({ startTime, endTime, lat1, lat2, lng1, lng2, limit, startHour, endHour });
     return axios.get(`${CONFIG.apiBase}/type?${query}`)
-      .then(response => {
-          return response.data;
+      .then(({data}) => {
+          return data.map(entry => ({
+              label: entry.title,
+              value: entry.count,
+          }))
       })
       .catch(err => console.log(err))
   };
@@ -47,8 +50,11 @@ export const fetchAggregatedCities = ({ startDate, endDate, boundingBox, limit =
     const endTime = moment(endDate, DATE_FORMAT).unix();
     const query = qs.encode({ startTime, endTime, lat1, lat2, lng1, lng2, limit, startHour, endHour });
     return axios.get(`${CONFIG.apiBase}/city?${query}`)
-      .then(response => {
-          return response.data;
+      .then(({data}) => {
+          return data.map(entry => ({
+              label: entry.title,
+              value: entry.count,
+          }));
       })
       .catch(err => console.log(err))
   };
@@ -63,8 +69,11 @@ export const fetchAggregatedCities = ({ startDate, endDate, boundingBox, limit =
     const endTime = moment(endDate, DATE_FORMAT).unix();
     const query = qs.encode({ startTime, endTime, lat1, lat2, lng1, lng2, limit, startHour, endHour });
     return axios.get(`${CONFIG.apiBase}/region?${query}`)
-      .then(response => {
-          return response.data;
+      .then(({data}) => {
+          return data.map(entry => ({
+              label: entry.title,
+              value: entry.count,
+          }))
       })
       .catch(err => console.log(err))
   };

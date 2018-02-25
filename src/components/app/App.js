@@ -28,9 +28,9 @@ export class App extends Component {
     this.state = {
       timeRange: ['22/05/2017', '23/06/2017'],
       crimes: [],
-      crimesByType: [],
-      crimesByCity: [],
-      crimesByRegion: [],
+      crimesByType: Promise.resolve([]),
+      crimesByCity: Promise.resolve([]),
+      crimesByRegion: Promise.resolve([]),
       hourlyDistribution: _.range(0, 24).map(v => 0),
       hourRange: {
         min: 1,
@@ -60,6 +60,15 @@ export class App extends Component {
       selectedCrime: crime,
     });
   };
+  getCommonQueryParams = () => {
+    return {
+      startDate: this.state.timeRange[0],
+      endDate: this.state.timeRange[1],
+      boundingBox: this.boundingBox,
+      startHour: this.state.hourRange.min,
+      endHour: this.state.hourRange.max,
+    };
+  };
   fetchCrimesWithDelay = _.debounce(() => {
     fetchCrimes({
       startDate: this.state.timeRange[0],
@@ -74,60 +83,11 @@ export class App extends Component {
       .catch(error => {
         console.error(error);
       });
-    fetchAggregatedCrimeTypes({
-      startDate: this.state.timeRange[0],
-      endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox,
-      startHour: this.state.hourRange.min,
-      endHour: this.state.hourRange.max,
-    })
-      .then(data => {
-        this.setState({
-          crimesByType: data.map(entry => ({
-            label: entry.title,
-            value: entry.count,
-          })),
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    fetchAggregatedCities({
-      startDate: this.state.timeRange[0],
-      endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox,
-      startHour: this.state.hourRange.min,
-      endHour: this.state.hourRange.max,
-    })
-      .then(data => {
-        this.setState({
-          crimesByCity: data.map(entry => ({
-            label: entry.title,
-            value: entry.count,
-          })),
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    fetchAggregatedRegions({
-      startDate: this.state.timeRange[0],
-      endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox,
-      startHour: this.state.hourRange.min,
-      endHour: this.state.hourRange.max,
-    })
-      .then(data => {
-        this.setState({
-          crimesByRegion: data.map(entry => ({
-            label: entry.title,
-            value: entry.count,
-          })),
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    this.setState({
+      crimesByType: fetchAggregatedCrimeTypes(this.getCommonQueryParams()),
+      crimesByCity: fetchAggregatedCities(this.getCommonQueryParams()),
+      crimesByRegion: fetchAggregatedRegions(this.getCommonQueryParams()),
+    });
     fetchAggregatedHours({
       startDate: this.state.timeRange[0],
       endDate: this.state.timeRange[1],
@@ -156,7 +116,7 @@ export class App extends Component {
     })
       .then(data => {
         this.setState({
-            monthlyDistribution: data,
+          monthlyDistribution: data,
         });
       })
       .catch(error => {

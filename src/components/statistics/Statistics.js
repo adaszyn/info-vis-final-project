@@ -1,25 +1,42 @@
-import React, { Component } from "react";
-import { CityStatistics } from "./CityStatistics";
-import { RegionStatistics } from "./RegionStatistics";
-import { CrimeTypeStatistics } from "./CrimeTypeStatistics";
-import { TimeStatistics } from "./TimeStatistics";
-import "./Statistics.css";
+import React, { Component } from 'react';
+import { CityStatistics } from './CityStatistics';
+import { RegionStatistics } from './RegionStatistics';
+import { CrimeTypeStatistics } from './CrimeTypeStatistics';
+import { TimeStatistics } from './TimeStatistics';
+import './Statistics.css';
+import { LoadingComponent } from '../loading-component/LoadingComponent';
 
 export class Statistics extends Component {
   render() {
     return (
       <div className="statistics-container">
-        <RegionStatistics crimesByRegion={this.props.crimesByRegion} handleClick={this.props.handleClick}/>
-        <CityStatistics crimesByCity={this.props.crimesByCity} />
-        <CrimeTypeStatistics crimesByType={this.props.crimesByType} />
+        <LoadingComponent
+          data={this.props.crimesByRegion}
+          wrappedComponent={RegionStatistics}
+          dataLabel="crimesByRegion"
+          containerClassName="statistics-box-loader-container"
+        />
+        <LoadingComponent
+          data={this.props.crimesByCity}
+          wrappedComponent={CityStatistics}
+          dataLabel="crimesByCity"
+          containerClassName="statistics-box-loader-container"
+        />
+        <LoadingComponent
+          data={this.props.crimesByType}
+          wrappedComponent={CrimeTypeStatistics}
+          dataLabel="crimesByType"
+          containerClassName="statistics-box-loader-container"
+        />
         <TimeStatistics
-            timeRange={this.props.timeRange}
-            timeRangeSpan={this.props.timeRangeSpan}
-            hourlyDistribution={this.props.hourlyDistribution}
-            monthlyDistribution={this.props.monthlyDistribution}
-            hourRange={this.props.hourRange}
-            onHourRangeChange={this.props.onHourRangeChange}
-            onChange={this.props.onTimeRangeChange} />
+          timeRange={this.props.timeRange}
+          timeRangeSpan={this.props.timeRangeSpan}
+          hourlyDistribution={this.props.hourlyDistribution}
+          monthlyDistribution={this.props.monthlyDistribution}
+          hourRange={this.props.hourRange}
+          onHourRangeChange={this.props.onHourRangeChange}
+          onChange={this.props.onTimeRangeChange}
+        />
       </div>
     );
   }

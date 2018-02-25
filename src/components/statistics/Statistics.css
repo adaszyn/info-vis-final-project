@@ -9,7 +9,14 @@
     padding: 0 25px;
     border: solid 1px #000000;
     flex-basis: 240px;
+    height: 100%;
 }
+.statistics-box-loader-container {
+    flex-grow: 1;
+    flex-basis: 240px;
+    height: 100%;
+}
+
 .statistics-box__header {
     width: 240px;
     width: 100%;
