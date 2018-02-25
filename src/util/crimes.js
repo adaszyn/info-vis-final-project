@@ -9,7 +9,7 @@ export const getTranslatedCrimeType = (name, language) => {
   }
   const [crime] = crimes.filter(crime => crime.name === name);
   if (!crime) {
-    throw "Crime with such name does not exists";
+    return name;
   }
   return crime.translation ? crime.translation : crime.name;
 };
@@ -17,7 +17,7 @@ export const getTranslatedCrimeType = (name, language) => {
 export const getCrimeTypeColor = memoize(name => {
   const [crime] = crimes.filter(crime => crime.name === name);
   if (!crime) {
-    throw "Crime with such name does not exists";
+    return DEFAULT_COLOR;
   }
   return crime.color ? crime.color : DEFAULT_COLOR;
 });
