@@ -112,13 +112,13 @@ export class CrimeMap extends Component {
             {this.props.crimes.map(this.renderCrimeMarker)}
           </Layer>
         </Map>
-        { this.props.selectedCrime && <MapSidebar
+        <MapSidebar
             crimeClassName="assault-title"
             crime={this.props.selectedCrime}
-            onBackButtonClick={() => { console.log('BackButtonClick') }}
+            onBackButtonClick={this.props.onCrimeDeselect}
             onViewSourceButtonClick={() => { console.log('ViewSourceButtonClick') }}
             onMarkButtonClick={() => { console.log('MarkButtonClick') }}
-        />}
+        />
       </div>
     );
   }
