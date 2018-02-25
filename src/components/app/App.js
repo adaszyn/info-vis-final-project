@@ -11,6 +11,8 @@ import {
   fetchAggregatedMonths,
 } from '../../util/api';
 import './App.css';
+import { CityStatistics } from '../statistics/CityStatistics';
+import { LoadingComponent } from '../loading-component/LoadingComponent';
 
 export class App extends Component {
   constructor() {
@@ -27,7 +29,7 @@ export class App extends Component {
     };
     this.state = {
       timeRange: ['22/05/2017', '23/06/2017'],
-      crimes: [],
+      crimes: Promise.resolve([]),
       crimesByType: Promise.resolve([]),
       crimesByCity: Promise.resolve([]),
       crimesByRegion: Promise.resolve([]),
@@ -70,23 +72,11 @@ export class App extends Component {
     };
   };
   fetchCrimesWithDelay = _.debounce(() => {
-    fetchCrimes({
-      startDate: this.state.timeRange[0],
-      endDate: this.state.timeRange[1],
-      boundingBox: this.boundingBox,
-      startHour: this.state.hourRange.min,
-      endHour: this.state.hourRange.max,
-    })
-      .then(crimes => {
-        this.setState({ crimes, selectedCrime: crimes[0] });
-      })
-      .catch(error => {
-        console.error(error);
-      });
     this.setState({
       crimesByType: fetchAggregatedCrimeTypes(this.getCommonQueryParams()),
       crimesByCity: fetchAggregatedCities(this.getCommonQueryParams()),
       crimesByRegion: fetchAggregatedRegions(this.getCommonQueryParams()),
+      crimes: fetchCrimes(this.getCommonQueryParams()),
     });
     fetchAggregatedHours({
       startDate: this.state.timeRange[0],
@@ -152,15 +142,18 @@ export class App extends Component {
   render() {
     return (
       <div className="container">
-        <CrimeMap
+        <LoadingComponent
           onBoundingBoxChange={this.onBoundingBoxChange}
-          crimes={this.state.crimes}
           onRender={this.onBoundingBoxChange}
           center={this.mapCenter}
           zoom={this.mapZoom}
           onCrimeSelected={this.onCrimeSelected}
           selectedCrime={this.state.selectedCrime}
           onCrimeDeselect={this.onCrimeDeselect}
+          data={this.state.crimes}
+          wrappedComponent={CrimeMap}
+          dataLabel="crimes"
+          containerClassName="statistics-box-loader-container"
         />
         <Statistics
           crimesByType={this.state.crimesByType}

@@ -123,3 +123,6 @@ export class CrimeMap extends Component {
     );
   }
 }
+CrimeMap.defaultProps = {
+  crimes: []
+}
