@@ -60,9 +60,6 @@ export class CrimeMap extends Component {
     });
     this.zoom = map.getZoom();
   };
-  onFeatureClick = (crime) => {
-      console.log(crime)
-  }
 
   renderCrimeMarker = crime => {
     return (
@@ -118,6 +115,11 @@ export class CrimeMap extends Component {
             onBackButtonClick={this.props.onCrimeDeselect}
             onViewSourceButtonClick={() => { console.log('ViewSourceButtonClick') }}
             onMarkButtonClick={() => { console.log('MarkButtonClick') }}
+            theme={this.props.theme}
+            language={this.props.language}
+            onLanguageChange={this.props.onLanguageChange}
+            onThemeChange={this.props.onThemeChange}
+
         />
       </div>
     );

@@ -42,7 +42,20 @@ export class App extends Component {
         values: [],
         labels: [],
       },
-      selectedCrime: null,
+      selectedCrime: {
+        id: '32819',
+        crimeType: 'Misshandel',
+        description: 'Man som blivit misshandlad, Bökensved.',
+        content:
+          'Polis och ambulans skickas till Bökensved, där en man blivit misshandlad. Mannen förs med ambulans till sjukhus. Övriga omständigheter är i nuläget oklara.\r\nPolisen Kalmar län',
+        region: 'Kalmar län',
+        city: 'Västervik',
+        lat: 57.7577156,
+        lng: 16.6369759,
+        created_at: 1498107562,
+      },
+      theme: 'dark',
+      language: 'swedish',
     };
     this.mapCenter = [15.798669, 62.450588];
     this.mapZoom = [3];
@@ -138,6 +151,12 @@ export class App extends Component {
       selectedCrime: null,
     });
   };
+  onThemeChange = theme => {
+    this.setState({ theme });
+  };
+  onLanguageChange = language => {
+    this.setState({ language });
+  };
 
   render() {
     return (
@@ -154,6 +173,10 @@ export class App extends Component {
           wrappedComponent={CrimeMap}
           dataLabel="crimes"
           containerClassName="statistics-box-loader-container"
+          theme={this.state.theme}
+          language={this.state.language}
+          onLanguageChange={this.onLanguageChange}
+          onThemeChange={this.onThemeChange}
         />
         <Statistics
           crimesByType={this.state.crimesByType}
@@ -167,6 +190,8 @@ export class App extends Component {
           hourRange={this.state.hourRange}
           onHourRangeChange={this.onHourRangeChange}
           handleClick={this.handleClick}
+          theme={this.state.theme}
+          language={this.state.language}
         />
       </div>
     );

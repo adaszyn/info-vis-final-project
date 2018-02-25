@@ -31,7 +31,12 @@ export const MapSidebar = props => {
 
   return (
     <div className="map-sidebar">
-      <Header />
+      <Header
+        theme={props.theme}
+        language={props.language}
+        onLanguageChange={props.onLanguageChange}
+        onThemeChange={props.onThemeChange}
+      />
       <div className="map-sidebar__background" />
       <button
         className="map-sidebar-back-button"

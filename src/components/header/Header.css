@@ -9,11 +9,15 @@
   text-align: justify;
   color: #babfc8;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   justify-items: center;
   align-items: center;
-  padding: 0px 69px;
+  padding: 0px 10px;
   height: 45px;
   background-color: rgba(10, 10, 10, 0.96);
   box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.8);
+}
+.header img {
+  margin-right: 10px;
+  margin-left: 10px;
 }

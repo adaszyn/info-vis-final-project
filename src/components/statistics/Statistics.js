@@ -27,6 +27,7 @@ export class Statistics extends Component {
           wrappedComponent={CrimeTypeStatistics}
           dataLabel="crimesByType"
           containerClassName="statistics-box-loader-container"
+          language={this.props.language}
         />
         <TimeStatistics
           timeRange={this.props.timeRange}
