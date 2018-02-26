@@ -12,10 +12,12 @@
   color: #5c636f;
   z-index: 40;
   bottom: 300px;
+  transition: 0.1s bottom;
 }
 
 .hide-toggle-bar {
   bottom: 0px;
+  transition: 0.1s bottom;
 }
 
 .light-theme .statistics-toggle-bar {
