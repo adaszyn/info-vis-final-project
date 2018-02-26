@@ -8,6 +8,9 @@ import { LoadingComponent } from "../loading-component/LoadingComponent";
 
 export class Statistics extends Component {
   render() {
+    if(this.props.isStatisticBarHidden){
+      return('');
+    }
     return (
       <div className="statistics-container">
         <LoadingComponent

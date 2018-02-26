@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import _ from "underscore";
 import { CrimeMap } from "../crime-map/CrimeMap";
 import { Statistics } from "../statistics/Statistics";
+import { ToggleBar } from "../toggle-bar/ToggleBar";
 import {
   fetchCrimes,
   fetchAggregatedCrimeTypes,
@@ -55,6 +56,7 @@ export class App extends Component {
       },
       theme: "light",
       language: "swedish",
+      isStatisticBarHidden: false,
     };
     this.mapCenter = [15.798669, 62.450588];
     this.mapZoom = [3];
@@ -157,6 +159,12 @@ export class App extends Component {
     this.setState({ language });
   };
 
+  toggleStatisticsBar = () => {
+    this.setState({
+      isStatisticBarHidden: !this.state.isStatisticBarHidden
+    })
+  };
+
   render() {
     const className =
       this.state.theme === "light" ? "container light-theme" : "container";
@@ -179,6 +187,12 @@ export class App extends Component {
           onLanguageChange={this.onLanguageChange}
           onThemeChange={this.onThemeChange}
         />
+        <ToggleBar
+          isStatisticBarHidden = {this.state.isStatisticBarHidden}
+          toggleStatisticsBar = {this.toggleStatisticsBar}
+          timeRange = {this.state.timeRange}
+          hourRange = {this.state.hourRange}
+        />
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}
@@ -193,6 +207,7 @@ export class App extends Component {
           handleClick={this.handleClick}
           theme={this.state.theme}
           language={this.state.language}
+          isStatisticBarHidden = {this.state.isStatisticBarHidden}
         />
       </div>
     );
