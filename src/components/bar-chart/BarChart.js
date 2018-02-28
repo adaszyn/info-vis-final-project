@@ -21,7 +21,9 @@ export class BarChart extends Component {
   }
 
   onClicked = (e) => {
-    this.props.onCrimeTypeSelected(e.target.id);
+    if(this.props.selectedCrimeType && e.target.id){
+      this.props.onCrimeTypeSelected(e.target.id);
+    }
   }
 
   renderBar = entry => {
