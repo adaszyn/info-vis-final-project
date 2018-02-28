@@ -74,6 +74,10 @@ export class CrimeMap extends Component {
 
   renderLayers = crimesByType => {
     return map(crimesByType, (crimes, crimeType) => {
+      var isCrimeTypeValid = getCrimeTypeColor(crimeType);
+      if (!isCrimeTypeValid)  {
+        return;
+      }
       return (
         <Layer
           key={`crime-type-point-layer-${crimeType}`}

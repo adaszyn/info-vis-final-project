@@ -16,8 +16,8 @@ export const getTranslatedCrimeType = (name, language) => {
 
 export const getCrimeTypeColor = memoize(name => {
   const [crime] = crimes.filter(crime => crime.name === name);
-  if (!crime) {
-    return DEFAULT_COLOR;
+  if (!crime || !crime.color) {
+    return false;
   }
-  return crime.color ? crime.color : DEFAULT_COLOR;
+  return crime.color;
 });
