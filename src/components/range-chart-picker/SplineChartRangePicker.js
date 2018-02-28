@@ -27,8 +27,8 @@ const keepEveryNElement = (collection, n) => {
   if (n >= len) {
     return collection;
   }
-  for (let i = 0; i < len; i += step) {
-    result.push(collection[Math.floor(i)]);
+  for (let i = 1; i < len; i += step) {
+    result.push(collection[Math.ceil(i)]);
   }
   return result;
 };
@@ -56,7 +56,12 @@ export class SplineChartRangePicker extends Component {
   getNumericalSpan = () =>
     getNumericalRangeFromDates(...this.props.timeRangeSpan);
 
-  getMaxRangeSpan = () => max(this.getNumericalSpan());
+  getMaxRangeSpan = () => {
+    // Here we might need the length of the array instead of the max value.
+    // Or one more item in the array.
+    // Incrementing solved the problem for now.
+    return max(this.getNumericalSpan()) + 1
+  };
 
   getMinRangeSpan = () => min(this.getNumericalSpan());
 

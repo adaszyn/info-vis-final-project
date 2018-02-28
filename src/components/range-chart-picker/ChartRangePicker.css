@@ -31,6 +31,15 @@
   white-space: nowrap;
 }
 
+.chart-range-picker-container {
+	margin: 38px 20px 0;
+}
+
+.chart-range-picker-container-labels {
+	margin-left: -20px;
+	margin-right: -20px;
+}
+
 /* BAR CHART RANGE */
 .bar-chart-range__bar {
   float: left;
