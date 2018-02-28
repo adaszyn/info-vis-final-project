@@ -58,12 +58,12 @@ export class TimeStatistics extends Component {
   handleStartDateChange = date => {
     this.props.onChange([
       moment(date, DATE_FORMAT),
-      moment(this.props.timeRangeSpan[1], DATE_FORMAT),
+      moment(this.props.timeRange[1], DATE_FORMAT),
     ]);
   };
   handleEndDateChange = date => {
     this.props.onChange([
-      moment(this.props.timeRangeSpan[0], DATE_FORMAT),
+      moment(this.props.timeRange[0], DATE_FORMAT),
       moment(date, DATE_FORMAT),
     ]);
   };
