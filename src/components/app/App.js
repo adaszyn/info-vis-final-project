@@ -42,18 +42,7 @@ export class App extends Component {
         values: [],
         labels: [],
       },
-      selectedCrime: {
-        id: "32819",
-        crimeType: "Misshandel",
-        description: "Man som blivit misshandlad, Bökensved.",
-        content:
-          "Polis och ambulans skickas till Bökensved, där en man blivit misshandlad. Mannen förs med ambulans till sjukhus. Övriga omständigheter är i nuläget oklara.\r\nPolisen Kalmar län",
-        region: "Kalmar län",
-        city: "Västervik",
-        lat: 57.7577156,
-        lng: 16.6369759,
-        created_at: 1498107562,
-      },
+      selectedCrime: undefined,
       theme: "light",
       language: "swedish",
       isStatisticBarHidden: false,
@@ -149,7 +138,7 @@ export class App extends Component {
 
   onCrimeDeselect = () => {
     this.setState({
-      selectedCrime: null,
+      selectedCrime: undefined,
     });
   };
   onThemeChange = theme => {
