@@ -78,6 +78,10 @@ export class CrimeMap extends Component {
       if (!isCrimeTypeValid)  {
         return;
       }
+      if (this.props.selectedCrimeType && this.props.selectedCrimeType.length > 0 &&
+        this.props.selectedCrimeType.indexOf(crimeType) == -1){
+        return;
+      }
       return (
         <Layer
           key={`crime-type-point-layer-${crimeType}`}
