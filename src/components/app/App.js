@@ -13,6 +13,7 @@ import {
 } from "../../util/api";
 import "./App.css";
 import { LoadingComponent } from "../loading-component/LoadingComponent";
+import { getRegionPosition } from "../../util/regions";
 
 export class App extends Component {
   constructor() {
@@ -154,6 +155,15 @@ export class App extends Component {
     return location;
   };
 
+  onRegionSelected = region_name => {
+    var location = getRegionPosition(region_name);
+    if(location){
+      this.mapCenter = location;
+      this.mapZoom = [8];
+      this.onBoundingBoxChange(this.boundingBox);
+    }
+  }
+
   handleClick = () => {
     this.getLocation().then(position => {
       this.mapCenter = [position.coords.longitude, position.coords.latitude];
@@ -215,6 +225,7 @@ export class App extends Component {
           crimesByRegion={this.state.crimesByRegion}
           selectedCrimeType={this.selectedCrimeType}
           onCrimeTypeSelected = {this.onCrimeTypeSelected}
+          onRegionSelected = {this.onRegionSelected}
           timeRange={this.state.timeRange}
           hourlyDistribution={this.state.hourlyDistribution}
           monthlyDistribution={this.state.monthlyDistribution}

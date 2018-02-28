@@ -15,6 +15,7 @@ export class Statistics extends Component {
       <div className="statistics-container">
         <LoadingComponent
           data={this.props.crimesByRegion}
+          onRegionSelected = {this.props.onRegionSelected}
           wrappedComponent={RegionStatistics}
           dataLabel="crimesByRegion"
           containerClassName="statistics-box-loader-container"
