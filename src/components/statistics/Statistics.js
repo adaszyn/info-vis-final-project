@@ -27,6 +27,7 @@ export class Statistics extends Component {
           wrappedComponent={RegionStatistics}
           dataLabel="crimesByRegion"
           containerClassName="statistics-box-loader-container"
+          language={this.props.language}
         />
         <LoadingComponent
           data={this.props.crimesByCity}
@@ -35,6 +36,7 @@ export class Statistics extends Component {
           dataLabel="crimesByCity"
           handleClick={this.props.handleClick}
           containerClassName="statistics-box-loader-container"
+          language={this.props.language}
         />
         <LoadingComponent
           data={this.props.crimesByType}
@@ -53,6 +55,7 @@ export class Statistics extends Component {
           hourRange={this.props.hourRange}
           onHourRangeChange={this.props.onHourRangeChange}
           onChange={this.props.onTimeRangeChange}
+          language={this.props.language}
         />
       </div>
     );

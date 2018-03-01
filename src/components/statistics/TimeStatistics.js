@@ -14,6 +14,7 @@ import { SplineChartRangePicker } from "../range-chart-picker/SplineChartRangePi
 import "react-datepicker/dist/react-datepicker.css";
 import "./TimeStatistics.css";
 import nextIcon from "../../assets/next.svg";
+import { getTranslatedHeading } from "../../util/headings";
 
 export class TimeStatistics extends Component {
   onRangeChange = values => {
@@ -74,7 +75,7 @@ export class TimeStatistics extends Component {
     const maxDate = moment(this.props.timeRangeSpan[1], DATE_FORMAT);
     return (
       <div className="statistics-box time-statistics">
-        <h2 className="statistics-box__header">PERIOD</h2>
+        <h2 className="statistics-box__header">{getTranslatedHeading("period", this.props.language)}</h2>
         <div className="date-pickers-container">
           <DatePicker
             selected={startDate}
