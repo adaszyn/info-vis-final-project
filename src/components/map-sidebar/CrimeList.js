@@ -36,13 +36,7 @@ const CrimeList = (props) => {
   const filteredCrimes = filterCrimes(props.crimes, props.zoomLevel)
 
   return (
-    <div style={{height: "100%"}}>
-      <Header
-        theme={props.theme}
-        language={props.language}
-        onLanguageChange={props.onLanguageChange}
-        onThemeChange={props.onThemeChange}
-      />
+    <div className="map-sidebar-scroll">
       <div className="map-sidebar__background" />
 
       <div className="map-sidebar-results-title">

@@ -23,13 +23,7 @@ const CrimeDetails = (props) => {
   const contentParagraphs = cleanParagraphText(props.selectedCrime.content);
 
   return (
-    <div style={{width: "100%"}}>
-      <Header
-        theme={props.theme}
-        language={props.language}
-        onLanguageChange={props.onLanguageChange}
-        onThemeChange={props.onThemeChange}
-      />
+    <div className="map-sidebar-scroll">
       <div className="map-sidebar__background" />
       <button
         className="map-sidebar-back-button"

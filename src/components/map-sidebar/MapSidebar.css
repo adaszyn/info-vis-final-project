@@ -63,7 +63,6 @@
   margin-bottom: auto;
   overflow-y: auto;
   z-index: 10;
-  height: calc(100% - 116px);
 }
 
 ::-webkit-scrollbar {
@@ -168,7 +167,6 @@
   margin-bottom: auto;
   overflow-y: auto;
   z-index: 10;
-  height:  calc(100% - 94px);
 }
 
 .map-sidebar-results-crime-title-row {
@@ -225,4 +223,8 @@
 
 .map-sidebar-results-crime-item:hover .map-sidebar-crime-item-select-button svg {
   stroke: #9ea9bd;
+}
+.map-sidebar-scroll {
+    height: 100%;
+    overflow-y: scroll;
 }

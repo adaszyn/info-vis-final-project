@@ -5,7 +5,7 @@ import "./MapSidebar.css";
 
 import CrimeList from './CrimeList';
 import CrimeDetails from './CrimeDetails'
-
+import {Header} from "../header/Header";
 export const MapSidebar = props => {
 
   if (props.crimes.length <= 0) {
@@ -20,6 +20,12 @@ export const MapSidebar = props => {
     : "map-sidebar map-sidebar--short";
 
   return <div className={containerClassName}>
+        <Header
+        theme={props.theme}
+        language={props.language}
+        onLanguageChange={props.onLanguageChange}
+        onThemeChange={props.onThemeChange}
+      />
         {
           props.selectedCrime
             ? <CrimeDetails {...props} />
