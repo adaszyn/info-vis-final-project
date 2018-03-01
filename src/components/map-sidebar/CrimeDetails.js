@@ -23,7 +23,7 @@ const CrimeDetails = (props) => {
   const contentParagraphs = cleanParagraphText(props.selectedCrime.content);
 
   return (
-    <div>
+    <div style={{width: "100%"}}>
       <Header
         theme={props.theme}
         language={props.language}

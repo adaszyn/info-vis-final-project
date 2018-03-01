@@ -58,11 +58,12 @@
 }
 
 .map-sidebar-content-container {
-  margin-right: 2.5em;
+  padding-right: 2.5em;
   margin-left: 2.5em;
   margin-bottom: auto;
   overflow-y: auto;
   z-index: 10;
+  height: calc(100% - 116px);
 }
 
 ::-webkit-scrollbar {

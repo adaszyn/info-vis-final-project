@@ -13,6 +13,15 @@ const Map = ReactMapboxGl({
 const INITIAL_CENTER = [15.798669, 62.450588];
 const INITIAL_ZOOM = [3];
 
+const SELECTED_CRIME_LAYER_CONFIG = {
+    "circle-color": "transparent",
+    "circle-stroke-color": "white",
+    "circle-stroke-width": 5,
+    "circle-radius": 25,
+    "circle-blur": 0.5,
+    "circle-opacity": ["interpolate", ["linear"], ["zoom"], 7, 0, 8, 1],
+};
+
 const heatMapLayerConfig = {
   "heatmap-weight": ["interpolate", ["linear"], ["get", "mag"], 0, 0, 6, 1],
   "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 0, 1, 9, 3],
@@ -95,6 +104,20 @@ export class CrimeMap extends Component {
       );
     });
   };
+  renderSelectedCrimeLayer = () => {
+      console.log(this.props.selectedCrime)
+      return (
+        <Layer
+          key={`selected-crime-type-point-layer`}
+          type="circle"
+          minZoom={8}
+          id={`selected-crime-layer-point`}
+          paint={SELECTED_CRIME_LAYER_CONFIG}
+        >
+          {this.renderCrimeMarker(this.props.selectedCrime)}
+        </Layer>
+      );
+  };
 
   render() {
     const crimesByType = groupBy(this.props.crimes, "crimeType");
@@ -112,6 +135,7 @@ export class CrimeMap extends Component {
           }}
         >
           {this.renderLayers(crimesByType)}
+          {this.props.selectedCrime && this.renderSelectedCrimeLayer()}
 
           <Layer type="heatmap" id="marker" paint={heatMapLayerConfig}>
             {this.props.crimes.map(this.renderCrimeMarker)}
