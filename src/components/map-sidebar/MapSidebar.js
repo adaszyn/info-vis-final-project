@@ -5,7 +5,7 @@ import "./MapSidebar.css";
 
 import CrimeList from './CrimeList';
 import CrimeDetails from './CrimeDetails'
-
+import {Header} from "../header/Header";
 export const MapSidebar = props => {
 
   if (props.crimes.length <= 0) {
@@ -15,17 +15,23 @@ export const MapSidebar = props => {
       </div>
     );
   }
+  const containerClassName = props.isStatisticBarHidden
+    ? "map-sidebar"
+    : "map-sidebar map-sidebar--short";
 
-  if(props.selectedCrime !== undefined) {
-    return (
-      <CrimeDetails {...props} />
-    )
-  }
-  else {
-    return (
-      <CrimeList {...props} />
-    )
-  }
+  return <div className={containerClassName}>
+        <Header
+        theme={props.theme}
+        language={props.language}
+        onLanguageChange={props.onLanguageChange}
+        onThemeChange={props.onThemeChange}
+      />
+        {
+          props.selectedCrime
+            ? <CrimeDetails {...props} />
+            : <CrimeList {...props} />
+        }
+    </div>
 }
 
 MapSidebar.propTypes = {
