@@ -74,7 +74,7 @@ export class TimeStatistics extends Component {
     const maxDate = moment(this.props.timeRangeSpan[1], DATE_FORMAT);
     return (
       <div className="statistics-box time-statistics">
-        <h2 className="statistics-box__header">PERIOD</h2>
+        <h2 className="statistics-box__header-period">PERIOD</h2>
         <div className="date-pickers-container">
           <DatePicker
             selected={startDate}
@@ -103,12 +103,21 @@ export class TimeStatistics extends Component {
           />
         </div>
 
+        <div className="chart-range-picker-container-labels-time-selection">
+          Select the time range during a day
+        </div>
+
         <BarChartRangePicker
           domain={_.range(0, 24)}
           hourRange={this.props.hourRange}
           onHourRangeChange={this.props.onHourRangeChange}
           values={this.props.hourlyDistribution}
         />
+
+        <div className="chart-range-picker-container-labels-time-selection">
+          Select the date range
+        </div>
+
         <SplineChartRangePicker
           monthlyDistribution={this.props.monthlyDistribution}
           hourRange={this.props.hourRange}
