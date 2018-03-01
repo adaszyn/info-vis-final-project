@@ -1,15 +1,15 @@
 {
-  "main.css": "static/css/main.21887d6a.css",
-  "main.css.map": "static/css/main.21887d6a.css.map",
-  "main.js": "static/js/main.4fe564e0.js",
-  "main.js.map": "static/js/main.4fe564e0.js.map",
+  "main.css": "static/css/main.97fc7225.css",
+  "main.css.map": "static/css/main.97fc7225.css.map",
+  "main.js": "static/js/main.257058e3.js",
+  "main.js.map": "static/js/main.257058e3.js.map",
   "static/media/OpenSans-Bold.ttf": "static/media/OpenSans-Bold.f5331cb6.ttf",
   "static/media/OpenSans-BoldItalic.ttf": "static/media/OpenSans-BoldItalic.f40598dd.ttf",
   "static/media/OpenSans-Italic.ttf": "static/media/OpenSans-Italic.bf243bcb.ttf",
   "static/media/OpenSans-Light.ttf": "static/media/OpenSans-Light.9ff12f69.ttf",
   "static/media/OpenSans-LightItalic.ttf": "static/media/OpenSans-LightItalic.54b44434.ttf",
   "static/media/OpenSans-Regular.ttf": "static/media/OpenSans-Regular.d7d5d458.ttf",
-  "static/media/english.svg": "static/media/english.4714f613.svg",
+  "static/media/english.svg": "static/media/english.a709b9d0.svg",
   "static/media/finger-print.gif": "static/media/finger-print.d6b1a93f.gif",
   "static/media/fingerprint-logo.svg": "static/media/fingerprint-logo.0ff9f4b1.svg",
   "static/media/fontawesome-webfont.eot": "static/media/fontawesome-webfont.674f50d2.eot",
@@ -20,5 +20,5 @@
   "static/media/intro.otf": "static/media/intro.b2f90b60.otf",
   "static/media/next.svg": "static/media/next.4e60b0ae.svg",
   "static/media/night-mode.svg": "static/media/night-mode.ae0e2c16.svg",
-  "static/media/swedish.svg": "static/media/swedish.bacbd074.svg"
+  "static/media/swedish.svg": "static/media/swedish.2a6cdbfc.svg"
 }
