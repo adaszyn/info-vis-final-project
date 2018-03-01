@@ -33,7 +33,10 @@ export class BarChart extends Component {
     };
     var className_selected;
     if(!this.props.selectedCrimeType || this.props.selectedCrimeType.indexOf(entry.id) == -1){
-       className_selected = "bar-chart-container__bar";
+      className_selected = "bar-chart-container__bar";
+      if(entry.color){
+        className_selected += " bar-chart-container_colour__bar";
+      }
     }else{
        className_selected = "bar-chart-container__bar bar-chart-container_clicked__bar";
     }

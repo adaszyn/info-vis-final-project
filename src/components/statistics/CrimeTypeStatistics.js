@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BarChart } from "../bar-chart/BarChart";
-import { getTranslatedCrimeType } from "../../util/crimes";
+import { getTranslatedCrimeType, getCrimeTypeColor } from "../../util/crimes";
 
 export class CrimeTypeStatistics extends Component {
   getTranslatedCrimes = () => {
@@ -8,6 +8,7 @@ export class CrimeTypeStatistics extends Component {
       ...crime,
       label: getTranslatedCrimeType(crime.label, this.props.language),
       id: crime.label,
+      color: getCrimeTypeColor(crime.label),
     }));
   };
 
