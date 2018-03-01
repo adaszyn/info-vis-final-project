@@ -22,6 +22,7 @@ export class Statistics extends Component {
         />
         <LoadingComponent
           data={this.props.crimesByCity}
+          onCitySelected = {this.props.onCitySelected}
           wrappedComponent={CityStatistics}
           dataLabel="crimesByCity"
           handleClick={this.props.handleClick}

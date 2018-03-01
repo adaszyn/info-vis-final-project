@@ -14,6 +14,7 @@ import {
 import "./App.css";
 import { LoadingComponent } from "../loading-component/LoadingComponent";
 import { getRegionPosition } from "../../util/regions";
+import { getCityPosition } from "../../util/cities";
 
 export class App extends Component {
   constructor() {
@@ -164,6 +165,15 @@ export class App extends Component {
     }
   }
 
+   onCitySelected = city_name => {
+    var location = getCityPosition(city_name);
+    if(location){
+      this.mapCenter = location;
+      this.mapZoom = [11];
+      this.onBoundingBoxChange(this.boundingBox);
+    }
+  }
+
   handleClick = () => {
     this.getLocation().then(position => {
       this.mapCenter = [position.coords.longitude, position.coords.latitude];
@@ -226,6 +236,7 @@ export class App extends Component {
           selectedCrimeType={this.selectedCrimeType}
           onCrimeTypeSelected = {this.onCrimeTypeSelected}
           onRegionSelected = {this.onRegionSelected}
+          onCitySelected = {this.onCitySelected}
           timeRange={this.state.timeRange}
           hourlyDistribution={this.state.hourlyDistribution}
           monthlyDistribution={this.state.monthlyDistribution}
