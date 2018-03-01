@@ -219,7 +219,7 @@ export const crimes = [
   {
     name: "Räddningsinsats",
     translation: "Rescue Effort",
-    color: "#669999"
+    color: "#669999",
     OBS: "not a crime"
   },
   {
