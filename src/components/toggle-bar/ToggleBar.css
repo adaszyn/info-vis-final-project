@@ -1,4 +1,5 @@
 .statistics-toggle-bar {
+  cursor: pointer;
   height: 30px;
   display: flex;
   flex-direction: row;
@@ -14,12 +15,6 @@
   bottom: 330px;
   transition: 0.1s bottom;
 }
-
-.hide-toggle-bar {
-  bottom: 0px;
-  transition: 0.1s bottom;
-}
-
 .light-theme .statistics-toggle-bar {
   background-color: white;
   color: black;

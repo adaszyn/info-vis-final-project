@@ -23,7 +23,7 @@ const CrimeDetails = (props) => {
   const contentParagraphs = cleanParagraphText(props.selectedCrime.content);
 
   return (
-    <div className="map-sidebar">
+    <div>
       <Header
         theme={props.theme}
         language={props.language}

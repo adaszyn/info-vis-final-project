@@ -15,17 +15,17 @@ export const MapSidebar = props => {
       </div>
     );
   }
+  const containerClassName = props.isStatisticBarHidden
+    ? "map-sidebar"
+    : "map-sidebar map-sidebar--short";
 
-  if(props.selectedCrime !== undefined) {
-    return (
-      <CrimeDetails {...props} />
-    )
-  }
-  else {
-    return (
-      <CrimeList {...props} />
-    )
-  }
+  return <div className={containerClassName}>
+        {
+          props.selectedCrime
+            ? <CrimeDetails {...props} />
+            : <CrimeList {...props} />
+        }
+    </div>
 }
 
 MapSidebar.propTypes = {

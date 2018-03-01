@@ -127,6 +127,7 @@ export class CrimeMap extends Component {
           onLanguageChange={this.props.onLanguageChange}
           onThemeChange={this.props.onThemeChange}
           zoomLevel={this.zoom}
+          isStatisticBarHidden={this.props.isStatisticBarHidden}
         />
       </div>
     );

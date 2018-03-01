@@ -9,6 +9,9 @@
   z-index: 30;
   transition: 0.1s bottom;
 }
+.statistics-container--hidden {
+    bottom: -330px;
+}
 
 .statistics-box {
   background-color: #21252b;
