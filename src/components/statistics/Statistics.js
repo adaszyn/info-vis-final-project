@@ -15,12 +15,14 @@ export class Statistics extends Component {
       <div className="statistics-container">
         <LoadingComponent
           data={this.props.crimesByRegion}
+          onRegionSelected = {this.props.onRegionSelected}
           wrappedComponent={RegionStatistics}
           dataLabel="crimesByRegion"
           containerClassName="statistics-box-loader-container"
         />
         <LoadingComponent
           data={this.props.crimesByCity}
+          onCitySelected = {this.props.onCitySelected}
           wrappedComponent={CityStatistics}
           dataLabel="crimesByCity"
           handleClick={this.props.handleClick}
@@ -28,6 +30,8 @@ export class Statistics extends Component {
         />
         <LoadingComponent
           data={this.props.crimesByType}
+          selectedCrimeType={this.props.selectedCrimeType}
+          onCrimeTypeSelected={this.props.onCrimeTypeSelected}
           wrappedComponent={CrimeTypeStatistics}
           dataLabel="crimesByType"
           containerClassName="statistics-box-loader-container"

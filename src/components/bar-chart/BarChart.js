@@ -20,18 +20,32 @@ export class BarChart extends Component {
     this.recalculateScale(values);
   }
 
+  onClicked = (e) => {
+    if(this.props.selectedCrimeType && e.target.id){
+      this.props.onCrimeTypeSelected(e.target.id);
+    }
+  }
+
   renderBar = entry => {
     const style = {
       width: this.percentageScale(entry.value) + "%",
       backgroundColor: entry.color,
     };
+    var className_selected;
+    if(!this.props.selectedCrimeType || this.props.selectedCrimeType.indexOf(entry.id) == -1){
+       className_selected = "bar-chart-container__bar";
+    }else{
+       className_selected = "bar-chart-container__bar bar-chart-container_clicked__bar";
+    }
     return (
       <div
-        className="bar-chart-container__bar"
+        className={className_selected}
+        id = {entry.id}
         style={style}
         key={`${entry.label}-${entry.value}`}
+        onClick ={this.onClicked}
       >
-        <span>{entry.label}</span>
+        <span id={entry.id}>{entry.label}</span>
       </div>
     );
   };

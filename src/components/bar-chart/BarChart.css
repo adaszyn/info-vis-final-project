@@ -20,3 +20,8 @@
   background-image: linear-gradient(to top, #7f8caa, #9fa6b7);
   color: #ffffff;
 }
+
+.bar-chart-container_clicked__bar {
+  background-image: linear-gradient(to top, #ba5375, #e86a73);
+  color: #ffffff;
+}

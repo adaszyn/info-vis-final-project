@@ -13,6 +13,8 @@ import {
 } from "../../util/api";
 import "./App.css";
 import { LoadingComponent } from "../loading-component/LoadingComponent";
+import { getRegionPosition } from "../../util/regions";
+import { getCityPosition } from "../../util/cities";
 
 export class App extends Component {
   constructor() {
@@ -47,8 +49,9 @@ export class App extends Component {
       language: "swedish",
       isStatisticBarHidden: false,
     };
-    this.mapCenter = [15.798669, 62.450588];
-    this.mapZoom = [3];
+    this.mapCenter = [18.4006, 59.1582];
+    this.mapZoom = [8];
+    this.selectedCrimeType = [];
   }
 
   onTimeRangeChange = timeRange => {
@@ -65,6 +68,20 @@ export class App extends Component {
       selectedCrime: crime,
     });
   };
+  onCrimeTypeSelected = crimeType => {
+    if(this.selectedCrimeType.length > 0){
+      var i = this.selectedCrimeType.indexOf(crimeType);
+      if(i !== -1) {
+        this.selectedCrimeType.splice(i, 1);
+      }else{
+        this.selectedCrimeType.push(crimeType);
+      }
+    }else{
+      this.selectedCrimeType.push(crimeType)
+    }
+    this.onBoundingBoxChange(this.boundingBox);
+  }
+
   getCommonQueryParams = () => {
     return {
       startDate: this.state.timeRange[0],
@@ -128,6 +145,24 @@ export class App extends Component {
     return location;
   };
 
+  onRegionSelected = region_name => {
+    var location = getRegionPosition(region_name);
+    if(location){
+      this.mapCenter = location;
+      this.mapZoom = [8];
+      this.onBoundingBoxChange(this.boundingBox);
+    }
+  }
+
+   onCitySelected = city_name => {
+    var location = getCityPosition(city_name);
+    if(location){
+      this.mapCenter = location;
+      this.mapZoom = [11];
+      this.onBoundingBoxChange(this.boundingBox);
+    }
+  }
+
   handleClick = () => {
     this.getLocation().then(position => {
       this.mapCenter = [position.coords.longitude, position.coords.latitude];
@@ -175,6 +210,7 @@ export class App extends Component {
           language={this.state.language}
           onLanguageChange={this.onLanguageChange}
           onThemeChange={this.onThemeChange}
+          selectedCrimeType={this.selectedCrimeType}
         />
         <ToggleBar
           isStatisticBarHidden = {this.state.isStatisticBarHidden}
@@ -186,6 +222,10 @@ export class App extends Component {
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}
           crimesByRegion={this.state.crimesByRegion}
+          selectedCrimeType={this.selectedCrimeType}
+          onCrimeTypeSelected = {this.onCrimeTypeSelected}
+          onRegionSelected = {this.onRegionSelected}
+          onCitySelected = {this.onCitySelected}
           timeRange={this.state.timeRange}
           hourlyDistribution={this.state.hourlyDistribution}
           monthlyDistribution={this.state.monthlyDistribution}
