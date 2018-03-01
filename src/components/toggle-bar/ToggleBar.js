@@ -8,7 +8,7 @@ import {
 export class ToggleBar extends Component {
 	render() {
     return (
-    	<div onClick={this.props.toggleStatisticsBar} className={this.props.isStatisticBarHidden? "btn hide-toggle-bar statistics-toggle-bar " : "btn statistics-toggle-bar"}>	        
+    	<div onClick={this.props.toggleStatisticsBar} className="btn statistics-toggle-bar">	        
 	        <span className="toggle-bar-left-items">
 	        	<i className={this.props.isStatisticBarHidden? "fa fa-angle-double-up fa-fw" : "fa fa-angle-double-down fa-fw"}/>FILTER
 	        </span>

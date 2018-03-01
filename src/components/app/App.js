@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import _ from "underscore";
 import { CrimeMap } from "../crime-map/CrimeMap";
 import { Statistics } from "../statistics/Statistics";
-import { ToggleBar } from "../toggle-bar/ToggleBar";
 import {
   fetchCrimes,
   fetchAggregatedCrimeTypes,
@@ -211,12 +210,7 @@ export class App extends Component {
           onLanguageChange={this.onLanguageChange}
           onThemeChange={this.onThemeChange}
           selectedCrimeType={this.selectedCrimeType}
-        />
-        <ToggleBar
           isStatisticBarHidden = {this.state.isStatisticBarHidden}
-          toggleStatisticsBar = {this.toggleStatisticsBar}
-          timeRange = {this.state.timeRange}
-          hourRange = {this.state.hourRange}
         />
         <Statistics
           crimesByType={this.state.crimesByType}
@@ -237,6 +231,7 @@ export class App extends Component {
           theme={this.state.theme}
           language={this.state.language}
           isStatisticBarHidden = {this.state.isStatisticBarHidden}
+          toggleStatisticsBar={this.toggleStatisticsBar}
         />
       </div>
     );
