@@ -110,19 +110,15 @@ export class CrimeMap extends Component {
           </Layer>
         </Map>
         <MapSidebar
-          crimeClassName="assault-title"
-          crime={this.props.selectedCrime}
+          selectedCrime={this.props.selectedCrime}
+          crimes={this.props.crimes}
+          onCrimeSelected={this.props.onCrimeSelected}
           onBackButtonClick={this.props.onCrimeDeselect}
-          onViewSourceButtonClick={() => {
-            console.log("ViewSourceButtonClick");
-          }}
-          onMarkButtonClick={() => {
-            console.log("MarkButtonClick");
-          }}
           theme={this.props.theme}
           language={this.props.language}
           onLanguageChange={this.props.onLanguageChange}
           onThemeChange={this.props.onThemeChange}
+          zoomLevel={this.zoom}
         />
       </div>
     );
