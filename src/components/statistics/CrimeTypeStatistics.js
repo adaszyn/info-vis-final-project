@@ -16,10 +16,13 @@ export class CrimeTypeStatistics extends Component {
   render() {
     return (
       <div className="statistics-box">
-        <h2 className="statistics-box__header"> {getTranslatedHeading("crime_type", this.props.language)}</h2>
+        <h2 className="statistics-box__header">
+          {getTranslatedHeading("crime_type", this.props.language)}
+        </h2>
         <BarChart values={this.getTranslatedCrimes()}
-        selectedCrimeType={this.props.selectedCrimeType}
-        onCrimeTypeSelected={this.props.onCrimeTypeSelected}/>
+          selectedCrimeType={this.props.selectedCrimeType}
+          onCrimeTypeSelected={this.props.onCrimeTypeSelected}
+        />
       </div>
     );
   }

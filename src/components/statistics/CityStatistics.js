@@ -16,7 +16,7 @@ export class CityStatistics extends Component {
         <h2 className="statistics-box__header">
         	{getTranslatedHeading("city", this.props.language)}
         	<FindUserLocation handleClick= {this.props.handleClick}
-            button_name = {getTranslatedHeading("my_location", this.props.language)} />
+            buttonName = {getTranslatedHeading("my_location", this.props.language)} />
         </h2>
         
         <BarChart values={this.props.crimesByCity} />

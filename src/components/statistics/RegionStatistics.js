@@ -12,7 +12,9 @@ export class RegionStatistics extends Component {
   render() {
     return (
       <div className="statistics-box" onClick={this.onRegionClicked}>
-        <h2 className="statistics-box__header">{getTranslatedHeading("region", this.props.language)}</h2>
+        <h2 className="statistics-box__header">
+          {getTranslatedHeading("region", this.props.language)}
+        </h2>
         <BarChart values={this.props.crimesByRegion} />
       </div>
     );
