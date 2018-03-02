@@ -5,5 +5,5 @@ export const getTranslatedHeading = (id, language) => {
   if (!heading) {
     return id;
   }
-  return heading[language]? heading[language]: id;
+  return heading[language] ? heading[language] : id;
 };
