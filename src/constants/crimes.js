@@ -12,12 +12,12 @@ export const crimes = [
   {
     name: "Brand",
     translation: "Fire",
-    color: "#ffa366"
+    color: "#0000e6"
   },
   {
     name: "Rattfylleri",
     translation: "Drunken Driving",
-    color: "#c65353"
+    color: "#862d2d"
   },
   {
     name: "Rån väpnat",
@@ -27,7 +27,7 @@ export const crimes = [
   {
     name: "Trafikolycka",
     translation: "Traffic Collision",
-    color: "#d98c8c"
+    color: "#bf4040"
   },
   {
     name: "Sammanfattning kväll",
@@ -62,7 +62,7 @@ export const crimes = [
   {
     name: "Trafikolycka,  singel",
     translation: "Traffic Collision, single",
-    color: "#d98c8c"
+    color: "#bf4040"
   },
   {
     name: "Sammanfattning eftermiddag",
@@ -72,17 +72,17 @@ export const crimes = [
   {
     name: "Trafikolycka,  smitning från",
     translation: "Traffic Collision, hit-and-run",
-    color: "#cc6666"
+    color: "#bf4040"
   },
   {
     name: "Trafikbrott",
     translation: "Traffic Crime",
-    color: "#e6b3b3"
+    color: "#c65353"
   },
   {
     name: "Trafikolycka,  vilt",
     translation: "Traffic Collision, wild animal",
-    color:"#d98c8c"
+    color:"#bf4040"
   },
   {
     name: "Larm Inbrott",
@@ -97,7 +97,7 @@ export const crimes = [
   {
     name: "Olaga hot",
     translation: "Assault",
-    color: "#ff3333"
+    color: "#ff1a1a"
   },
   {
     name: "Sammanfattning förmiddag",
@@ -122,12 +122,12 @@ export const crimes = [
   {
     name: "Bedrägeri",
     translation: "Fraud",
-    color: "#0000ff"
+    color: "#b34700"
   },
   {
     name: "Skadegörelse",
     translation: "Vandalism",
-    color: "#ff6600"
+    color: "#0000b3"
   },
   {
     name: "Rån",
@@ -137,7 +137,7 @@ export const crimes = [
   {
     name: "Trafikolycka,  personskada",
     translation: "Traffic Collision, bodily injury",
-    color: "#d98c8c"
+    color: "#bf4040"
   },
   {
     name: "Sammanfattning natt",
@@ -147,7 +147,7 @@ export const crimes = [
   {
     name: "Detonation",
     translation: "Detonation",
-    color: "#ffc299"
+    color: "#1a1aff"
   },
   {
     name: "Bråk",
@@ -177,7 +177,7 @@ export const crimes = [
   {
     name: "Olovlig körning",
     translation: "Driving Without a License",
-    color: "#df9f9f"
+    color: "#ac3939"
   },
   {
     name: "Olaga intrång/hemfridsbrott",
@@ -192,7 +192,7 @@ export const crimes = [
   {
     name: "Larm Överfall",
     translation: "Alarm about Assault",
-    color: "#ff8080"
+    color: "#ff9999"
   },
   {
     name: "Trafikhinder",
@@ -225,12 +225,12 @@ export const crimes = [
   {
     name: "Spridning smittsamma kemikalier",
     translation: "Spreading of dangerous chemical substances",
-    color: "#ffb380"
+    color: "#3333ff"
   },
   {
     name: "Misshandel",
     translation: "Abuse",
-    color: "#ff8080"
+    color: "#ff3333"
   },
   {
     name: "Försvunnen person",
@@ -240,12 +240,12 @@ export const crimes = [
   {
     name: "Misshandel,  grov",
     translation: "Violent abuse",
-    color: "#ff6666"
+    color: "#ff3333"
   },
   {
     name: "Mord/dråp,  försök",
     translation: "Murder/Homicide, attempt",
-    color: "#e60000"
+    color: "#cc0000"
   },
   {
     name: "Motorfordon,  anträffat stulet",
@@ -266,7 +266,7 @@ export const crimes = [
   {
     name: "Våldtäkt",
     translation: "Rape",
-    color: "#ff1a1a"
+    color: "#ff0000"
   },
   {
     name: "Inbrott,  försök",
@@ -276,7 +276,7 @@ export const crimes = [
   {
     name: "Djur skadat/omhändertaget",
     translation: "Animals injured",
-    color: "#ff944d"
+    color: "#4d4dff"
   },
   {
     name: "Anträffat gods",
@@ -287,7 +287,7 @@ export const crimes = [
   {
     name: "Förfalskningsbrott",
     translation: "Forgery",
-    color: "#3333ff"
+    color: "#e65c00"
   },
   {
     name: "Sjukdom/olycksfall",
@@ -317,17 +317,17 @@ export const crimes = [
   {
     name: "Ofog barn/ungdom",
     translation: "Abuse child/teenage",
-    color: "#ff3333"
+    color: "#ff1a1a"
   },
   {
     name: "Mord/dråp",
     translation: "Murder/Homicide",
-    color: "#cc0000"
+    color: "#b30000"
   },
   {
     name: "Skottlossning",
     translation: "Gunfire",
-    color: "#ffc299"
+    color: "#0000ff"
   },
   {
     name: "Alkohollagen",
@@ -338,7 +338,7 @@ export const crimes = [
   {
     name: "Ofredande/förargelse",
     translation: "Harassment",
-    color: "#ff9999"
+    color: "#ff8080"
   },
   {
     name: "Fjällräddning",
@@ -349,12 +349,12 @@ export const crimes = [
   {
     name: "Skottlossning,  misstänkt",
     translation: "Gunfire, suspect",
-    color: "#ffc299"
+    color: "#0000ff"
   },
   {
     name: "Olaga frihetsberövande",
     translation: "Illegal deprivation of freedom",
-    color: "#ff9999"
+    color: "#ff8080"
   },
   {
     name: "Ordningslagen",
@@ -364,7 +364,7 @@ export const crimes = [
   {
     name: "Våldtäkt,  försök",
     translation: "Rape, attempt",
-    color: "#ff1a1a"
+    color: "#ff0000"
   },
   {
     name: "Sammanfattning dag",
@@ -374,7 +374,7 @@ export const crimes = [
   {
     name: "Vållande till kroppsskada",
     translation: "Attept of bodily injury",
-    color: "#ff9999"
+    color: "#ff6666"
   },
   {
     name: "trafikhinder",
@@ -385,7 +385,7 @@ export const crimes = [
   {
     name: "misshandel",
     translation: "Abuse",
-    color: "#ff8080"
+    color: "#ff3333"
   },
   {
     name: "Sammanfattning vecka",
@@ -395,7 +395,7 @@ export const crimes = [
   {
     name: "Miljöbrott",
     translation: "Environmenal crime",
-    color: "#ff751a"
+    color: "#0000cc"
   },
   {
     name: "inbrott",
@@ -426,7 +426,7 @@ export const crimes = [
   {
     name: "Brand automatlarm",
     translation: "Fire alarm",
-    color: "#ffa366"
+    color: "#0000e6"
   },
   {
     name: "Sammanfattning helg",
@@ -436,7 +436,7 @@ export const crimes = [
   {
     name: "Bombhot",
     translation: "Bomb threat",
-    color: "#ff0000"
+    color: "#e60000"
   },
   {
     name: "Utlänningslagen",
@@ -467,7 +467,7 @@ export const crimes = [
   {
     name: "Missbruk av urkund",
     translation: "License misusage",
-    color: "#6666ff"
+    color: "#ff6600"
   },
   {
     name: "Preliminär brottsstatistik under festivalen We Are Sthlm",
@@ -493,12 +493,12 @@ export const crimes = [
   {
     name: "Grov misshandel och rån",
     translation: "Violent abuse and robbery",
-    color: "#ff6666"
+    color: "#ff3333"
   },
   {
     name: "Ekobrott",
     translation: "Financial crimes",
-    color: "#1a1aff"
+    color: "#cc5200"
   },
   {
     name: "narkotikabrott",
@@ -508,7 +508,7 @@ export const crimes = [
   {
     name: "Misshandel mm",
     translation: "Abuse other",
-    color: "#ff8080"
+    color: "#ff3333"
   },
   {
     name: "stöld",
@@ -518,7 +518,7 @@ export const crimes = [
   {
     name: "Grov misshandel",
     translation: "Violent abuse",
-    color: "#ff6666"
+    color: "#ff3333"
   },
   {
     name: "Stöld med mera",
@@ -528,17 +528,17 @@ export const crimes = [
   {
     name: "Trafikolycka personskada",
     translation: "Traffic Collision, bodily injury",
-    color: "#d98c8c"
+    color: "#bf4040"
   },
   {
     name: "brand",
     translation: "Fire",
-    color: "#ffa366"
+    color: "#0000e6"
   },
   {
     name: "Vinglande bil",
     translation: "Car wobble",
-    color: "#e6b3b3"
+    color: "#c65353"
   },
   {
     name: "övrigt",
@@ -568,12 +568,12 @@ export const crimes = [
   {
     name: "11:24,  Brand",
     translation: "Fire",
-    color: "#ffa366"
+    color: "#0000e6"
   },
   {
     name: "skadegörelse",
     translation: "Vandalism",
-    color: "#ff6600"
+    color: "#0000b3"
   },
   {
     name: "Stöld ur fordon",
