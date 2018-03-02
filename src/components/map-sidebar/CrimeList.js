@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Header } from "../header/Header";
 import CrimeItem from './CrimeItem'
+import { getTranslatedHeading } from "../../util/headings";
 
 const CrimeList = (props) => {
 
@@ -40,7 +41,7 @@ const CrimeList = (props) => {
       <div className="map-sidebar__background" />
 
       <div className="map-sidebar-results-title">
-        Top 10 Results
+        {getTranslatedHeading("top_ten", props.language)}
       </div>
       <div className="map-sidebar-results-content">
         <div className="map-sidebar-crime-list">

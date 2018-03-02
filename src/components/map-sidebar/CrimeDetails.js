@@ -5,7 +5,7 @@ import ReactHtmlParser from "react-html-parser";
 import { getCrimeTypeColor } from "../../util/crimes";
 
 import { Header } from "../header/Header";
-
+import { getTranslatedHeading } from "../../util/headings";
 
 function cleanParagraphText(text) {
   return text
@@ -43,7 +43,7 @@ const CrimeDetails = (props) => {
             d="M9 1L2 8.543 8.92 16"
           />
         </svg>
-        Back to filter result
+        {getTranslatedHeading("back", props.language)}
       </button>
 
       <div className="map-sidebar-content-container">
