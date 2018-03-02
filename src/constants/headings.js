@@ -1,30 +1,30 @@
 export const headings = {
   crime_type: {
-    name: "BROTTSTYPER",
-    translation: "CRIME TYPE",
+    swedish: "BROTTSTYPER",
+    english: "CRIME TYPE",
   },
   city: {
-    name: "STAD",
-    translation: "CITY",
+    swedish: "STAD",
+    english: "CITY",
   },
   region: {
-    name: "LÄN",
-    translation: "REGION",
+    swedish: "LÄN",
+    english: "REGION",
   },
   period: {
-    name: "TIDSPERIOD",
-    translation: "PERIOD",
+    swedish: "TIDSPERIOD",
+    english: "PERIOD",
   },
   my_location: {
-    name: "Brott nära mig",
-    translation: "My location",
+    swedish: "Brott nära mig",
+    english: "My location",
   },
   top_ten: {
-    name: "Top 10 Resultat",
-    translation: "Top 10 Results",
+    swedish: "Top 10 Resultat",
+    english: "Top 10 Results",
   },
   back: {
-    name: "Tillbaka",
-    translation: "Back to filter result",
+    swedish: "Tillbaka",
+    english: "Back to filter result",
   },
 };
