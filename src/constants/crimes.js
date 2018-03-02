@@ -12,7 +12,7 @@ export const crimes = [
   {
     name: "Brand",
     translation: "Fire",
-    color: "#0000e6"    
+    color: "#0000e6"
   },
   {
     name: "Rattfylleri",
@@ -260,7 +260,7 @@ export const crimes = [
   {
     name: "Polisinsats/kommendering",
     translation: "Police contribution",
-    color: "#669999", 
+    color: "#669999",
     OBS: "not a crime"
   },
   {
