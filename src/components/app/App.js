@@ -74,7 +74,6 @@ export class App extends Component {
     this.setState({
         deselectedCrimeTypes
     });
-    this.fetchCrimesWithDelay();
   };
 
   getCommonQueryParams = () => {
@@ -130,7 +129,7 @@ export class App extends Component {
   }
 
   getLocation = () => {
-    var location = new Promise(resolve => {
+    const location = new Promise(resolve => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
           resolve(position);
@@ -180,6 +179,12 @@ export class App extends Component {
       isStatisticBarHidden: !this.state.isStatisticBarHidden,
     });
   };
+  getFilteredCrimes = () => {
+    return this.state.crimes
+        .then(crimes => crimes.filter(crime => {
+          return this.state.deselectedCrimeTypes.indexOf(crime.crimeType) === -1
+        }))
+  }
 
   render() {
     const className =
@@ -194,7 +199,7 @@ export class App extends Component {
           onCrimeSelected={this.onCrimeSelected}
           selectedCrime={this.state.selectedCrime}
           onCrimeDeselect={this.onCrimeDeselect}
-          data={this.state.crimes}
+          data={this.getFilteredCrimes()}
           wrappedComponent={CrimeMap}
           dataLabel="crimes"
           containerClassName="statistics-box-loader-container"
