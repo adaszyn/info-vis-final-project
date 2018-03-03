@@ -40,8 +40,8 @@ export class Statistics extends Component {
         />
         <LoadingComponent
           data={this.props.crimesByType}
-          selectedCrimeType={this.props.selectedCrimeType}
-          onCrimeTypeSelected={this.props.onCrimeTypeSelected}
+          deselectedCrimeTypes={this.props.deselectedCrimeTypes}
+          onCrimeTypeClick={this.props.onCrimeTypeClick}
           wrappedComponent={CrimeTypeStatistics}
           dataLabel="crimesByType"
           containerClassName="statistics-box-loader-container"

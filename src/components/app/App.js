@@ -46,10 +46,10 @@ export class App extends Component {
       theme: "light",
       language: "swedish",
       isStatisticBarHidden: false,
+      deselectedCrimeTypes: [],
     };
     this.mapCenter = [18.4006, 59.1582];
     this.mapZoom = [8];
-    this.selectedCrimeType = [];
   }
 
   onTimeRangeChange = timeRange => {
@@ -66,18 +66,16 @@ export class App extends Component {
       selectedCrime: crime,
     });
   };
-  onCrimeTypeSelected = crimeType => {
-    if (this.selectedCrimeType.length > 0) {
-      var i = this.selectedCrimeType.indexOf(crimeType);
-      if (i !== -1) {
-        this.selectedCrimeType.splice(i, 1);
-      } else {
-        this.selectedCrimeType.push(crimeType);
-      }
-    } else {
-      this.selectedCrimeType.push(crimeType);
-    }
-    this.onBoundingBoxChange(this.boundingBox);
+  onCrimeTypeClick = ({ id }) => {
+    const set = new Set(this.state.deselectedCrimeTypes);
+    const deselectedCrimeTypes = set.has(id)
+      ? this.state.deselectedCrimeTypes.filter(
+          crimeTypeId => crimeTypeId !== id,
+        )
+      : [...this.state.deselectedCrimeTypes, id];
+    this.setState({
+      deselectedCrimeTypes,
+    });
   };
 
   getCommonQueryParams = () => {
@@ -133,7 +131,7 @@ export class App extends Component {
   }
 
   getLocation = () => {
-    var location = new Promise(resolve => {
+    const location = new Promise(resolve => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
           resolve(position);
@@ -183,6 +181,13 @@ export class App extends Component {
       isStatisticBarHidden: !this.state.isStatisticBarHidden,
     });
   };
+  getFilteredCrimes = () => {
+    return this.state.crimes.then(crimes =>
+      crimes.filter(crime => {
+        return this.state.deselectedCrimeTypes.indexOf(crime.crimeType) === -1;
+      }),
+    );
+  };
 
   render() {
     const className =
@@ -197,7 +202,7 @@ export class App extends Component {
           onCrimeSelected={this.onCrimeSelected}
           selectedCrime={this.state.selectedCrime}
           onCrimeDeselect={this.onCrimeDeselect}
-          data={this.state.crimes}
+          data={this.getFilteredCrimes()}
           wrappedComponent={CrimeMap}
           dataLabel="crimes"
           containerClassName="statistics-box-loader-container"
@@ -205,15 +210,15 @@ export class App extends Component {
           language={this.state.language}
           onLanguageChange={this.onLanguageChange}
           onThemeChange={this.onThemeChange}
-          selectedCrimeType={this.selectedCrimeType}
+          deselectedCrimeTypes={this.state.deselectedCrimeTypes}
           isStatisticBarHidden={this.state.isStatisticBarHidden}
         />
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}
           crimesByRegion={this.state.crimesByRegion}
-          selectedCrimeType={this.selectedCrimeType}
-          onCrimeTypeSelected={this.onCrimeTypeSelected}
+          deselectedCrimeTypes={this.state.deselectedCrimeTypes}
+          onCrimeTypeClick={this.onCrimeTypeClick}
           onRegionSelected={this.onRegionSelected}
           onCitySelected={this.onCitySelected}
           timeRange={this.state.timeRange}

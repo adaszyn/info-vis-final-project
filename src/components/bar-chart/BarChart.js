@@ -20,37 +20,21 @@ export class BarChart extends Component {
     this.recalculateScale(values);
   }
 
-  onClicked = e => {
-    if (this.props.selectedCrimeType && e.target.id) {
-      this.props.onCrimeTypeSelected(e.target.id);
-    }
-  };
-
   renderBar = entry => {
     const style = {
       width: this.percentageScale(entry.value) + "%",
       backgroundColor: entry.color,
     };
-    var className_selected;
-    if (
-      !this.props.selectedCrimeType ||
-      this.props.selectedCrimeType.indexOf(entry.id) === -1
-    ) {
-      className_selected = "bar-chart-container__bar";
-      if (entry.color) {
-        className_selected += " bar-chart-container_colour__bar";
-      }
-    } else {
-      className_selected =
-        "bar-chart-container__bar bar-chart-container_clicked__bar";
-    }
+    const className = entry.selected
+      ? "bar-chart-container__bar bar-chart-container_clicked__bar"
+      : "bar-chart-container__bar";
     return (
       <div
-        className={className_selected}
+        className={className}
         id={entry.id}
         style={style}
         key={`${entry.label}-${entry.value}`}
-        onClick={this.onClicked}
+        onClick={() => this.props.onBarClick(entry)}
       >
         <span id={entry.id}>{entry.label}</span>
       </div>
@@ -64,6 +48,9 @@ export class BarChart extends Component {
     );
   }
 }
+BarChart.defaultProps = {
+  onBarClick: () => {},
+};
 BarChart.propTypes = {
   values: PropTypes.arrayOf(
     PropTypes.shape({
