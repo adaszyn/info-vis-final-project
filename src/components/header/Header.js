@@ -61,7 +61,7 @@ export class Header extends Component {
           src={this.getLogo()}
         />
         CRIMEVIS
-        <div style={{flexGrow: 1}}/>
+        <div style={{ flexGrow: 1 }} />
         <img
           onClick={this.onLanguageChange}
           width={25}

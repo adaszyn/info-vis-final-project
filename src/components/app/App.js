@@ -67,18 +67,18 @@ export class App extends Component {
     });
   };
   onCrimeTypeSelected = crimeType => {
-    if(this.selectedCrimeType.length > 0){
+    if (this.selectedCrimeType.length > 0) {
       var i = this.selectedCrimeType.indexOf(crimeType);
-      if(i !== -1) {
+      if (i !== -1) {
         this.selectedCrimeType.splice(i, 1);
-      }else{
+      } else {
         this.selectedCrimeType.push(crimeType);
       }
-    }else{
-      this.selectedCrimeType.push(crimeType)
+    } else {
+      this.selectedCrimeType.push(crimeType);
     }
     this.onBoundingBoxChange(this.boundingBox);
-  }
+  };
 
   getCommonQueryParams = () => {
     return {
@@ -145,18 +145,18 @@ export class App extends Component {
 
   onRegionSelected = region_name => {
     var location = getRegionPosition(region_name);
-    if(location){
+    if (location) {
       this.mapCenter = location;
       this.mapZoom = [8];
       this.onBoundingBoxChange(this.boundingBox);
     }
-  }
+  };
 
-   onCitySelected = location => {
+  onCitySelected = location => {
     this.mapCenter = location;
     this.mapZoom = [11];
     this.onBoundingBoxChange(this.boundingBox);
-  }
+  };
 
   handleClick = () => {
     this.getLocation().then(position => {
@@ -180,8 +180,8 @@ export class App extends Component {
 
   toggleStatisticsBar = () => {
     this.setState({
-      isStatisticBarHidden: !this.state.isStatisticBarHidden
-    })
+      isStatisticBarHidden: !this.state.isStatisticBarHidden,
+    });
   };
 
   render() {
@@ -206,16 +206,16 @@ export class App extends Component {
           onLanguageChange={this.onLanguageChange}
           onThemeChange={this.onThemeChange}
           selectedCrimeType={this.selectedCrimeType}
-          isStatisticBarHidden = {this.state.isStatisticBarHidden}
+          isStatisticBarHidden={this.state.isStatisticBarHidden}
         />
         <Statistics
           crimesByType={this.state.crimesByType}
           crimesByCity={this.state.crimesByCity}
           crimesByRegion={this.state.crimesByRegion}
           selectedCrimeType={this.selectedCrimeType}
-          onCrimeTypeSelected = {this.onCrimeTypeSelected}
-          onRegionSelected = {this.onRegionSelected}
-          onCitySelected = {this.onCitySelected}
+          onCrimeTypeSelected={this.onCrimeTypeSelected}
+          onRegionSelected={this.onRegionSelected}
+          onCitySelected={this.onCitySelected}
           timeRange={this.state.timeRange}
           hourlyDistribution={this.state.hourlyDistribution}
           monthlyDistribution={this.state.monthlyDistribution}
@@ -226,7 +226,7 @@ export class App extends Component {
           handleClick={this.handleClick}
           theme={this.state.theme}
           language={this.state.language}
-          isStatisticBarHidden = {this.state.isStatisticBarHidden}
+          isStatisticBarHidden={this.state.isStatisticBarHidden}
           toggleStatisticsBar={this.toggleStatisticsBar}
         />
       </div>

@@ -3,11 +3,10 @@ import PropTypes from "prop-types";
 
 import "./MapSidebar.css";
 
-import CrimeList from './CrimeList';
-import CrimeDetails from './CrimeDetails'
-import {Header} from "../header/Header";
+import CrimeList from "./CrimeList";
+import CrimeDetails from "./CrimeDetails";
+import { Header } from "../header/Header";
 export const MapSidebar = props => {
-
   if (props.crimes.length <= 0) {
     return (
       <div className="map-sidebar map-sidebar--hiden">
@@ -19,20 +18,22 @@ export const MapSidebar = props => {
     ? "map-sidebar"
     : "map-sidebar map-sidebar--short";
 
-  return <div className={containerClassName}>
-        <Header
+  return (
+    <div className={containerClassName}>
+      <Header
         theme={props.theme}
         language={props.language}
         onLanguageChange={props.onLanguageChange}
         onThemeChange={props.onThemeChange}
       />
-        {
-          props.selectedCrime
-            ? <CrimeDetails {...props} />
-            : <CrimeList {...props} />
-        }
+      {props.selectedCrime ? (
+        <CrimeDetails {...props} />
+      ) : (
+        <CrimeList {...props} />
+      )}
     </div>
-}
+  );
+};
 
 MapSidebar.propTypes = {
   onBackButtonClick: PropTypes.func,
@@ -46,7 +47,7 @@ MapSidebar.propTypes = {
       city: PropTypes.string,
       date: PropTypes.string,
       created_at: PropTypes.number,
-    })
+    }),
   ),
   selectedCrime: PropTypes.shape({
     type: PropTypes.string,

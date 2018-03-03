@@ -21,7 +21,7 @@
   transition: 0.4s right;
 }
 .map-sidebar--short {
-  height: calc(100% - 330px);    
+  height: calc(100% - 330px);
 }
 .map-sidebar--hiden {
   right: -500px;
@@ -221,10 +221,12 @@
   cursor: pointer;
 }
 
-.map-sidebar-results-crime-item:hover .map-sidebar-crime-item-select-button svg {
+.map-sidebar-results-crime-item:hover
+  .map-sidebar-crime-item-select-button
+  svg {
   stroke: #9ea9bd;
 }
 .map-sidebar-scroll {
-    height: 100%;
-    overflow-y: scroll;
+  height: 100%;
+  overflow-y: scroll;
 }

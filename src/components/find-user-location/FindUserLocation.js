@@ -6,7 +6,7 @@ export class FindUserLocation extends Component {
   render() {
     return (
       <button className="location__btn" onClick={this.props.handleClick}>
-         {this.props.buttonName}
+        {this.props.buttonName}
       </button>
     );
   }

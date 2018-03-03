@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import moment from "moment";
 import ReactHtmlParser from "react-html-parser";
 
@@ -17,9 +17,9 @@ function cleanParagraphText(text) {
       }
       return acc;
     }, []);
-};
+}
 
-const CrimeDetails = (props) => {
+const CrimeDetails = props => {
   const contentParagraphs = cleanParagraphText(props.selectedCrime.content);
 
   return (
@@ -47,14 +47,16 @@ const CrimeDetails = (props) => {
       </button>
 
       <div className="map-sidebar-content-container">
-        <div 
-          className="map-sidebar-title" 
-          style={{ color: getCrimeTypeColor(props.selectedCrime.crimeType)}}
+        <div
+          className="map-sidebar-title"
+          style={{ color: getCrimeTypeColor(props.selectedCrime.crimeType) }}
         >
           {props.selectedCrime.crimeType}
         </div>
 
-        <div className="map-sidebar-description">{props.selectedCrime.description}</div>
+        <div className="map-sidebar-description">
+          {props.selectedCrime.description}
+        </div>
 
         <div className="map-sidebar-location-date-container">
           <div className="map-sidebar-location">

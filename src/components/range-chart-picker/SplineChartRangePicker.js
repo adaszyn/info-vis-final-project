@@ -60,7 +60,7 @@ export class SplineChartRangePicker extends Component {
     // Here we might need the length of the array instead of the max value.
     // Or one more item in the array.
     // Incrementing solved the problem for now.
-    return max(this.getNumericalSpan()) + 1
+    return max(this.getNumericalSpan()) + 1;
   };
 
   getMinRangeSpan = () => min(this.getNumericalSpan());

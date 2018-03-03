@@ -1,37 +1,31 @@
-import React from 'react';
-import moment from 'moment';
+import React from "react";
+import moment from "moment";
 
 import { getCrimeTypeColor } from "../../util/crimes";
 
-const CrimeItem = (props) => {
-
-
-
-  const renderDescription = (description) => {
+const CrimeItem = props => {
+  const renderDescription = description => {
     const lengthLimit = 80;
     const descriptionSnippet = props.description.substring(0, lengthLimit);
-    if(description.length > 80) {
+    if (description.length > 80) {
       return `${descriptionSnippet}...`;
-    }
-    else {
+    } else {
       return `${descriptionSnippet}`;
     }
-  }
+  };
 
   return (
     <div className="map-sidebar-results-crime-item" onClick={props.onClick}>
       <div className="map-sidebar-results-crime-content">
         <div className="map-sidebar-results-crime-title-row">
-          <div 
+          <div
             className="map-sidebar-results-crime-title"
-            style={{ color: getCrimeTypeColor(props.crimeType)}}  
+            style={{ color: getCrimeTypeColor(props.crimeType) }}
           >
             {props.crimeType}
           </div>
           <div className="map-sidebar-results-crime-date">
-            {moment(props.created_at * 1000).format(
-              "MMMM DD, YYYY",
-            )}
+            {moment(props.created_at * 1000).format("MMMM DD, YYYY")}
           </div>
         </div>
         <div className="map-sidebar-results-crime-description">
@@ -39,9 +33,7 @@ const CrimeItem = (props) => {
         </div>
       </div>
       <div className="map-sidebar-results-crime-arrow">
-        <button
-          className="map-sidebar-back-button map-sidebar-crime-item-select-button"
-        >
+        <button className="map-sidebar-back-button map-sidebar-crime-item-select-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="10"

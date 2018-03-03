@@ -19,7 +19,8 @@ export class CrimeTypeStatistics extends Component {
         <h2 className="statistics-box__header">
           {getTranslatedHeading("crime_type", this.props.language)}
         </h2>
-        <BarChart values={this.getTranslatedCrimes()}
+        <BarChart
+          values={this.getTranslatedCrimes()}
           selectedCrimeType={this.props.selectedCrimeType}
           onCrimeTypeSelected={this.props.onCrimeTypeSelected}
         />

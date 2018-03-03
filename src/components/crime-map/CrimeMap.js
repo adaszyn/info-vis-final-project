@@ -14,12 +14,12 @@ const INITIAL_CENTER = [15.798669, 62.450588];
 const INITIAL_ZOOM = [3];
 
 const SELECTED_CRIME_LAYER_CONFIG = {
-    "circle-color": "transparent",
-    "circle-stroke-color": "white",
-    "circle-stroke-width": 5,
-    "circle-radius": 25,
-    "circle-blur": 0.5,
-    "circle-opacity": ["interpolate", ["linear"], ["zoom"], 7, 0, 8, 1],
+  "circle-color": "transparent",
+  "circle-stroke-color": "white",
+  "circle-stroke-width": 5,
+  "circle-radius": 25,
+  "circle-blur": 0.5,
+  "circle-opacity": ["interpolate", ["linear"], ["zoom"], 7, 0, 8, 1],
 };
 
 const heatMapLayerConfig = {
@@ -84,11 +84,14 @@ export class CrimeMap extends Component {
   renderLayers = crimesByType => {
     return map(crimesByType, (crimes, crimeType) => {
       var isCrimeTypeValid = getCrimeTypeColor(crimeType);
-      if (!isCrimeTypeValid)  {
+      if (!isCrimeTypeValid) {
         return;
       }
-      if (this.props.selectedCrimeType && this.props.selectedCrimeType.length > 0 &&
-        this.props.selectedCrimeType.indexOf(crimeType) == -1){
+      if (
+        this.props.selectedCrimeType &&
+        this.props.selectedCrimeType.length > 0 &&
+        this.props.selectedCrimeType.indexOf(crimeType) == -1
+      ) {
         return;
       }
       return (
@@ -105,18 +108,18 @@ export class CrimeMap extends Component {
     });
   };
   renderSelectedCrimeLayer = () => {
-      console.log(this.props.selectedCrime)
-      return (
-        <Layer
-          key={`selected-crime-type-point-layer`}
-          type="circle"
-          minZoom={8}
-          id={`selected-crime-layer-point`}
-          paint={SELECTED_CRIME_LAYER_CONFIG}
-        >
-          {this.renderCrimeMarker(this.props.selectedCrime)}
-        </Layer>
-      );
+    console.log(this.props.selectedCrime);
+    return (
+      <Layer
+        key={`selected-crime-type-point-layer`}
+        type="circle"
+        minZoom={8}
+        id={`selected-crime-layer-point`}
+        paint={SELECTED_CRIME_LAYER_CONFIG}
+      >
+        {this.renderCrimeMarker(this.props.selectedCrime)}
+      </Layer>
+    );
   };
 
   render() {

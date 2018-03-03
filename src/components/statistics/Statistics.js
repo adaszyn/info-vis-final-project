@@ -10,8 +10,8 @@ import "./Statistics.css";
 export class Statistics extends Component {
   render() {
     const className = this.props.isStatisticBarHidden
-        ? "statistics-container statistics-container--hidden" 
-        : "statistics-container";
+      ? "statistics-container statistics-container--hidden"
+      : "statistics-container";
 
     return (
       <div className={className}>
