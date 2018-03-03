@@ -35,6 +35,7 @@ const CrimeList = props => {
           {filteredCrimes.map((crime, index) => (
             <CrimeItem
               onClick={() => props.onCrimeSelected(crime)}
+              language={props.language}
               key={`crime-${index}`}
               {...crime}
             />
