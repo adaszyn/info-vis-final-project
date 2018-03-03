@@ -30,7 +30,7 @@
 }
 
 .bar-chart-container_clicked__bar {
-  opacity: 1.0;
+  opacity: 1;
   filter: grayscale(0%);
   /*background-image: linear-gradient(to top, #7f8caa, #9fa6b7);*/
   color: #ffffff;

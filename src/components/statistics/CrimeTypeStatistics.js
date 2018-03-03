@@ -6,14 +6,16 @@ import { getTranslatedHeading } from "../../util/headings";
 export class CrimeTypeStatistics extends Component {
   getTranslatedCrimes = () => {
     return this.props.crimesByType.map(crime => {
-        const isUnSelected = this.props.deselectedCrimeTypes.indexOf(crime.label) !== -1;
-        return {
-      ...crime,
-      label: getTranslatedCrimeType(crime.label, this.props.language),
-      id: crime.label,
-      color: isUnSelected ? "#3c424f" : getCrimeTypeColor(crime.label),
-      selected: !isUnSelected
-    }});
+      const isUnSelected =
+        this.props.deselectedCrimeTypes.indexOf(crime.label) !== -1;
+      return {
+        ...crime,
+        label: getTranslatedCrimeType(crime.label, this.props.language),
+        id: crime.label,
+        color: isUnSelected ? "#3c424f" : getCrimeTypeColor(crime.label),
+        selected: !isUnSelected,
+      };
+    });
   };
 
   render() {

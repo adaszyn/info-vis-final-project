@@ -46,7 +46,7 @@ export class App extends Component {
       theme: "light",
       language: "swedish",
       isStatisticBarHidden: false,
-      deselectedCrimeTypes: []
+      deselectedCrimeTypes: [],
     };
     this.mapCenter = [18.4006, 59.1582];
     this.mapZoom = [8];
@@ -66,13 +66,15 @@ export class App extends Component {
       selectedCrime: crime,
     });
   };
-  onCrimeTypeClick = ({id}) => {
+  onCrimeTypeClick = ({ id }) => {
     const set = new Set(this.state.deselectedCrimeTypes);
     const deselectedCrimeTypes = set.has(id)
-      ? this.state.deselectedCrimeTypes.filter((crimeTypeId) => crimeTypeId !== id)
+      ? this.state.deselectedCrimeTypes.filter(
+          crimeTypeId => crimeTypeId !== id,
+        )
       : [...this.state.deselectedCrimeTypes, id];
     this.setState({
-        deselectedCrimeTypes
+      deselectedCrimeTypes,
     });
   };
 
@@ -180,11 +182,12 @@ export class App extends Component {
     });
   };
   getFilteredCrimes = () => {
-    return this.state.crimes
-        .then(crimes => crimes.filter(crime => {
-          return this.state.deselectedCrimeTypes.indexOf(crime.crimeType) === -1
-        }))
-  }
+    return this.state.crimes.then(crimes =>
+      crimes.filter(crime => {
+        return this.state.deselectedCrimeTypes.indexOf(crime.crimeType) === -1;
+      }),
+    );
+  };
 
   render() {
     const className =
