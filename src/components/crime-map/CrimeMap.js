@@ -134,7 +134,7 @@ export class CrimeMap extends Component {
             width: "100%",
           }}
         >
-          <ZoomControl position="top-left" className="map-zoom-control"/>
+          <ZoomControl position="top-left" className="map-zoom-control" />
           {this.renderLayers(crimesByType)}
           {this.props.selectedCrime && this.renderSelectedCrimeLayer()}
 

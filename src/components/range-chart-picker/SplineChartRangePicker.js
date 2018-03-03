@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  select,
-  scaleLinear,
-  line,
-  curveCardinalClosed,
-} from "d3";
+import { select, scaleLinear, line, curveCardinalClosed } from "d3";
 import moment from "moment";
 import { range, min, max } from "underscore";
 import InputRange from "react-input-range";
