@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl";
 import { groupBy, map } from "underscore";
 import { getCrimeTypeColor } from "../../util/crimes";
 
@@ -80,7 +80,7 @@ export class CrimeMap extends Component {
 
   renderLayers = crimesByType => {
     return map(crimesByType, (crimes, crimeType) => {
-      var isCrimeTypeValid = getCrimeTypeColor(crimeType);
+      const isCrimeTypeValid = getCrimeTypeColor(crimeType);
       if (!isCrimeTypeValid) {
         return;
       }
@@ -134,6 +134,7 @@ export class CrimeMap extends Component {
             width: "100%",
           }}
         >
+          <ZoomControl position="top-left" className="map-zoom-control"/>
           {this.renderLayers(crimesByType)}
           {this.props.selectedCrime && this.renderSelectedCrimeLayer()}
 
