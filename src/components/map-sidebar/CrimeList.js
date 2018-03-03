@@ -1,6 +1,4 @@
 import React from "react";
-
-import { Header } from "../header/Header";
 import CrimeItem from "./CrimeItem";
 import { getTranslatedHeading } from "../../util/headings";
 
@@ -13,7 +11,6 @@ const CrimeList = props => {
         return -1;
       }
     };
-
     if ((zoomLevel >= 1 && zoomLevel <= 8) || zoomLevel === null) {
       return crimes
         .filter(crime => crime.crimeType.includes("Sammanfattning"))

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
-import { groupBy, first, map, flatten } from "underscore";
+import { groupBy, map } from "underscore";
 import { getCrimeTypeColor } from "../../util/crimes";
 
 import "./CrimeMap.css";
@@ -9,9 +9,6 @@ const Map = ReactMapboxGl({
   accessToken:
     "pk.eyJ1IjoidmlqZW1pdHUiLCJhIjoiY2pkdTlyMWQxMmltcjJwamczb2VlMnEzMiJ9.r2I_Atbg-1R3LeRBBojPfw",
 });
-
-const INITIAL_CENTER = [15.798669, 62.450588];
-const INITIAL_ZOOM = [3];
 
 const SELECTED_CRIME_LAYER_CONFIG = {
   "circle-color": "transparent",
@@ -90,7 +87,7 @@ export class CrimeMap extends Component {
       if (
         this.props.selectedCrimeType &&
         this.props.selectedCrimeType.length > 0 &&
-        this.props.selectedCrimeType.indexOf(crimeType) == -1
+        this.props.selectedCrimeType.indexOf(crimeType) === -1
       ) {
         return;
       }

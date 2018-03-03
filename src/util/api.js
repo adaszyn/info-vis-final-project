@@ -160,7 +160,7 @@ export const fetchAggregatedHours = ({ startDate, endDate, boundingBox }) => {
     .then(response => {
       const values = Array.from(new Array(24), () => 0);
       for (let { label, value } of response.data) {
-        values[parseInt(label)] = value;
+        values[parseInt(label, 10)] = value;
       }
       return values;
     })

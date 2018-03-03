@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import {
   select,
-  curveCardinal,
   scaleLinear,
   line,
-  curveBundle,
   curveCardinalClosed,
 } from "d3";
 import moment from "moment";
@@ -97,7 +95,7 @@ export class SplineChartRangePicker extends Component {
   };
 
   renderBar = (value, index) => {
-    const { values, labels } = this.props.monthlyDistribution;
+    const { values } = this.props.monthlyDistribution;
     const style = {
       height: this.percentageScale(value) + "%",
       minWidth: 100 / values.length + "%",

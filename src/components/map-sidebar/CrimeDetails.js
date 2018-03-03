@@ -1,10 +1,7 @@
 import React from "react";
 import moment from "moment";
 import ReactHtmlParser from "react-html-parser";
-
 import { getCrimeTypeColor } from "../../util/crimes";
-
-import { Header } from "../header/Header";
 import { getTranslatedHeading } from "../../util/headings";
 
 function cleanParagraphText(text) {

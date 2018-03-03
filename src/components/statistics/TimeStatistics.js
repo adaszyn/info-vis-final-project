@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import _ from "underscore";
 import moment from "moment";
 import DatePicker from "react-datepicker";
-import { RangePicker } from "../range-picker/RangePicker";
 import {
   getMonthsDifference,
   getNumericalRangeFromDates,

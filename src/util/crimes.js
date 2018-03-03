@@ -1,8 +1,6 @@
 import { memoize } from "underscore";
 import { crimes } from "../constants/crimes";
 
-const DEFAULT_COLOR = "#FF00FF";
-
 export const getTranslatedCrimeType = (name, language) => {
   if (language === "swedish") {
     return name;
