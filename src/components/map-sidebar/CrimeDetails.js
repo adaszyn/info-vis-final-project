@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import ReactHtmlParser from "react-html-parser";
-import { getCrimeTypeColor } from "../../util/crimes";
+import { getTranslatedCrimeType, getCrimeTypeColor } from "../../util/crimes";
 import { getTranslatedHeading } from "../../util/headings";
 
 function cleanParagraphText(text) {
@@ -17,7 +17,9 @@ function cleanParagraphText(text) {
 }
 
 const CrimeDetails = props => {
-  const contentParagraphs = cleanParagraphText(props.selectedCrime.content);
+  const content = props.language === "english" && props.selectedCrime.contentEng?
+                props.selectedCrime.contentEng: props.selectedCrime.content;
+  const contentParagraphs = cleanParagraphText(content);
 
   return (
     <div className="map-sidebar-scroll">
@@ -48,11 +50,12 @@ const CrimeDetails = props => {
           className="map-sidebar-title"
           style={{ color: getCrimeTypeColor(props.selectedCrime.crimeType) }}
         >
-          {props.selectedCrime.crimeType}
+          {getTranslatedCrimeType(props.selectedCrime.crimeType, props.language)}
         </div>
 
         <div className="map-sidebar-description">
-          {props.selectedCrime.description}
+          {props.language === "english" && props.selectedCrime.descriptionEng?
+          props.selectedCrime.descriptionEng: props.selectedCrime.description }
         </div>
 
         <div className="map-sidebar-location-date-container">

@@ -1,12 +1,14 @@
 import React from "react";
 import moment from "moment";
 
-import { getCrimeTypeColor } from "../../util/crimes";
+import { getTranslatedCrimeType, getCrimeTypeColor } from "../../util/crimes";
 
 const CrimeItem = props => {
-  const renderDescription = description => {
+  const renderDescription = () => {
     const lengthLimit = 80;
-    const descriptionSnippet = props.description.substring(0, lengthLimit);
+    const description = props.language === "english" && props.descriptionEng?
+                        props.descriptionEng: props.description;
+    const descriptionSnippet = description.substring(0, lengthLimit);
     if (description.length > 80) {
       return `${descriptionSnippet}...`;
     } else {
@@ -22,14 +24,14 @@ const CrimeItem = props => {
             className="map-sidebar-results-crime-title"
             style={{ color: getCrimeTypeColor(props.crimeType) }}
           >
-            {props.crimeType}
+            {getTranslatedCrimeType(props.crimeType, props.language)}
           </div>
           <div className="map-sidebar-results-crime-date">
             {moment(props.created_at * 1000).format("MMMM DD, YYYY")}
           </div>
         </div>
         <div className="map-sidebar-results-crime-description">
-          {renderDescription(props.description)}
+          {renderDescription()}
         </div>
       </div>
       <div className="map-sidebar-results-crime-arrow">
