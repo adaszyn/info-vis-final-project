@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./FindUserLocation.css";
+import "./ButtonStatistics.css";
 import "font-awesome/css/font-awesome.min.css";
 
-export class FindUserLocation extends Component {
+export class ButtonStatistics extends Component {
   render() {
     return (
-      <button className="location__btn" onClick={this.props.handleClick}>
+      <button className="statistics__btn" onClick={this.props.handleClick}>
         {this.props.buttonName}
       </button>
     );

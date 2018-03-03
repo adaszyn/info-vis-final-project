@@ -3,7 +3,7 @@ import CrimeItem from "./CrimeItem";
 import { getTranslatedHeading } from "../../util/headings";
 
 const CrimeList = props => {
-  const filterCrimes = (crimes, zoomLevel) => {
+  const filterCrimes = (crimes, zoomLevel, selectedCrimeType) => {
     const byRecentsFirst = (a, b) => {
       if (a.created_at < b.created_at) {
         return 1;
@@ -17,11 +17,13 @@ const CrimeList = props => {
         .sort(byRecentsFirst)
         .slice(0, 10);
     } else {
-      return crimes.sort(byRecentsFirst).slice(0, 10);
+      return crimes
+        .filter(crime => selectedCrimeType.indexOf(crime.crimeType) === -1)
+        .sort(byRecentsFirst).slice(0, 10);
     }
   };
 
-  const filteredCrimes = filterCrimes(props.crimes, props.zoomLevel);
+  const filteredCrimes = filterCrimes(props.crimes, props.zoomLevel, props.selectedCrimeType);
 
   return (
     <div className="map-sidebar-scroll">

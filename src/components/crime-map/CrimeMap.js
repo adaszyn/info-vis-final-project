@@ -87,7 +87,7 @@ export class CrimeMap extends Component {
       if (
         this.props.selectedCrimeType &&
         this.props.selectedCrimeType.length > 0 &&
-        this.props.selectedCrimeType.indexOf(crimeType) === -1
+        this.props.selectedCrimeType.indexOf(crimeType) !== -1
       ) {
         return;
       }
@@ -146,6 +146,7 @@ export class CrimeMap extends Component {
           selectedCrime={this.props.selectedCrime}
           crimes={this.props.crimes}
           onCrimeSelected={this.props.onCrimeSelected}
+          selectedCrimeType={this.props.selectedCrimeType}
           onBackButtonClick={this.props.onCrimeDeselect}
           theme={this.props.theme}
           language={this.props.language}
