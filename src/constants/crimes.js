@@ -12,7 +12,7 @@ export const crimes = [
   {
     name: "Brand",
     translation: "Fire",
-    color: "#0000e6",
+    color: "#e69337",
   },
   {
     name: "Rattfylleri",
@@ -245,7 +245,7 @@ export const crimes = [
   {
     name: "Mord/dråp,  försök",
     translation: "Murder/Homicide, attempt",
-    color: "#cc0000",
+    color: "#23ceff",
   },
   {
     name: "Motorfordon,  anträffat stulet",
@@ -425,7 +425,7 @@ export const crimes = [
   {
     name: "Brand automatlarm",
     translation: "Fire alarm",
-    color: "#0000e6",
+    color: "#ff700f",
   },
   {
     name: "Sammanfattning helg",
@@ -568,12 +568,12 @@ export const crimes = [
   {
     name: "11:24,  Brand",
     translation: "Fire",
-    color: "#0000e6",
+    color: "#ff345d",
   },
   {
     name: "skadegörelse",
     translation: "Vandalism",
-    color: "#0000b3",
+    color: "#66b2b3",
   },
   {
     name: "Stöld ur fordon",

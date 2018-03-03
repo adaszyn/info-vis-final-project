@@ -195,10 +195,12 @@
 
 .map-sidebar-results-crime-item {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .map-sidebar-results-crime-arrow {
-  align-self: flex-start;
+  align-self: center;
 }
 
 .map-sidebar-results-crime-title {
