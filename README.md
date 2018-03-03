@@ -1,12 +1,3 @@
 # Information Visualization Final Project
 
-## Prerequisites
-- node.js > 7
-- npm
-
-## Running the app
-
-```sh
-npm install
-npm start
-```
+[![CircleCI](https://circleci.com/gh/adaszyn/info-vis-final-project/tree/master.svg?style=svg)](https://circleci.com/gh/adaszyn/info-vis-final-project/tree/master)

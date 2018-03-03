@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build&&gh-pages -d build",
+    "deploy": "npm run build&&gh-pages -m 'auto commit [ci skip]' -d build",
     "beautify": "node ./node_modules/prettier/bin-prettier.js --trailing-comma=all --write src/**/*.{js,css}"
   },
   "homepage": "https://adaszyn.github.io/info-vis-final-project/",
