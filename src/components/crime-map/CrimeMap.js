@@ -146,6 +146,7 @@ export class CrimeMap extends Component {
           selectedCrime={this.props.selectedCrime}
           crimes={this.props.crimes}
           onCrimeSelected={this.props.onCrimeSelected}
+          selectedCrimeType={this.props.selectedCrimeType}
           onBackButtonClick={this.props.onCrimeDeselect}
           theme={this.props.theme}
           language={this.props.language}
