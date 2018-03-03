@@ -5,12 +5,14 @@ import { getTranslatedHeading } from "../../util/headings";
 
 export class CrimeTypeStatistics extends Component {
   getTranslatedCrimes = () => {
-    return this.props.crimesByType.map(crime => ({
+    return this.props.crimesByType.map(crime => {
+        return {
       ...crime,
       label: getTranslatedCrimeType(crime.label, this.props.language),
       id: crime.label,
       color: getCrimeTypeColor(crime.label),
-    }));
+        selected: this.props.deselectedCrimeTypes.indexOf(crime.label) === -1
+    }});
   };
 
   render() {
@@ -20,9 +22,8 @@ export class CrimeTypeStatistics extends Component {
           {getTranslatedHeading("crime_type", this.props.language)}
         </h2>
         <BarChart
+          onBarClick={this.props.onCrimeTypeClick}
           values={this.getTranslatedCrimes()}
-          selectedCrimeType={this.props.selectedCrimeType}
-          onCrimeTypeSelected={this.props.onCrimeTypeSelected}
         />
       </div>
     );
