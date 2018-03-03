@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BarChart } from "../bar-chart/BarChart";
-import { FindUserLocation } from "../find-user-location/FindUserLocation";
+import { ButtonStatistics } from "../button-statistics/ButtonStatistics";
 import { getTranslatedHeading } from "../../util/headings";
 import { getCityPosition } from "../../util/cities";
 
@@ -23,7 +23,7 @@ export class CityStatistics extends Component {
       <div className="statistics-box" onClick={this.onCityClicked}>
         <h2 className="statistics-box__header">
           {getTranslatedHeading("city", this.props.language)}
-          <FindUserLocation
+          <ButtonStatistics
             handleClick={this.props.handleClick}
             buttonName={getTranslatedHeading(
               "my_location",

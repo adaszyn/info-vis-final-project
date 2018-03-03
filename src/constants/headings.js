@@ -27,4 +27,8 @@ export const headings = {
     swedish: "Tillbaka",
     english: "Back to filter result",
   },
+  clear: {
+    swedish: "Klar",
+    english: "Clear",
+  },
 };

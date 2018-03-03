@@ -80,6 +80,13 @@ export class App extends Component {
     this.onBoundingBoxChange(this.boundingBox);
   };
 
+  onCrimeTypeCleared = crimeType => {
+    if (this.selectedCrimeType.length > 0) {
+      this.selectedCrimeType = []
+      this.onBoundingBoxChange(this.boundingBox);
+    }
+  };
+
   getCommonQueryParams = () => {
     return {
       startDate: this.state.timeRange[0],
@@ -214,6 +221,7 @@ export class App extends Component {
           crimesByRegion={this.state.crimesByRegion}
           selectedCrimeType={this.selectedCrimeType}
           onCrimeTypeSelected={this.onCrimeTypeSelected}
+          onCrimeTypeCleared = {this.onCrimeTypeCleared}
           onRegionSelected={this.onRegionSelected}
           onCitySelected={this.onCitySelected}
           timeRange={this.state.timeRange}

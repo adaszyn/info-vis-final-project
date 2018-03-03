@@ -1,4 +1,4 @@
-.location__btn {
+.statistics__btn {
   height: 24px;
   border-radius: 12px;
   border: 1px solid #9fa6b7;
@@ -11,12 +11,12 @@
   float: right;
 }
 
-.location__btn:hover {
+.statistics__btn:hover {
   background-image: linear-gradient(to top, #7f8caa, #9fa6b7);
   color: #ffffff;
 }
 
-.light-theme .location__btn {
+.light-theme .statistics__btn {
   color: black;
   background-color: white;
 }
