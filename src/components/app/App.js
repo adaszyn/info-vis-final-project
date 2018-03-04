@@ -78,6 +78,12 @@ export class App extends Component {
     });
   };
 
+  onClearButtonClick = () => {
+    this.setState({
+      deselectedCrimeTypes : [],
+    });
+  };
+
   getCommonQueryParams = () => {
     return {
       startDate: this.state.timeRange[0],
@@ -219,6 +225,7 @@ export class App extends Component {
           crimesByRegion={this.state.crimesByRegion}
           deselectedCrimeTypes={this.state.deselectedCrimeTypes}
           onCrimeTypeClick={this.onCrimeTypeClick}
+          onClearButtonClick={this.onClearButtonClick}
           onRegionSelected={this.onRegionSelected}
           onCitySelected={this.onCitySelected}
           timeRange={this.state.timeRange}
