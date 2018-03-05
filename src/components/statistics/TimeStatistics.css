@@ -44,3 +44,12 @@
   height: 14px;
   margin: 0 8.5px;
 }
+.light-theme .date-picker{
+  color: #3c424f;
+  background-color: #ffffff;
+}
+.light-theme .date-picker__calendar{
+   background-color: #ffffff;
+   box-shadow: 0 2px 23px 0 rgba(159, 166, 183, 0.3);
+}
+

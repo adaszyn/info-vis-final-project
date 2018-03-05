@@ -198,6 +198,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.light-theme .map-sidebar-results-crime-item:hover{
+  background: lightgrey;
+}
 
 .map-sidebar-results-crime-arrow {
   align-self: center;
@@ -231,4 +234,24 @@
 .map-sidebar-scroll {
   height: 100%;
   overflow-y: scroll;
+}
+.light-theme .assault-title{
+  color: #282c34;
+}
+.light-theme .map-sidebar-description , .light-theme .map-sidebar-location-date-container, .light-theme .map-sidebar-paragraphs{
+  color:#3c424f;
+}
+.light-theme .map-sidebar-button{
+  background-color: #ffffff;
+}
+.light-theme .map-sidebar-button:hover{
+background-color: #9fa6b7;
+color: #ffffff;
+}
+.light-theme .map-sidebar__background{
+  background-color: white;
+  box-shadow: 0;
+  filter: blur(2px);
+  -webkit-filter: blur(1px) contrast(1) brightness(0.9);
+  -ms-filter: blur(8px) contrast(0.4) brightness(1.4);
 }

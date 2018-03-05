@@ -35,3 +35,12 @@
   /*background-image: linear-gradient(to top, #7f8caa, #9fa6b7);*/
   color: #ffffff;
 }
+.light-theme.bar-chart-container__bar:hover{
+  background-color: transparent;
+}
+.light-theme .bar-chart-container__bar{
+  border-radius: 2px;
+  border: solid 1px #ced2dd;
+  background-color: #ced2dd;
+  color: black;
+}
