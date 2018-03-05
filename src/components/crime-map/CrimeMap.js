@@ -48,6 +48,7 @@ function getLayerPointPaintConfig(crimeType) {
     "circle-color": getCrimeTypeColor(crimeType),
     "circle-stroke-color": "white",
     "circle-stroke-width": 1,
+    "circle-radius": 8,
     "circle-opacity": ["interpolate", ["linear"], ["zoom"], 7, 0, 8, 1],
   };
 }
@@ -65,6 +66,16 @@ export class CrimeMap extends Component {
       ne: boundingBoxEvent._ne,
     });
     this.zoom = map.getZoom();
+  };
+
+  shouldComponentUpdate = newProps => {
+    const { props } = this;
+    return (
+      newProps.crimes !== props.crimes ||
+      newProps.zoom !== props.zoom ||
+      newProps.theme !== props.theme ||
+      newProps.selectedCrime !== props.selectedCrime
+    );
   };
 
   renderCrimeMarker = crime => {
@@ -105,7 +116,6 @@ export class CrimeMap extends Component {
     });
   };
   renderSelectedCrimeLayer = () => {
-    console.log(this.props.selectedCrime);
     return (
       <Layer
         key={`selected-crime-type-point-layer`}
