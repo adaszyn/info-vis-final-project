@@ -120,11 +120,13 @@ export class CrimeMap extends Component {
   };
 
   render() {
+        const style =
+      this.props.theme === "light" ? "mapbox://styles/mapbox/light-v9" : "mapbox://styles/mapbox/dark-v9";
     const crimesByType = groupBy(this.props.crimes, "crimeType");
     return (
       <div className="map-container">
         <Map
-          style="mapbox://styles/mapbox/dark-v9"
+          style={style}
           center={this.props.center}
           zoom={this.props.zoom}
           onZoom={this.onZoom}

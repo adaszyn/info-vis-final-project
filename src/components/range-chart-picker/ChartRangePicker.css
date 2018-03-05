@@ -178,3 +178,17 @@
   position: relative;
   width: 100%;
 }
+.light-theme .bars-container{
+  background-color: #ffffff;
+  border: 1px solid #ced2dd;
+}
+.light-theme .chart-range-picker-overlay__left{
+   background-color: white;
+   border: 1px solid #ced2dd;
+}
+.light-theme .chart-range-picker-container-labels{
+    color: #5c636f;
+}
+.light-theme .bar-chart-range .input-range__label{
+  color: #5c636f;
+}
