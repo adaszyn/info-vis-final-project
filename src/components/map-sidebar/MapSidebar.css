@@ -238,7 +238,11 @@
 .light-theme .assault-title{
   color: #282c34;
 }
-.light-theme .map-sidebar-description , .light-theme .map-sidebar-location-date-container, .light-theme .map-sidebar-paragraphs{
+.light-theme .map-sidebar-description,
+.light-theme .map-sidebar-location-date-container,
+.light-theme .map-sidebar-paragraphs,
+.light-theme .map-sidebar-results-content,
+.light-theme .map-sidebar-results-crime-date {
   color:#3c424f;
 }
 .light-theme .map-sidebar-button{
