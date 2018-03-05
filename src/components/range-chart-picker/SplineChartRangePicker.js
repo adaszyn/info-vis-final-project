@@ -142,7 +142,7 @@ export class SplineChartRangePicker extends Component {
         .attr("d", lineFunction(data))
         .attr("stroke", "#9fa6b7")
         .attr("stroke-width", 1)
-        .attr("fill", "#9fa6b7");
+        .attr("fill", this.props.theme === "light" ? "#3c424f" : "#9fa6b7");
     }
     const domainLength = this.getRangeSpan();
     const minValue = this.getSelectedTimeSpan().min;

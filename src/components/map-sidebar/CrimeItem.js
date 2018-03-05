@@ -6,8 +6,10 @@ import { getTranslatedCrimeType, getCrimeTypeColor } from "../../util/crimes";
 const CrimeItem = props => {
   const renderDescription = () => {
     const lengthLimit = 80;
-    const description = props.language === "english" && props.descriptionEng?
-                        props.descriptionEng: props.description;
+    const description =
+      props.language === "english" && props.descriptionEng
+        ? props.descriptionEng
+        : props.description;
     const descriptionSnippet = description.substring(0, lengthLimit);
     if (description.length > 80) {
       return `${descriptionSnippet}...`;

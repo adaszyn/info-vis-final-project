@@ -234,6 +234,7 @@
 .map-sidebar-scroll {
   height: 100%;
   overflow-y: scroll;
+  transition: background-color 0.15s ease-in;
 }
 .light-theme .assault-title{
   color: #282c34;
@@ -254,4 +255,8 @@ color: #ffffff;
   filter: blur(2px);
   -webkit-filter: blur(1px) contrast(1) brightness(0.9);
   -ms-filter: blur(8px) contrast(0.4) brightness(1.4);
+}
+.light-theme .map-sidebar-results-crime-description,
+.light-theme .map-sidebar-results-crime-title {
+  color: #000;
 }

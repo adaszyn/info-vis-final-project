@@ -127,6 +127,7 @@ export class TimeStatistics extends Component {
           timeRange={this.props.timeRange}
           timeRangeSpan={this.props.timeRangeSpan}
           onChange={this.props.onChange}
+          theme={this.props.theme}
         />
       </div>
     );

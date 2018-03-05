@@ -57,6 +57,7 @@ export class Statistics extends Component {
           onHourRangeChange={this.props.onHourRangeChange}
           onChange={this.props.onTimeRangeChange}
           language={this.props.language}
+          theme={this.props.theme}
         />
       </div>
     );

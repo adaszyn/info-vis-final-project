@@ -20,6 +20,7 @@
   border: solid 1px #000000;
   flex-basis: 240px;
   height: 100%;
+  transition: background-color 0.15s ease-in;
 }
 .statistics-box-loader-container {
   flex-grow: 1;
