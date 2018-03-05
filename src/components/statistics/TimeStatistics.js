@@ -106,7 +106,7 @@ export class TimeStatistics extends Component {
         </div>
 
         <div className="chart-range-picker-container-labels-time-selection">
-          Select the time range during a day
+          {getTranslatedHeading("time_label", this.props.language)}
         </div>
 
         <BarChartRangePicker
@@ -117,9 +117,9 @@ export class TimeStatistics extends Component {
         />
 
         <div className="chart-range-picker-container-labels-time-selection">
-          Select the date range
+          {getTranslatedHeading("date_label", this.props.language)}
         </div>
-        
+
         <SplineChartRangePicker
           monthlyDistribution={this.props.monthlyDistribution}
           hourRange={this.props.hourRange}

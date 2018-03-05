@@ -31,4 +31,12 @@ export const headings = {
     swedish: "Klar",
     english: "Clear",
   },
+  time_label: {
+    swedish: "Välj tidsintervall under en dag",
+    english: "Select the time range during a day",
+  },
+  date_label: {
+    swedish: "Välj datumintervall",
+    english: "Select the date range",
+  },
 };
