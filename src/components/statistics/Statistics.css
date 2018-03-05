@@ -72,8 +72,9 @@
   flex-grow: 5;
 }
 .light-theme .statistics-box{
-background-color: #ffffff;
-border: 1px solid lightgrey;
+  background-color: white;
+  -webkit-filter: brightness(0.95);
+  border: 1px solid lightgrey;
 }
 .light-theme .statistics-box__header{
   color: #3c424f;
